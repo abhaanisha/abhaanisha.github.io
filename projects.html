@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-c42a7d83-f6f9-4514-97b4-d66bb1698ad2/styles.css">
+<script src="_ds/modernist-c42a7d83-f6f9-4514-97b4-d66bb1698ad2/_ds_bundle.js"></script>
+<script src="./site-motion.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); }
+  a { color: var(--color-accent); text-decoration: none; }
+  a:hover { color: var(--color-accent-600); }
+  @keyframes om-rise { from { opacity: 0; transform: translateY(30px) } to { opacity: 1; transform: none } }
+  @keyframes om-drop { from { opacity: 0; transform: translateY(-12px) } to { opacity: 1; transform: none } }
+</style>
+</helmet>
+
+<div data-screen-label="Projects" style="min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);padding-top:65px;overflow-x:hidden">
+  <dc-import name="SiteNav" active="projects" hint-size="100%,65px"></dc-import>
+
+  <section style="max-width:1280px;margin:0 auto;padding:0 40px">
+    <div style="padding:72px 0 40px;border-bottom:2px solid var(--color-divider);animation:om-rise 750ms cubic-bezier(.16,.84,.44,1) both">
+      <div style="display:flex;align-items:center;gap:13px;margin-bottom:22px">
+        <span style="width:36px;height:2px;background:var(--color-accent)"></span>
+        <span style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent)">Section 02</span>
+      </div>
+      <h1 style="margin:0;font-size:clamp(46px,7vw,88px);line-height:0.92;letter-spacing:-0.048em">Projects &amp;<br>Research</h1>
+      <p style="margin:26px 0 0;font-size:17px;line-height:1.6;max-width:56ch;text-wrap:pretty">Four research projects spanning a decade of work — from wavelet-domain data hiding through vision transformers to a classifier small enough to live inside a microcontroller. Open any one for the detail and the numbers.</p>
+    </div>
+  </section>
+
+  <section style="max-width:1280px;margin:0 auto;padding:0 40px">
+    <sc-for list="{{ projects }}" as="project" hint-placeholder-count="4">
+      <div data-reveal="1" style="border-bottom:2px solid var(--color-divider)">
+        <button type="button" onClick="{{ project.toggle }}" style="width:100%;text-align:left;cursor:pointer;background:transparent;border:0;padding:36px 0;display:grid;grid-template-columns:70px minmax(0,1.65fr) minmax(0,1fr) 44px;gap:26px;align-items:start;font-family:var(--font-body);color:var(--color-text)">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.1em;color:var(--color-accent);font-variant-numeric:tabular-nums;padding-top:8px">{{ project.num }}</div>
+          <div>
+            <h2 style="margin:0;font-size:clamp(24px,3.1vw,38px);letter-spacing:-0.035em;line-height:1.08;text-wrap:pretty">{{ project.title }}</h2>
+            <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:16px">
+              <sc-for list="{{ project.stack }}" as="tech" hint-placeholder-count="4">
+                <span class="tag tag-neutral">{{ tech }}</span>
+              </sc-for>
+            </div>
+          </div>
+          <div style="padding-top:6px">
+            <div class="text-muted" style="font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase">{{ project.role }}</div>
+            <div style="font-size:13px;margin-top:6px;font-variant-numeric:tabular-nums">{{ project.period }}</div>
+            <div class="text-muted" style="font-size:13px;margin-top:14px;line-height:1.5;text-wrap:pretty">{{ project.summary }}</div>
+          </div>
+          <div style="justify-self:end;width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--color-divider);font-family:var(--font-heading);font-weight:800;font-size:19px;line-height:1;color:{{ project.iconColor }};background:{{ project.iconBg }};transition:background 180ms linear,color 180ms linear">{{ project.icon }}</div>
+        </button>
+
+        <sc-if value="{{ project.isOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:0 0 44px 96px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:48px;animation:om-drop 440ms cubic-bezier(.16,.84,.44,1) both">
+            <div>
+              <sc-for list="{{ project.bullets }}" as="bullet" hint-placeholder-count="3">
+                <div style="display:grid;grid-template-columns:14px minmax(0,1fr);gap:15px;padding-bottom:17px">
+                  <span style="width:8px;height:8px;background:var(--color-accent);margin-top:9px"></span>
+                  <p style="margin:0;font-size:15px;line-height:1.68;text-wrap:pretty">{{ bullet }}</p>
+                </div>
+              </sc-for>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--color-divider);border-left:1px solid var(--color-divider);align-content:start">
+              <sc-for list="{{ project.metrics }}" as="metric" hint-placeholder-count="4">
+                <div style="padding:20px 20px 22px;border-right:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider)">
+                  <div style="font-family:var(--font-heading);font-weight:800;font-size:28px;letter-spacing:-0.038em;line-height:1;font-variant-numeric:tabular-nums;color:var(--color-accent)">{{ metric.value }}</div>
+                  <div class="text-muted" style="font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;margin-top:9px;line-height:1.35">{{ metric.label }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </section>
+
+  <section style="max-width:1280px;margin:0 auto;padding:88px 40px 0">
+    <div data-reveal="1" style="display:flex;align-items:baseline;gap:18px;border-bottom:2px solid var(--color-divider);padding-bottom:14px">
+      <span style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.14em;color:var(--color-accent);font-variant-numeric:tabular-nums">03</span>
+      <h2 style="margin:0;font-size:clamp(28px,3.6vw,42px);letter-spacing:-0.038em">Publications</h2>
+      <span class="text-muted" style="margin-left:auto;font-size:11px;letter-spacing:0.1em;text-transform:uppercase">Peer reviewed</span>
+    </div>
+    <sc-for list="{{ publications }}" as="pub" hint-placeholder-count="3">
+      <div data-reveal="left" style="display:grid;grid-template-columns:70px minmax(0,1.5fr) minmax(0,1fr);gap:26px;padding:28px 0;border-bottom:1px solid var(--color-divider)">
+        <div style="font-family:var(--font-heading);font-weight:800;font-size:12px;color:var(--color-accent);font-variant-numeric:tabular-nums;padding-top:5px">{{ pub.n }}</div>
+        <div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:19px;line-height:1.22;letter-spacing:-0.02em;text-wrap:pretty">{{ pub.title }}</div>
+          <div style="margin-top:12px"><span class="tag tag-outline">{{ pub.status }}</span></div>
+        </div>
+        <div class="text-muted" style="font-size:13px;line-height:1.55;text-wrap:pretty">{{ pub.venue }}</div>
+      </div>
+    </sc-for>
+  </section>
+
+  <section style="max-width:1280px;margin:0 auto;padding:88px 40px 0">
+    <div data-reveal="1" style="display:flex;align-items:baseline;gap:18px;border-bottom:2px solid var(--color-divider);padding-bottom:14px">
+      <span style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.14em;color:var(--color-accent);font-variant-numeric:tabular-nums">04</span>
+      <h2 style="margin:0;font-size:clamp(28px,3.6vw,42px);letter-spacing:-0.038em">Service &amp; record</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);gap:0;border-bottom:2px solid var(--color-divider)">
+      <div data-reveal="left" style="border-right:2px solid var(--color-divider);padding:28px 32px 30px 0">
+        <div class="text-muted" style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px">Service &amp; certification</div>
+        <sc-for list="{{ credentials }}" as="cred" hint-placeholder-count="6">
+          <div style="padding:14px 0;border-bottom:1px solid var(--color-divider)">
+            <div style="font-size:14.5px;line-height:1.4;font-family:var(--font-heading);font-weight:600;text-wrap:pretty">{{ cred.title }}</div>
+            <div class="text-muted" style="font-size:12.5px;margin-top:4px;line-height:1.45">{{ cred.meta }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div data-reveal="right" style="padding:28px 0 30px 32px">
+        <div class="text-muted" style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px">Academic record</div>
+        <table class="table">
+          <thead>
+            <tr><th style="width:36%">Qualification</th><th>Institution</th><th style="width:13%">Result</th><th style="width:11%">Year</th></tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ education }}" as="ed" hint-placeholder-count="5">
+              <tr>
+                <td style="font-family:var(--font-heading);font-weight:600">{{ ed.degree }}</td>
+                <td class="text-muted">{{ ed.school }}</td>
+                <td style="font-variant-numeric:tabular-nums">{{ ed.score }}</td>
+                <td style="font-variant-numeric:tabular-nums">{{ ed.year }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,300px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#c96442&quot;,&quot;#8a3e27&quot;,&quot;#6f6c63&quot;,&quot;#5b6a52&quot;],&quot;default&quot;:&quot;#c96442&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Appearance&quot;}}">
+const PROJECTS = [
+  { id: 'har', num: '01', title: 'IMU-Based Human Activity Recognition on the Edge',
+    role: 'TinyML · Solo', period: 'Jan – Feb 2026',
+    summary: 'A twelve-class activity classifier trained, compressed and deployed to run entirely on an Arduino Nicla Vision.',
+    stack: ['TinyML', 'Arduino Nicla Vision', 'Decision Tree', 'Feature Engineering', 'Python'],
+    bullets: [
+      'Built an end-to-end TinyML pipeline on the Arduino Nicla Vision to classify twelve distinct human activities, including eating and pick-and-place motions typical of assembly work.',
+      'Collected a dataset of over 120,000 IMU samples at 50 Hz from a 3-axis accelerometer and 3-axis gyroscope, covering both low- and high-dynamic activity classes.',
+      'Extracted statistical features — mean, RMS, energy — aggregated into a 72-dimensional vector over 20-sample sliding windows, and trained a decision-tree classifier small enough to fit the device.',
+      'Deployed real-time on-device inference reaching 99.43% classification accuracy for high-dynamic activities such as jogging and cycling, with no cloud round trip.'
+    ],
+    metrics: [{ value: '99.43%', label: 'On-device accuracy' }, { value: '120k+', label: 'IMU samples' }, { value: '12', label: 'Activity classes' }, { value: '50 Hz', label: 'Sampling rate' }] },
+  { id: 'rec', num: '02', title: 'E-Commerce Recommendation Engine · Truncated SVD',
+    role: 'Model-based RecSys · Solo', period: 'Jan 2026',
+    summary: 'Latent-factor recommendations from a sparse 50,000-interaction utility matrix across a beauty-products catalogue.',
+    stack: ['Truncated SVD', 'Collaborative Filtering', 'scikit-learn', 'Pandas', 'Python'],
+    bullets: [
+      'Developed a model-based recommendation engine using Truncated Singular Value Decomposition to factor a sparse utility matrix of 50,000 user–product interactions into latent feature vectors.',
+      'Implemented item-to-item correlation analysis over the latent space to generate targeted suggestions, surfacing highly relevant items at a Pearson correlation coefficient above 0.90.',
+      'Evaluated across a catalogue of 2,845 beauty products, with the sparsity of the interaction matrix treated as the central modelling constraint rather than an afterthought.'
+    ],
+    metrics: [{ value: '0.90+', label: 'Pearson correlation' }, { value: '50,000', label: 'Interactions' }, { value: '2,845', label: 'Products' }, { value: 'SVD', label: 'Latent factorisation' }] },
+  { id: 'cnnvit', num: '03', title: 'Hybrid CNN–ViT Model for Plant Disease Classification',
+    role: 'Research Scholar', period: 'May – Aug 2023',
+    summary: 'Convolutional local features fused with vision-transformer global attention, published by Springer at CVIP 2023.',
+    stack: ['Vision Transformers', 'CNN', 'TensorFlow', 'Computer Vision', 'Python'],
+    bullets: [
+      'Designed a hybrid architecture pairing convolutional neural networks for local feature extraction with vision transformers for long-range dependency modelling.',
+      'Reached 98.23% test accuracy on a Tomato Leaf Disease Classification dataset of 21,000 images, alongside a Plant Disease Recognition benchmark.',
+      'Cut test loss from 0.3182 to 0.0956 on Plant Disease Recognition and from 0.2108 to 0.0343 on Tomato Leaf Disease against baseline CNN models.',
+      'Lifted F1 from 0.8842 to 0.9819 and from 0.9608 to 0.9947 on the two datasets respectively; the work was published by Springer Nature at CVIP 2023.'
+    ],
+    metrics: [{ value: '98.23%', label: 'Test accuracy' }, { value: '0.9947', label: 'Best F1 score' }, { value: '21,000', label: 'Training images' }, { value: '−89%', label: 'Test loss vs. baseline' }] },
+  { id: 'herdh', num: '04', title: 'Hybrid Encrypted Reversible Data Hiding (HERDH)',
+    role: 'Master’s Thesis · Research Scholar', period: 'Aug 2016 – Jul 2017',
+    summary: 'A wavelet-domain reversible data-hiding method that recovers the cover image exactly while carrying an encrypted payload.',
+    stack: ['Wavelet Transform', 'Cryptography', 'Signal Processing', 'MATLAB'],
+    bullets: [
+      'Developed a hybrid reversible data-hiding method operating in the wavelet domain, so the original cover image is recoverable bit-for-bit after payload extraction.',
+      'Achieved a peak signal-to-noise ratio above 50 dB, with a 72% improvement in visual fidelity over the existing techniques used as comparison.',
+      'The surrounding survey work was published as “Advancement in Reversible Data Hiding techniques” in IJCSNS.'
+    ],
+    metrics: [{ value: '>50 dB', label: 'PSNR' }, { value: '+72%', label: 'Visual fidelity' }, { value: '100%', label: 'Reversibility' }, { value: '2017', label: 'Thesis year' }] }
+];
+
+const PUBLICATIONS = [
+  { n: '01', title: 'Improving phishing detection using attention-augmented CNN-GRU-RNN networks', status: 'Accepted · Nov 2025',
+    venue: 'Ranjan, A., Sardar, A. S., Ranjan, V., & Sharma, N. — 5th International Conference on Communication, Computing and Electronics Systems (ICCCES 2026), accepted 13 November 2025.' },
+  { n: '02', title: 'Enhancing computer vision performance: a hybrid deep learning approach with CNNs and vision transformers', status: 'Published · Springer',
+    venue: 'Sardar, A. S., & Ranjan, V. — International Conference on Computer Vision and Image Processing (CVIP), pp. 591–602. Cham: Springer Nature Switzerland, November 2023.' },
+  { n: '03', title: 'Advancement in Reversible Data Hiding techniques', status: 'Published · IJCSNS',
+    venue: 'Tiwari, N., & Sardar, A. S. — International Journal of Computer Science and Network Security, 17(3), 2017.' }
+];
+
+const CREDENTIALS = [
+  { title: 'Meta Reviewer, IEEE SCEECS’25', meta: 'International Students’ Conference · 18–19 January 2025 · recognised for exceptional service in upholding research standards' },
+  { title: 'Moderator, Ripples’26 Panel Discussion', meta: 'IISc Open Day · “Beyond Automation: Artificial Intelligence in Engineering Design and Production”' },
+  { title: 'Google Data Analytics Professional Certificate', meta: 'Coursera · 2024' },
+  { title: 'Python for Data Science, AI & Development', meta: 'Coursera · 2023' },
+  { title: 'DeepLearning.AI TensorFlow Developer', meta: 'Coursera · 2022' },
+  { title: 'Machine Learning', meta: 'Coursera · 2022' }
+];
+
+const EDUCATION = [
+  { degree: 'M.Tech · Smart Manufacturing', school: 'Indian Institute of Science, Bangalore', score: '8.30', year: '2027' },
+  { degree: 'M.Tech · Computer Science and Engineering', school: 'Maulana Azad National Institute of Technology', score: '8.15', year: '2017' },
+  { degree: 'B.Tech · Computer Science and Engineering', school: 'Kalinga Institute of Industrial Technology', score: '7.91', year: '2014' },
+  { degree: 'Class XII (ICSE)', school: 'Church School, Beldih', score: '75.67%', year: '2010' },
+  { degree: 'Class X (ICSE)', school: 'Church School, Beldih', score: '81.50%', year: '2008' }
+];
+
+class Component extends DCLogic {
+  state = { open: { har: true } };
+
+  componentDidMount() {
+    const go = () => { if (window.SiteMotion) { if (this.props.accent) window.SiteMotion.setAccent(this.props.accent); window.SiteMotion.init(); } };
+    go();
+    [200, 700, 1600, 3000].forEach(t => setTimeout(go, t));
+  }
+  componentDidUpdate() { if (window.SiteMotion) setTimeout(() => window.SiteMotion.init(), 60); }
+
+  renderVals() {
+    return {
+      projects: PROJECTS.map(p => {
+        const isOpen = !!this.state.open[p.id];
+        return { ...p, isOpen,
+          icon: isOpen ? '−' : '+',
+          iconBg: isOpen ? 'var(--color-accent)' : 'transparent',
+          iconColor: isOpen ? 'var(--color-bg)' : 'var(--color-text)',
+          toggle: () => this.setState(st => ({ open: { ...st.open, [p.id]: !st.open[p.id] } })) };
+      }),
+      publications: PUBLICATIONS, credentials: CREDENTIALS, education: EDUCATION
+    };
+  }
+}
+</script>
+</body>
+</html>

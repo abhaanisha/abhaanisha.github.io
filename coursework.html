@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-c42a7d83-f6f9-4514-97b4-d66bb1698ad2/styles.css">
+<script src="_ds/modernist-c42a7d83-f6f9-4514-97b4-d66bb1698ad2/_ds_bundle.js"></script>
+<script src="./site-motion.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); }
+  a { color: var(--color-accent); text-decoration: none; }
+  a:hover { color: var(--color-accent-600); }
+  @keyframes om-rise { from { opacity: 0; transform: translateY(30px) } to { opacity: 1; transform: none } }
+  @keyframes om-cell { from { opacity: 0; transform: translateY(16px) } to { opacity: 1; transform: none } }
+  @keyframes om-drawx { from { transform: scaleX(0) } to { transform: scaleX(1) } }
+  @keyframes om-drawy { from { transform: scaleY(0) } to { transform: scaleY(1) } }
+  @keyframes om-blink { 0%, 60% { opacity: 1 } 61%, 100% { opacity: 0.2 } }
+  @keyframes om-open { from { opacity: 0; transform: translateY(-8px) } to { opacity: 1; transform: none } }
+  @keyframes om-flip { from { opacity: 0; transform: perspective(1400px) rotateX(-72deg) } to { opacity: 1; transform: perspective(1400px) rotateX(0deg) } }
+</style>
+</helmet>
+
+<div data-screen-label="Coursework" style="min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);padding-top:65px;overflow-x:clip">
+  <dc-import name="SiteNav" active="coursework" hint-size="100%,65px"></dc-import>
+
+  <section style="max-width:1280px;margin:0 auto;padding:0 40px">
+    <div style="padding:74px 0 42px;border-bottom:2px solid var(--color-divider);display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:56px;align-items:end">
+      <div style="animation:om-rise 750ms cubic-bezier(.16,.84,.44,1) both">
+        <div style="display:flex;align-items:center;gap:13px;margin-bottom:22px">
+          <span style="width:36px;height:2px;background:var(--color-accent)"></span>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent-700)">Academic record</span>
+        </div>
+        <h1 style="margin:0;font-size:clamp(46px,7vw,88px);line-height:0.92;letter-spacing:-0.048em">Coursework</h1>
+        <p style="margin:26px 0 0;font-size:17px;line-height:1.6;max-width:54ch;text-wrap:pretty">Fourteen postgraduate courses across three semesters in the Department of Design and Manufacturing. Every course is listed closed — click a row to read its description, topics and deliverables.</p>
+      </div>
+
+      <div style="position:relative;padding:2px 0 3px">
+        <div style="position:absolute;left:0;right:0;top:0;height:2px;background:var(--color-divider);transform-origin:left center;animation:om-drawx 700ms cubic-bezier(.16,.84,.44,1) 180ms both"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--color-accent);transform-origin:left center;animation:om-drawx 700ms cubic-bezier(.16,.84,.44,1) 700ms both"></div>
+        <div style="position:absolute;left:0;right:0;top:50%;height:1px;background:var(--color-divider);transform-origin:left center;animation:om-drawx 700ms cubic-bezier(.16,.84,.44,1) 560ms both"></div>
+        <div style="position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--color-divider);transform-origin:top center;animation:om-drawy 700ms cubic-bezier(.16,.84,.44,1) 420ms both"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr">
+          <div style="padding:20px 22px 22px;animation:om-cell 620ms cubic-bezier(.16,.84,.44,1) 300ms both">
+            <div data-count="14" data-count-pad="2" style="font-family:var(--font-heading);font-weight:800;font-size:clamp(34px,3.6vw,44px);line-height:1;letter-spacing:-0.045em;font-variant-numeric:tabular-nums">14</div>
+            <div style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;margin-top:9px;color:var(--color-neutral-600)">Courses</div>
+          </div>
+          <div style="padding:20px 22px 22px;animation:om-cell 620ms cubic-bezier(.16,.84,.44,1) 380ms both">
+            <div data-count="3" data-count-pad="2" style="font-family:var(--font-heading);font-weight:800;font-size:clamp(34px,3.6vw,44px);line-height:1;letter-spacing:-0.045em;font-variant-numeric:tabular-nums">03</div>
+            <div style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;margin-top:9px;color:var(--color-neutral-600)">Semesters</div>
+          </div>
+          <div style="padding:20px 22px 22px;animation:om-cell 620ms cubic-bezier(.16,.84,.44,1) 460ms both">
+            <div data-count="8.30" data-count-decimals="2" style="font-family:var(--font-heading);font-weight:800;font-size:clamp(34px,3.6vw,44px);line-height:1;letter-spacing:-0.045em;font-variant-numeric:tabular-nums;color:var(--color-accent)">8.30</div>
+            <div style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;margin-top:9px;color:var(--color-neutral-600)">CGPA</div>
+          </div>
+          <div style="padding:20px 22px 22px;animation:om-cell 620ms cubic-bezier(.16,.84,.44,1) 540ms both">
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(34px,3.6vw,44px);line-height:1;letter-spacing:-0.045em;font-variant-numeric:tabular-nums">2027</div>
+            <div style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;margin-top:9px;color:var(--color-neutral-600)">Graduating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1420px;margin:0 auto;padding:0 40px 40px">
+    <sc-for list="{{ semesters }}" as="sem" hint-placeholder-count="3">
+      <div style="display:contents">
+
+        <div data-sem-head="1" style="position:sticky;top:{{ sem.stickyTop }};z-index:{{ sem.z }};height:72px;margin-top:38px;will-change:transform;box-sizing:border-box;background:var(--color-neutral-200);color:var(--color-text);border-bottom:2px solid var(--color-accent);padding:14px 20px 14px 16px;display:grid;grid-template-columns:54px minmax(0,1fr) auto;align-items:center;gap:0">
+          <div style="width:42px;height:42px;display:grid;place-items:center;background:var(--color-accent);color:var(--ink-bg);font-family:var(--font-heading);font-weight:800;font-size:18px;line-height:1;font-variant-numeric:tabular-nums">{{ sem.n }}</div>
+          <div style="display:flex;align-items:baseline;gap:6px 18px;flex-wrap:wrap;min-width:0">
+            <span style="font-family:var(--font-heading);font-weight:800;font-size:clamp(25px,2.8vw,36px);line-height:1;letter-spacing:-0.038em">{{ sem.title }}</span>
+            <span style="font-family:var(--font-heading);font-weight:800;font-size:11.5px;letter-spacing:0.17em;text-transform:uppercase;color:var(--color-accent-700)">{{ sem.kicker }}</span>
+            <span style="font-size:13.5px;color:var(--color-neutral-600);font-variant-numeric:tabular-nums">{{ sem.meta }}</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;padding-left:24px">
+            <sc-if value="{{ sem.done }}" hint-placeholder-val="{{ true }}">
+              <span style="display:inline-flex;align-items:center;gap:8px;border:2px solid var(--color-neutral-400);color:var(--color-neutral-700);font-family:var(--font-heading);font-weight:800;font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;padding:5px 13px;white-space:nowrap">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+                Completed
+              </span>
+            </sc-if>
+            <sc-if value="{{ sem.live }}" hint-placeholder-val="{{ false }}">
+              <span style="display:inline-flex;align-items:center;gap:9px;border:2px solid var(--color-accent);color:var(--color-accent-700);font-family:var(--font-heading);font-weight:800;font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;padding:5px 13px;white-space:nowrap">
+                <span style="width:8px;height:8px;background:var(--color-accent);animation:om-blink 1.5s steps(1,end) infinite"></span>
+                In progress
+              </span>
+            </sc-if>
+            <button type="button" onClick="{{ sem.toggleAll }}" style="display:inline-flex;align-items:center;gap:9px;background:transparent;border:2px solid var(--color-accent-700);color:var(--color-accent-700);font-family:var(--font-heading);font-weight:800;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;padding:6px 13px;cursor:pointer;white-space:nowrap;transition:background 200ms linear,color 200ms linear" style-hover="background:var(--color-accent-700);color:var(--color-bg)">
+              {{ sem.toggleLabel }}
+              <span style="font-variant-numeric:tabular-nums;opacity:0.75">{{ sem.openLabel }}</span>
+            </button>
+          </div>
+        </div>
+
+        <sc-for list="{{ sem.courses }}" as="course" hint-placeholder-count="6">
+          <article data-step="1" style="position:relative;border-bottom:1px solid var(--color-divider)">
+            <span style="position:absolute;left:39px;top:0;bottom:0;width:2px;background:var(--color-neutral-300);z-index:2"></span>
+            <span data-track="1" style="position:absolute;left:39px;top:0;bottom:0;width:2px;z-index:2;background:var(--color-accent);transform:scaleY(0);transform-origin:top center;transition:transform 620ms cubic-bezier(.16,.84,.44,1)"></span>
+            <span data-node="1" style="position:absolute;left:33px;top:28px;z-index:3;width:14px;height:14px;box-sizing:border-box;border:2px solid var(--color-neutral-400);background:var(--color-bg);transition:border-color 320ms linear,background 320ms linear,transform 320ms cubic-bezier(.16,.84,.44,1)"></span>
+            <button type="button" onClick="{{ course.toggle }}" style="width:100%;min-height:70px;box-sizing:border-box;display:grid;grid-template-columns:132px minmax(0,1fr) auto 44px;align-items:center;gap:0;background:var(--color-bg);border:0;padding:17px 0;margin:0;cursor:pointer;font-family:var(--font-body);color:var(--color-text);text-align:left;transition:background 220ms linear;position:relative;z-index:1;background:{{ course.rowBg }}" style-hover="background:{{ course.rowHover }}">
+              <span style="display:flex;align-items:center;gap:11px;padding-left:66px;font-family:var(--font-heading);font-weight:800;font-size:12.5px;letter-spacing:0.08em;color:var(--color-accent-700);font-variant-numeric:tabular-nums;white-space:nowrap">
+{{ course.code }}
+              </span>
+              <span style="font-family:var(--font-heading);font-weight:800;font-size:clamp(16px,1.55vw,22px);letter-spacing:-0.024em;line-height:1.25;padding-right:14px;text-wrap:pretty">{{ course.title }}</span>
+              <span style="justify-self:end;font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--color-neutral-500);white-space:nowrap;padding-right:12px">{{ course.countLabel }}</span>
+              <span style="justify-self:center;display:grid;place-items:center;width:26px;height:26px;transition:background 220ms linear,border-color 220ms linear;border:2px solid {{ course.caretBorder }};background:{{ course.caretBg }};color:{{ course.caretFg }}">
+                <span style="display:grid;place-items:center;transform:rotate({{ course.caret }});transition:transform 300ms cubic-bezier(.34,1.4,.5,1)">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+                </span>
+              </span>
+            </button>
+
+            <sc-if value="{{ course.open }}" hint-placeholder-val="{{ false }}">
+              <div style="display:grid;grid-template-columns:132px minmax(0,1fr);background:var(--color-accent-100);padding:6px 0 36px;transform-origin:top center;animation:om-flip 420ms cubic-bezier(.2,.9,.3,1) both">
+                <div style="padding-left:66px;font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.14em;color:var(--color-accent-600);font-variant-numeric:tabular-nums">{{ course.idx }}</div>
+                <div style="display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,1fr);gap:48px">
+                  <div>
+                    <div style="font-family:var(--font-heading);font-weight:800;font-size:16px;line-height:1.4;letter-spacing:-0.014em;max-width:44ch;text-wrap:pretty">{{ course.short }}</div>
+                    <p style="margin:12px 0 0;font-size:14.5px;line-height:1.62;color:var(--color-neutral-700);max-width:54ch;text-wrap:pretty">{{ course.description }}</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:18px">
+                      <sc-for list="{{ course.topics }}" as="topic" hint-placeholder-count="4">
+                        <span style="font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.11em;text-transform:uppercase;border:1px solid var(--color-accent-300);color:var(--color-accent-700);padding:6px 10px">{{ topic }}</span>
+                      </sc-for>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-600);border-bottom:1px solid var(--color-divider);padding-bottom:9px">Assignments &amp; deliverables</div>
+                    <sc-for list="{{ course.assignments }}" as="item" hint-placeholder-count="1">
+                      <div style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;padding:15px 0;border-bottom:1px solid var(--color-divider)">
+                        <div style="font-family:var(--font-heading);font-weight:800;font-size:11.5px;color:var(--color-accent-700);font-variant-numeric:tabular-nums;padding-top:3px">{{ item.n }}</div>
+                        <div>
+                          <div style="font-family:var(--font-heading);font-weight:800;font-size:15px;letter-spacing:-0.014em;line-height:1.28">{{ item.title }}</div>
+                          <div style="font-size:12.5px;line-height:1.5;margin-top:6px;color:var(--color-neutral-600);text-wrap:pretty">{{ item.note }}</div>
+                        </div>
+                      </div>
+                    </sc-for>
+                    <sc-if value="{{ course.isEmpty }}" hint-placeholder-val="{{ false }}">
+                      <div style="padding:18px 0 4px;display:flex;align-items:flex-start;gap:11px">
+                        <span style="width:8px;height:8px;background:var(--color-accent);margin-top:5px;flex:none"></span>
+                        <span style="font-size:13px;line-height:1.5;color:var(--color-neutral-600);text-wrap:pretty">Write-ups for this course are being prepared — reports, code and notebooks land here.</span>
+                      </div>
+                    </sc-if>
+                  </div>
+                </div>
+              </div>
+            </sc-if>
+          </article>
+        </sc-for>
+      </div>
+    </sc-for>
+  </section>
+
+  <section data-after-list="1" style="max-width:1420px;margin:0 auto;padding:64px 40px 72px">
+    <div style="background:var(--color-accent-700);color:var(--color-bg);padding:52px 44px 56px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:48px;align-items:end">
+      <div>
+        <div style="font-family:var(--font-heading);font-weight:800;font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.75">Where the coursework went next</div>
+        <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(32px,4.4vw,60px);line-height:1.02;letter-spacing:-0.042em;margin-top:20px;max-width:20ch;text-wrap:pretty">Two of these courses turned into full research projects.</div>
+      </div>
+      <div>
+        <p style="margin:0 0 24px;font-size:16px;line-height:1.6;max-width:40ch;text-wrap:pretty">The Edge AI activity classifier on the Nicla Vision, and the SVD recommendation engine over a 50,000-interaction utility matrix.</p>
+        <a href="projects.html" style="display:inline-flex;align-items:center;gap:12px;background:var(--color-bg);color:var(--color-accent-700);font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;padding:16px 22px;transition:transform 260ms cubic-bezier(.16,.84,.44,1)" style-hover="transform:translateX(6px)">
+          View projects
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,300px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#c96442&quot;,&quot;#8a3e27&quot;,&quot;#6f6c63&quot;,&quot;#5b6a52&quot;],&quot;default&quot;:&quot;#c96442&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Appearance&quot;}}">
+const SEMESTERS = [
+  { id: 's1', kicker: 'Semester 01', title: 'Foundations', meta: 'Aug – Dec 2025', status: 'Completed' },
+  { id: 's2', kicker: 'Semester 02', title: 'Intelligence', meta: 'Jan – May 2026', status: 'Completed' },
+  { id: 's3', kicker: 'Semester 03', title: 'Robotics & Making', meta: 'Aug – Dec 2026', status: 'In progress' }
+];
+
+const COURSES = [
+  { sem: 's1', code: 'PD 206', title: 'Basics of Computing, AI and Data Science for Design and Manufacturing',
+    short: 'Computing and machine-learning foundations for engineering data.',
+    description: 'Programming and data-handling foundations, the supervised-learning workflow end to end, and applied data science on the kinds of sparse, noisy datasets that engineering and commerce actually produce.',
+    topics: ['Python', 'ML workflow', 'Linear algebra', 'Data analysis'],
+    assignments: [
+      { title: 'Recommendation system for e-commerce', note: 'Truncated SVD over a 50,000-interaction utility matrix, with item-to-item correlation driving suggestions across 2,845 products. Written up in full on the Projects page.' }
+    ] },
+  { sem: 's1', code: 'IN 221', title: 'Sensors and Transducers',
+    short: 'Measurement principles, sensor characteristics and signal conditioning.',
+    description: 'Transduction physics across resistive, capacitive, piezoelectric and optical devices; static and dynamic sensor characteristics; conditioning, calibration and noise rejection in real instrumentation chains.',
+    topics: ['Transduction', 'Signal conditioning', 'Calibration', 'Noise rejection'], assignments: [] },
+  { sem: 's1', code: 'PD 203', title: 'Creative Engineering Design',
+    short: 'Structured ideation, from need-finding through concept selection to embodiment.',
+    description: 'A design methodology course run as studio work — observing users, framing the need, generating and pruning concepts, then carrying a chosen concept through embodiment and critique.',
+    topics: ['Need-finding', 'Ideation', 'Concept selection', 'Prototyping'], assignments: [] },
+  { sem: 's1', code: 'MN 202', title: 'Digital Manufacturing',
+    short: 'The CAD–CAM–CNC chain and the digital thread through the factory.',
+    description: 'Geometric modelling, CAM toolpath generation, CNC part programming, additive processes, and the data models that let a design survive the trip to the shop floor intact.',
+    topics: ['CAD/CAM', 'CNC', 'Additive manufacturing', 'Digital thread'], assignments: [] },
+  { sem: 's1', code: 'MG 261', title: 'Operations Management',
+    short: 'Planning, scheduling and control of production systems under real variability.',
+    description: 'Quantitative management of production: demand forecasting, inventory policy, capacity and queuing analysis, and the lean practices that keep a plant responsive when demand refuses to behave.',
+    topics: ['Forecasting', 'Inventory policy', 'Scheduling', 'Lean operations'], assignments: [] },
+  { sem: 's1', code: 'MN 201', title: 'Materials and Processes',
+    short: 'Material behaviour and the processes that shape it.',
+    description: 'How structure governs property, and how casting, forming, joining and machining exploit or constrain that relationship — with process selection as the recurring design question.',
+    topics: ['Material selection', 'Forming', 'Joining', 'Machining'], assignments: [] },
+  { sem: 's2', code: 'CP 330', title: 'Edge AI',
+    short: 'Model compression and inference on microcontroller-class hardware.',
+    description: 'Getting neural and classical models onto constrained devices: quantisation, pruning, operator support, memory and latency profiling, and the accuracy trade that every compression step demands.',
+    topics: ['TinyML', 'Quantisation', 'On-device inference', 'Profiling'],
+    assignments: [
+      { title: 'IMU-based human activity recognition on Arduino Nicla Vision', note: 'End-to-end TinyML pipeline — 120,000+ IMU samples at 50 Hz, 72-dimensional feature vectors, real-time on-device inference at 99.43% accuracy. Written up in full on the Projects page.' }
+    ] },
+  { sem: 's2', code: 'DS 207', title: 'Introduction to Natural Language Processing',
+    short: 'Embeddings, sequence models and transformer architectures.',
+    description: 'From count-based representations through distributed embeddings to recurrent and attention-based architectures, with evaluation methodology treated as a first-class concern rather than a footnote.',
+    topics: ['Embeddings', 'Sequence models', 'Transformers', 'Evaluation'], assignments: [] },
+  { sem: 's2', code: 'MN 204', title: 'Human Machine Interaction for Manufacturing',
+    short: 'Operator-centred design of machine interfaces on the shop floor.',
+    description: 'Designing the boundary between operator and machine: cognitive load, situation awareness, error and recovery, and how interface decisions turn into safety and throughput outcomes.',
+    topics: ['HMI', 'Ergonomics', 'Cognitive load', 'Usability testing'], assignments: [] },
+  { sem: 's2', code: 'PD 215', title: 'Mechatronics',
+    short: 'Sensing, actuation, control and embedded computing, integrated.',
+    description: 'Integration rather than isolated subsystems — actuator and drive selection, feedback control, microcontroller interfacing, and the timing and noise problems that only appear once the pieces are wired together.',
+    topics: ['Actuators', 'Feedback control', 'Embedded systems', 'Integration'], assignments: [] },
+  { sem: 's2', code: 'CO 201', title: 'The Art of Communication for Leaders',
+    short: 'Technical storytelling, presentation craft and persuasive writing.',
+    description: 'Structuring an argument for a technical audience and a non-technical one, presentation craft, and the written forms — proposals, reports, abstracts — that engineering leadership runs on.',
+    topics: ['Narrative structure', 'Presentation', 'Technical writing'], assignments: [] },
+  { sem: 's3', code: 'MG 265', title: 'Data Mining',
+    short: 'Pattern discovery, classification and clustering on large datasets.',
+    description: 'Extracting structure from large datasets — preprocessing and feature construction, association rules, classification and clustering families, dimensionality reduction, and the validation discipline that separates a real pattern from an artefact.',
+    topics: ['Association rules', 'Classification', 'Clustering', 'Dimensionality reduction'], assignments: [] },
+  { sem: 's3', code: 'MN 207', title: 'Intelligent Mobile Robotics: Perception, Action and Control',
+    short: 'Perception, planning and control for autonomous mobile robots.',
+    description: 'The full autonomy stack for a mobile platform: sensing and state estimation, mapping and localisation, motion planning, and the control loops that turn a plan into motion in an environment that keeps changing.',
+    topics: ['SLAM', 'State estimation', 'Motion planning', 'Control'], assignments: [] },
+  { sem: 's3', code: 'Makers', title: 'Makers Project',
+    short: 'Open-ended build project in the department workshop.',
+    description: 'A self-directed making project taken from concept to working artefact — scoping the build, fabricating in the workshop, and iterating on the prototype against how it actually performs.',
+    topics: ['Fabrication', 'Prototyping', 'Iteration'], assignments: [] }
+];
+
+class Component extends DCLogic {
+  state = { open: {} };
+
+  componentDidMount() {
+    const go = () => { if (window.SiteMotion) { if (this.props.accent) window.SiteMotion.setAccent(this.props.accent); window.SiteMotion.init(); } };
+    go();
+    [200, 700, 1600].forEach(t => setTimeout(go, t));
+    /* Vertical scroll timeline: each course row's spine segment fills and its node
+       lights as the row passes the reading line. Styles are written directly, so
+       scrolling never re-renders. */
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => { this._raf = null; this.track(); });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll);
+    this.track();
+    [150, 600, 1500].forEach(t => setTimeout(() => this.track(), t));
+  }
+
+  componentDidUpdate() { this.track(); }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onScroll);
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+
+  track() {
+    const navH = window.__navH || 65;
+    /* Header stacking is pure CSS sticky (each pinned 76px below the previous), so
+       nothing here touches their position. */
+    /* Read line sits below the stacked semester headers (72px each). */
+    const line = navH + Math.min(300, Math.max(216, window.innerHeight * 0.38));
+    document.querySelectorAll('[data-step]').forEach(step => {
+      const r = step.getBoundingClientRect();
+      const p = Math.max(0, Math.min(1, (line - r.top) / Math.max(1, r.height)));
+      const node = step.querySelector('[data-node]');
+      const fill = step.querySelector('[data-track]');
+      const st = p >= 1 ? 'past' : (p > 0 ? 'live' : 'ahead');
+      if (fill) fill.style.transform = 'scaleY(' + p.toFixed(3) + ')';
+      if (step.__st === st) return;
+      step.__st = st;
+      if (node) {
+        node.style.borderColor = st === 'ahead' ? 'var(--color-neutral-400)' : 'var(--color-accent)';
+        node.style.background = st === 'past' ? 'var(--color-accent)' : 'var(--color-bg)';
+        node.style.transform = st === 'live' ? 'scale(1.4)' : 'none';
+      }
+    });
+  }
+
+  toggle(key) {
+    this.setState(s => {
+      const open = Object.assign({}, s.open);
+      if (open[key]) delete open[key]; else open[key] = true;
+      return { open: open };
+    });
+  }
+
+  toggleAll(keys, allOpen) {
+    this.setState(s => {
+      const open = Object.assign({}, s.open);
+      keys.forEach(k => { if (allOpen) delete open[k]; else open[k] = true; });
+      return { open: open };
+    });
+  }
+
+  renderVals() {
+    const openMap = this.state.open;
+    const semesters = SEMESTERS.map((s, si) => {
+      const list = COURSES.filter(c => c.sem === s.id);
+      const done = s.status === 'Completed';
+      const keys = list.map((c, i) => si + '-' + i);
+      const openCount = keys.filter(k => openMap[k]).length;
+      const allOpen = openCount === keys.length;
+      return {
+        n: String(si + 1).padStart(2, '0'),
+        /* All three headers share the list section as their sticky container
+           (each group wrapper is display:contents), so they pile up: each pins
+           72px below the one before and stays visible to the end of the list. */
+        stickyTop: 'calc(var(--nav-h, 65px) + ' + (si * 72) + 'px)',
+        z: 20 + si,
+        kicker: s.kicker, title: s.title, meta: s.meta,
+        done: done, live: !done,
+        total: String(list.length).padStart(2, '0'),
+        toggleLabel: allOpen ? 'Close all' : 'Open all',
+        openLabel: String(openCount).padStart(2, '0') + ' / ' + String(keys.length).padStart(2, '0'),
+        toggleAll: () => this.toggleAll(keys, allOpen),
+        courses: list.map((c, i) => {
+          const key = si + '-' + i;
+          const isOpen = !!openMap[key];
+          return {
+            idx: String(i + 1).padStart(2, '0'),
+            code: c.code, title: c.title, short: c.short, description: c.description,
+            topics: c.topics, isEmpty: c.assignments.length === 0,
+            done: done, pending: !done,
+            open: isOpen, caret: isOpen ? '180deg' : '0deg',
+            rowBg: isOpen ? 'var(--color-accent-100)' : 'transparent',
+            rowHover: isOpen ? 'var(--color-accent-200)' : 'var(--color-neutral-100)',
+            caretBorder: isOpen ? 'var(--color-accent)' : 'var(--color-neutral-400)',
+            caretBg: isOpen ? 'var(--color-accent)' : 'transparent',
+            caretFg: isOpen ? 'var(--color-bg)' : 'var(--color-neutral-700)',
+            countLabel: c.assignments.length
+              ? (c.assignments.length === 1 ? '1 assignment' : c.assignments.length + ' assignments')
+              : 'Coming soon',
+            assignments: c.assignments.map((a, j) => ({ n: String(j + 1).padStart(2, '0'), title: a.title, note: a.note })),
+            toggle: () => this.toggle(key)
+          };
+        })
+      };
+    });
+    return { semesters };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-c42a7d83-f6f9-4514-97b4-d66bb1698ad2/styles.css">
+<script src="_ds/modernist-c42a7d83-f6f9-4514-97b4-d66bb1698ad2/_ds_bundle.js"></script>
+<script src="./site-motion.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); }
+  a { color: var(--color-accent); text-decoration: none; }
+  a:hover { color: var(--color-accent-600); }
+  @keyframes om-marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+  @keyframes om-rise { from { opacity: 0; transform: translateY(30px) } to { opacity: 1; transform: none } }
+  @keyframes om-wipe { from { transform: scaleX(0) } to { transform: scaleX(1) } }
+  @keyframes om-slowzoom { from { transform: scale(1.075) } to { transform: scale(1) } }
+</style>
+</helmet>
+
+<div data-screen-label="Home" style="min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);padding-top:65px;overflow-x:hidden">
+  <dc-import name="SiteNav" active="home" hint-size="100%,65px"></dc-import>
+
+  <section style="position:relative;overflow:hidden;background:var(--ink-bg)">
+    <img src="assets/iisc-main-building.png" alt="The Main Building of the Indian Institute of Science, Bangalore" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 46%;filter:grayscale(1) contrast(1.06) brightness(0.82);animation:om-slowzoom 26s ease-out both">
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, color-mix(in srgb, var(--ink-bg) 92%, transparent) 0%, color-mix(in srgb, var(--ink-bg) 80%, transparent) 42%, color-mix(in srgb, var(--ink-bg) 52%, transparent) 100%)"></div>
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:0 clamp(20px,3vw,40px)">
+      <div style="display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,0.85fr);gap:clamp(32px,4vw,56px);padding:84px 0 76px;align-items:start;color:var(--ink-fg)">
+        <div>
+          <div style="display:flex;align-items:center;gap:13px;margin-bottom:26px;animation:om-rise 700ms cubic-bezier(.16,.84,.44,1) both">
+            <span style="width:36px;height:2px;background:var(--ink-accent);transform-origin:0 50%;animation:om-wipe 700ms cubic-bezier(.16,.84,.44,1) 180ms both"></span>
+            <span style="font-family:var(--font-heading);font-weight:800;font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-accent)">M.Tech · Smart Manufacturing · IISc Bangalore</span>
+          </div>
+          <h1 style="margin:0;font-size:clamp(52px,7.6vw,98px);line-height:0.9;letter-spacing:-0.048em;color:var(--ink-fg);animation:om-rise 800ms cubic-bezier(.16,.84,.44,1) 90ms both">Abha Singh<br>Sardar</h1>
+          <p style="margin:32px 0 0;font-size:19.5px;line-height:1.5;max-width:40ch;text-wrap:pretty;color:color-mix(in srgb, var(--ink-fg) 88%, transparent);animation:om-rise 800ms cubic-bezier(.16,.84,.44,1) 220ms both">Building intelligence into machines — from transformer-scale vision models down to twelve-class activity recognition running on a microcontroller.</p>
+          <p style="margin:15px 0 0;font-size:15px;line-height:1.65;max-width:48ch;text-wrap:pretty;color:color-mix(in srgb, var(--ink-fg) 72%, transparent);animation:om-rise 800ms cubic-bezier(.16,.84,.44,1) 300ms both">Department of Design and Manufacturing, Indian Institute of Science. Third semester, working at the join of edge AI, computer vision and the digital factory.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:36px;animation:om-rise 800ms cubic-bezier(.16,.84,.44,1) 380ms both">
+            <a class="btn btn-primary" href="projects.html" style="padding:12px 19px">See the work →</a>
+            <a class="btn" href="resume.html" style="padding:12px 19px;border:1px solid color-mix(in srgb, var(--ink-fg) 55%, transparent);color:var(--ink-fg);background:transparent">Résumé</a>
+            <a class="btn" href="contact.html" style="padding:12px 19px;border:1px solid color-mix(in srgb, var(--ink-fg) 55%, transparent);color:var(--ink-fg);background:transparent">Contact</a>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;animation:om-rise 900ms cubic-bezier(.16,.84,.44,1) 260ms both">
+          <div class="grayscale" style="position:relative;width:100%;aspect-ratio:4/5;border:2px solid color-mix(in srgb, var(--ink-fg) 65%, transparent);overflow:hidden;line-height:0">
+            <img src="assets/abha-portrait.jpeg" alt="Abha Singh Sardar speaking at a lectern" style="width:100%;height:100%;object-fit:cover;object-position:56% 30%;display:block">
+          </div>
+          <div style="font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:color-mix(in srgb, var(--ink-fg) 68%, transparent)">Bangalore, India · Graduating 2027</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="background:var(--color-accent);color:var(--ink-bg);overflow:hidden;border-bottom:2px solid var(--color-accent);padding:16px 0">
+    <div style="display:flex;width:max-content;animation:om-marquee 34s linear infinite">
+      <div style="display:flex;gap:38px;padding-right:38px;font-family:var(--font-heading);font-weight:800;font-size:19px;letter-spacing:0.02em;white-space:nowrap">
+        <span>EDGE AI</span><span>◆</span><span>COMPUTER VISION</span><span>◆</span><span>TINYML</span><span>◆</span><span>VISION TRANSFORMERS</span><span>◆</span><span>SMART MANUFACTURING</span><span>◆</span><span>ON-DEVICE INFERENCE</span><span>◆</span><span>APPLIED RESEARCH</span><span>◆</span>
+      </div>
+      <div aria-hidden="true" style="display:flex;gap:38px;padding-right:38px;font-family:var(--font-heading);font-weight:800;font-size:19px;letter-spacing:0.02em;white-space:nowrap">
+        <span>EDGE AI</span><span>◆</span><span>COMPUTER VISION</span><span>◆</span><span>TINYML</span><span>◆</span><span>VISION TRANSFORMERS</span><span>◆</span><span>SMART MANUFACTURING</span><span>◆</span><span>ON-DEVICE INFERENCE</span><span>◆</span><span>APPLIED RESEARCH</span><span>◆</span>
+      </div>
+    </div>
+  </div>
+
+  <section style="background:var(--ink-bg);color:var(--ink-fg);border-bottom:2px solid var(--ink-accent)">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,3vw,40px)">
+      <div data-reveal="1" style="display:flex;align-items:center;gap:16px;padding:30px 0 4px">
+        <span style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-accent)">By the numbers</span>
+        <span style="flex:1;height:1px;background:color-mix(in srgb, var(--ink-fg) 22%, transparent)"></span>
+        <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, var(--ink-fg) 55%, transparent)">As of August 2026</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+        <a data-statcell="1" href="coursework.html" style="display:block;text-decoration:none;color:inherit;position:relative;padding:34px 24px 40px 0;transition:background 260ms cubic-bezier(.16,.84,.44,1),padding 260ms cubic-bezier(.16,.84,.44,1)">
+          <span data-statrule="1" style="position:absolute;top:0;left:0;height:3px;width:56px;background:var(--ink-accent);transition:width 420ms cubic-bezier(.16,.84,.44,1),background 260ms linear"></span>
+          <div data-reveal="1" style="display:flex;align-items:baseline;gap:10px;margin-bottom:22px">
+            <span data-statdesc="1" style="font-size:12.5px;color:color-mix(in srgb, var(--ink-fg) 55%, transparent);transition:color 260ms linear">out of 10</span>
+          </div>
+          <div data-statnum="1" data-count="8.30" data-count-decimals="2" style="font-family:var(--font-heading);font-weight:800;font-size:clamp(52px,6.6vw,84px);line-height:0.86;letter-spacing:-0.05em;font-variant-numeric:tabular-nums;transition:color 260ms linear">8.30</div>
+          <div data-statlabel="1" style="margin-top:22px;font-family:var(--font-heading);font-weight:700;font-size:14.5px;letter-spacing:0.11em;text-transform:uppercase;line-height:1.35;transition:color 260ms linear">CGPA at IISc</div>
+        </a>
+
+        <a data-statcell="1" href="coursework.html" style="display:block;text-decoration:none;color:inherit;position:relative;padding:34px 24px 40px;border-left:1px solid color-mix(in srgb, var(--ink-fg) 18%, transparent);transition:background 260ms cubic-bezier(.16,.84,.44,1),padding 260ms cubic-bezier(.16,.84,.44,1)">
+          <span data-statrule="1" style="position:absolute;top:0;left:0;height:3px;width:56px;background:var(--ink-accent);transition:width 420ms cubic-bezier(.16,.84,.44,1),background 260ms linear"></span>
+          <div data-reveal="1" data-reveal-delay="90" style="display:flex;align-items:baseline;gap:10px;margin-bottom:22px">
+            <span data-statdesc="1" style="font-size:12.5px;color:color-mix(in srgb, var(--ink-fg) 55%, transparent);transition:color 260ms linear">three semesters</span>
+          </div>
+          <div data-statnum="1" data-count="11" data-count-pad="2" style="font-family:var(--font-heading);font-weight:800;font-size:clamp(52px,6.6vw,84px);line-height:0.86;letter-spacing:-0.05em;font-variant-numeric:tabular-nums;transition:color 260ms linear">11</div>
+          <div data-statlabel="1" style="margin-top:22px;font-family:var(--font-heading);font-weight:700;font-size:14.5px;letter-spacing:0.11em;text-transform:uppercase;line-height:1.35;transition:color 260ms linear">Postgraduate courses</div>
+        </a>
+
+        <a data-statcell="1" href="projects.html" style="display:block;text-decoration:none;color:inherit;position:relative;padding:34px 24px 40px;border-left:1px solid color-mix(in srgb, var(--ink-fg) 18%, transparent);transition:background 260ms cubic-bezier(.16,.84,.44,1),padding 260ms cubic-bezier(.16,.84,.44,1)">
+          <span data-statrule="1" style="position:absolute;top:0;left:0;height:3px;width:56px;background:var(--ink-accent);transition:width 420ms cubic-bezier(.16,.84,.44,1),background 260ms linear"></span>
+          <div data-reveal="1" data-reveal-delay="180" style="display:flex;align-items:baseline;gap:10px;margin-bottom:22px">
+            <span data-statdesc="1" style="font-size:12.5px;color:color-mix(in srgb, var(--ink-fg) 55%, transparent);transition:color 260ms linear">edge AI to vision</span>
+          </div>
+          <div data-statnum="1" data-count="4" data-count-pad="2" style="font-family:var(--font-heading);font-weight:800;font-size:clamp(52px,6.6vw,84px);line-height:0.86;letter-spacing:-0.05em;font-variant-numeric:tabular-nums;transition:color 260ms linear">04</div>
+          <div data-statlabel="1" style="margin-top:22px;font-family:var(--font-heading);font-weight:700;font-size:14.5px;letter-spacing:0.11em;text-transform:uppercase;line-height:1.35;transition:color 260ms linear">Research projects</div>
+        </a>
+
+        <a data-statcell="1" href="projects.html" style="display:block;text-decoration:none;color:inherit;position:relative;padding:34px 0 40px 24px;border-left:1px solid color-mix(in srgb, var(--ink-fg) 18%, transparent);transition:background 260ms cubic-bezier(.16,.84,.44,1),padding 260ms cubic-bezier(.16,.84,.44,1)">
+          <span data-statrule="1" style="position:absolute;top:0;left:0;height:3px;width:56px;background:var(--ink-accent);transition:width 420ms cubic-bezier(.16,.84,.44,1),background 260ms linear"></span>
+          <div data-reveal="1" data-reveal-delay="270" style="display:flex;align-items:baseline;gap:10px;margin-bottom:22px">
+            <span data-statdesc="1" style="font-size:12.5px;color:color-mix(in srgb, var(--ink-fg) 55%, transparent);transition:color 260ms linear">Springer · IEEE</span>
+          </div>
+          <div data-statnum="1" data-count="3" data-count-pad="2" style="font-family:var(--font-heading);font-weight:800;font-size:clamp(52px,6.6vw,84px);line-height:0.86;letter-spacing:-0.05em;font-variant-numeric:tabular-nums;transition:color 260ms linear">03</div>
+          <div data-statlabel="1" style="margin-top:22px;font-family:var(--font-heading);font-weight:700;font-size:14.5px;letter-spacing:0.11em;text-transform:uppercase;line-height:1.35;transition:color 260ms linear">Publications</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1280px;margin:0 auto;padding:104px 40px 0">
+    <div data-reveal="1" style="display:flex;align-items:baseline;gap:18px;border-bottom:2px solid var(--color-divider);padding-bottom:14px">
+      <h2 style="margin:0;font-size:clamp(30px,4vw,46px);letter-spacing:-0.038em">Explore</h2>
+      <span class="text-muted" style="margin-left:auto;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase">Five ways in</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);border-left:2px solid var(--color-divider);border-right:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider)">
+      <a href="coursework.html" data-reveal="1" style="grid-column:span 2;display:flex;flex-direction:column;justify-content:space-between;min-height:300px;padding:30px 32px 30px;border-bottom:1px solid var(--color-divider);text-decoration:none;color:var(--ink-fg);background:var(--ink-bg);transition:background 240ms linear,color 240ms linear" style-hover="background:var(--color-accent);color:var(--ink-bg)">
+        <div style="font-family:var(--font-heading);font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;opacity:0.62">Three semesters</div>
+        <div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(34px,4.6vw,58px);letter-spacing:-0.042em;line-height:0.98">Coursework</div>
+          <div style="display:flex;align-items:flex-end;gap:22px;margin-top:16px">
+            <p style="margin:0;font-size:15px;line-height:1.5;max-width:44ch;opacity:0.72;text-wrap:pretty">Eleven postgraduate courses on a scrolling timeline. Open one for its assignments.</p>
+            <span style="margin-left:auto;font-family:var(--font-heading);font-weight:800;font-size:26px;line-height:1">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects.html" data-reveal="1" data-reveal-delay="80" style="display:flex;flex-direction:column;justify-content:space-between;min-height:300px;padding:30px 32px 30px;border-left:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);text-decoration:none;color:var(--color-accent-900);background:var(--color-accent-200);transition:background 240ms linear,color 240ms linear" style-hover="background:var(--color-accent);color:var(--ink-bg)">
+        <div style="font-family:var(--font-heading);font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;opacity:0.78">Four projects</div>
+        <div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(30px,3.4vw,42px);letter-spacing:-0.04em;line-height:0.98">Projects &amp;<br>Research</div>
+          <div style="display:flex;align-items:flex-end;gap:16px;margin-top:16px">
+            <p style="margin:0;font-size:14.5px;line-height:1.5;opacity:0.72;text-wrap:pretty">Three peer-reviewed papers.</p>
+            <span style="margin-left:auto;font-family:var(--font-heading);font-weight:800;font-size:26px;line-height:1">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="skills.html" data-reveal="1" data-reveal-delay="160" style="display:flex;flex-direction:column;justify-content:space-between;min-height:230px;padding:28px 32px;border-bottom:1px solid var(--color-divider);text-decoration:none;color:var(--color-neutral-900);background:var(--color-neutral-200);transition:background 240ms linear,color 240ms linear" style-hover="background:var(--color-accent);color:var(--ink-bg)">
+        <div style="font-family:var(--font-heading);font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;opacity:0.78">Traced to evidence</div>
+        <div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,3.2vw,40px);letter-spacing:-0.04em;line-height:0.98">Skill<br>Library</div>
+          <div style="display:flex;align-items:flex-end;margin-top:14px">
+            <p style="margin:0;font-size:14.5px;line-height:1.5;opacity:0.72;text-wrap:pretty">Every claim, backed.</p>
+            <span style="margin-left:auto;font-family:var(--font-heading);font-weight:800;font-size:26px;line-height:1">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="gallery.html" data-reveal="1" data-reveal-delay="240" style="display:flex;flex-direction:column;justify-content:space-between;min-height:230px;padding:28px 32px;border-left:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);text-decoration:none;color:var(--color-accent-900);background:var(--color-accent-200);transition:background 240ms linear,color 240ms linear" style-hover="background:var(--color-accent);color:var(--ink-bg)">
+        <div style="font-family:var(--font-heading);font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;opacity:0.78">Panels &amp; photographs</div>
+        <div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,3.2vw,40px);letter-spacing:-0.04em;line-height:0.98">Events &amp;<br>Gallery</div>
+          <div style="display:flex;align-items:flex-end;margin-top:14px">
+            <p style="margin:0;font-size:14.5px;line-height:1.5;opacity:0.72;text-wrap:pretty">Ripples’26 and beyond.</p>
+            <span style="margin-left:auto;font-family:var(--font-heading);font-weight:800;font-size:26px;line-height:1">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="resume.html" data-reveal="1" data-reveal-delay="320" style="display:flex;flex-direction:column;justify-content:space-between;min-height:230px;padding:28px 32px;border-left:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);text-decoration:none;color:var(--ink-bg);background:var(--color-accent);transition:background 240ms linear,color 240ms linear" style-hover="background:var(--ink-bg);color:var(--ink-fg)">
+        <div style="font-family:var(--font-heading);font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;opacity:1">PDF included</div>
+        <div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,3.2vw,40px);letter-spacing:-0.04em;line-height:0.98">Résumé</div>
+          <div style="display:flex;align-items:flex-end;margin-top:14px">
+            <p style="margin:0;font-size:14.5px;line-height:1.5;opacity:1;text-wrap:pretty">Read it, then take it.</p>
+            <span style="margin-left:auto;font-family:var(--font-heading);font-weight:800;font-size:26px;line-height:1">↓</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section style="max-width:1280px;margin:0 auto;padding:88px clamp(20px,3vw,40px) 0">
+    <div data-reveal="1" style="display:flex;align-items:baseline;gap:18px;border-bottom:2px solid var(--color-divider);padding-bottom:14px">
+      <h2 style="margin:0;font-size:clamp(30px,4vw,46px);letter-spacing:-0.038em">Latest project</h2>
+      <span class="text-muted" style="margin-left:auto;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase">Newest work</span>
+    </div>
+
+    <div data-reveal="1" style="border-left:2px solid var(--color-divider);border-right:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider)">
+      <div style="background:var(--color-accent);color:var(--ink-bg);display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:11px 28px">
+        <span style="font-family:var(--font-heading);font-weight:800;font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase">TinyML on the edge</span>
+        <span style="margin-left:auto;font-size:12.5px;font-variant-numeric:tabular-nums">Jan – Feb 2026</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)">
+        <div style="padding:38px 36px 38px 28px">
+          <h3 style="margin:0;font-size:clamp(28px,3.6vw,46px);letter-spacing:-0.04em;line-height:1.03;text-wrap:pretty">IMU-Based Human Activity Recognition on the Edge</h3>
+          <p style="margin:20px 0 0;font-size:16px;line-height:1.6;max-width:54ch;text-wrap:pretty">Twelve activities — eating, pick-and-place, jogging, cycling — classified by a model small enough to live inside a microcontroller. No cloud, no round trip.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:24px">
+            <span class="tag tag-neutral">Arduino Nicla Vision</span>
+            <span class="tag tag-neutral">Decision Tree</span>
+            <span class="tag tag-neutral">Feature Engineering</span>
+            <span class="tag tag-neutral">Python</span>
+          </div>
+          <div style="display:flex;margin-top:30px">
+            <a class="btn btn-primary" href="projects.html" style="padding:12px 19px">All four projects →</a>
+          </div>
+        </div>
+
+        <div style="background:var(--ink-bg);color:var(--ink-fg);padding:32px 30px 30px;display:flex;flex-direction:column">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-accent)">On-device accuracy</div>
+          <div data-count="99.43" data-count-decimals="2" data-count-suffix="%" style="font-family:var(--font-heading);font-weight:800;font-size:clamp(48px,6.4vw,84px);line-height:0.88;letter-spacing:-0.05em;font-variant-numeric:tabular-nums;margin-top:14px">99.43%</div>
+          <div style="font-size:12.5px;line-height:1.5;color:color-mix(in srgb, var(--ink-fg) 60%, transparent);margin-top:12px;text-wrap:pretty">On high-dynamic classes such as jogging and cycling.</div>
+
+          <div style="margin-top:auto;padding-top:28px">
+            <div style="display:flex;align-items:baseline;gap:16px;padding:13px 0;border-top:1px solid color-mix(in srgb, var(--ink-fg) 20%, transparent)">
+              <span style="font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--ink-fg) 62%, transparent)">IMU samples</span>
+              <span data-count="120" data-count-suffix="k+" style="margin-left:auto;font-family:var(--font-heading);font-weight:800;font-size:22px;letter-spacing:-0.03em;font-variant-numeric:tabular-nums">120k+</span>
+            </div>
+            <div style="display:flex;align-items:baseline;gap:16px;padding:13px 0;border-top:1px solid color-mix(in srgb, var(--ink-fg) 20%, transparent)">
+              <span style="font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--ink-fg) 62%, transparent)">Activity classes</span>
+              <span data-count="12" style="margin-left:auto;font-family:var(--font-heading);font-weight:800;font-size:22px;letter-spacing:-0.03em;font-variant-numeric:tabular-nums">12</span>
+            </div>
+            <div style="display:flex;align-items:baseline;gap:16px;padding:13px 0;border-top:1px solid color-mix(in srgb, var(--ink-fg) 20%, transparent)">
+              <span style="font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--ink-fg) 62%, transparent)">Sampling rate</span>
+              <span data-count="50" data-count-suffix=" Hz" style="margin-left:auto;font-family:var(--font-heading);font-weight:800;font-size:22px;letter-spacing:-0.03em;font-variant-numeric:tabular-nums">50 Hz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,300px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#c96442&quot;,&quot;#8a3e27&quot;,&quot;#6f6c63&quot;,&quot;#5b6a52&quot;],&quot;default&quot;:&quot;#c96442&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Appearance&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const go = () => { if (window.SiteMotion) { if (this.props.accent) window.SiteMotion.setAccent(this.props.accent); window.SiteMotion.init(); } };
+    go();
+    [200, 700, 1600, 3000].forEach(t => setTimeout(go, t));
+    this._hover = e => {
+      const cell = e.target.closest && e.target.closest('[data-statcell]');
+      if (cell !== this._lastCell) {
+        this._lastCell = cell;
+        document.querySelectorAll('[data-statcell]').forEach(c => {
+          const on = c === cell;
+          const q = s => c.querySelector(s);
+          c.style.background = on ? 'var(--ink-accent)' : 'transparent';
+          const rule = q('[data-statrule]');
+          if (rule) { rule.style.width = on ? '100%' : '56px'; rule.style.background = on ? 'var(--ink-bg)' : 'var(--ink-accent)'; }
+          const num = q('[data-statnum]');
+          if (num) num.style.color = on ? 'var(--ink-bg)' : 'var(--ink-fg)';
+          const label = q('[data-statlabel]');
+          if (label) label.style.color = on ? 'var(--ink-bg)' : 'var(--ink-fg)';
+          const desc = q('[data-statdesc]');
+          if (desc) desc.style.color = on ? 'color-mix(in srgb, var(--ink-bg) 72%, transparent)' : 'color-mix(in srgb, var(--ink-fg) 55%, transparent)';
+        });
+      }
+      const row = e.target.closest && e.target.closest('[data-hoverrow]');
+      if (row === this._lastRow) return;
+      this._lastRow = row;
+      document.querySelectorAll('[data-hoverrow]').forEach(r => {
+        const on = r === row;
+        const t = r.querySelector('[data-hovertitle]');
+        const a = r.querySelector('[data-hoverarrow]');
+        if (t) t.style.transform = on ? 'translateX(14px)' : 'none';
+        if (a) a.style.transform = on ? 'translateX(10px)' : 'none';
+        r.style.background = on ? 'color-mix(in srgb, var(--color-text) 4%, transparent)' : 'transparent';
+      });
+    };
+    document.addEventListener('mouseover', this._hover, { passive: true });
+  }
+  componentWillUnmount() { document.removeEventListener('mouseover', this._hover); }
+
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

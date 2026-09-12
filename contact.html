@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-c42a7d83-f6f9-4514-97b4-d66bb1698ad2/styles.css">
+<script src="_ds/modernist-c42a7d83-f6f9-4514-97b4-d66bb1698ad2/_ds_bundle.js"></script>
+<script src="./site-motion.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); }
+  a { color: var(--color-accent); text-decoration: none; }
+  a:hover { color: var(--color-accent-600); }
+  @keyframes om-rise { from { opacity: 0; transform: translateY(30px) } to { opacity: 1; transform: none } }
+  @keyframes om-note { from { opacity: 0; transform: translateY(-8px) } to { opacity: 1; transform: none } }
+</style>
+</helmet>
+
+<div data-screen-label="Contact" style="min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);padding-top:65px;overflow-x:hidden">
+  <dc-import name="SiteNav" active="contact" hint-size="100%,65px"></dc-import>
+
+  <section style="max-width:1280px;margin:0 auto;padding:0 40px">
+    <div style="padding:72px 0 40px;border-bottom:2px solid var(--color-divider);animation:om-rise 750ms cubic-bezier(.16,.84,.44,1) both">
+      <div style="display:flex;align-items:center;gap:13px;margin-bottom:22px">
+        <span style="width:36px;height:2px;background:var(--color-accent)"></span>
+        <span style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent)">Section 06</span>
+      </div>
+      <h1 style="margin:0;font-size:clamp(46px,7vw,88px);line-height:0.92;letter-spacing:-0.048em">Get in touch</h1>
+      <p style="margin:26px 0 0;font-size:17px;line-height:1.6;max-width:54ch;text-wrap:pretty">Research collaborations, edge-AI problems worth solving, or a role where models have to run on real hardware. Write below, or reach me directly through the links on the right.</p>
+    </div>
+  </section>
+
+  <section style="max-width:1280px;margin:0 auto;padding:0 40px">
+    <div style="display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:0;border-bottom:2px solid var(--color-divider)">
+      <div data-reveal="left" style="border-right:2px solid var(--color-divider);padding:44px 44px 50px 0">
+        <form onSubmit="{{ submit }}" style="display:grid;gap:22px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+            <div class="field">
+              <label for="cf-name">Your name</label>
+              <input id="cf-name" class="input" type="text" value="{{ name }}" onChange="{{ setName }}" placeholder="Full name" autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="cf-email">Your email</label>
+              <input id="cf-email" class="input" type="email" value="{{ email }}" onChange="{{ setEmail }}" placeholder="you@organisation.com" autocomplete="email">
+            </div>
+          </div>
+          <div class="field">
+            <label for="cf-subject">Subject</label>
+            <input id="cf-subject" class="input" type="text" value="{{ subject }}" onChange="{{ setSubject }}" placeholder="What is this about?">
+          </div>
+          <div class="field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" class="input" rows="7" value="{{ message }}" onChange="{{ setMessage }}" placeholder="A few lines is plenty." style="min-height:160px"></textarea>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+            <button type="submit" class="btn btn-primary" style="padding:13px 22px;font-size:15px">{{ buttonLabel }}</button>
+            <span class="text-muted" style="font-size:12.5px">{{ hint }}</span>
+          </div>
+          <sc-if value="{{ note }}" hint-placeholder-val="{{ false }}">
+            <div style="border-left:3px solid var(--color-accent);background:var(--color-surface);padding:16px 18px;animation:om-note 340ms cubic-bezier(.16,.84,.44,1) both">
+              <div style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.02em">{{ noteTitle }}</div>
+              <div class="text-muted" style="font-size:13.5px;line-height:1.55;margin-top:6px;text-wrap:pretty">{{ note }}</div>
+            </div>
+          </sc-if>
+        </form>
+      </div>
+
+      <div data-reveal="right" style="padding:44px 0 50px 44px">
+        <div class="text-muted" style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;border-bottom:2px solid var(--color-divider);padding-bottom:10px">Direct</div>
+        <sc-for list="{{ channels }}" as="ch" hint-placeholder-count="3">
+          <a href="{{ ch.href }}" target="{{ ch.target }}" rel="noopener" style="display:grid;grid-template-columns:minmax(0,1fr) 26px;gap:14px;align-items:center;padding:20px 0;border-bottom:1px solid var(--color-divider);text-decoration:none;color:var(--color-text)">
+            <div>
+              <div class="text-muted" style="font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase">{{ ch.kind }}</div>
+              <div style="font-family:var(--font-heading);font-weight:800;font-size:17px;letter-spacing:-0.018em;margin-top:5px;word-break:break-word">{{ ch.label }}</div>
+            </div>
+            <span style="justify-self:end;font-family:var(--font-heading);font-weight:800;font-size:19px;color:var(--color-accent)">→</span>
+          </a>
+        </sc-for>
+
+        <div style="margin-top:34px;border-top:2px solid var(--color-divider);padding-top:22px">
+          <div class="text-muted" style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase">Based in</div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:19px;letter-spacing:-0.02em;margin-top:8px;line-height:1.3">Indian Institute of Science<br>Bangalore, India</div>
+          <div class="text-muted" style="font-size:13.5px;line-height:1.6;margin-top:12px;text-wrap:pretty">Department of Design and Manufacturing. Usually reachable within a day or two.</div>
+        </div>
+
+        <div style="margin-top:34px;border-top:2px solid var(--color-divider);padding-top:22px">
+          <div class="text-muted" style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase">Open to</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+            <span class="tag tag-outline">Research collaboration</span>
+            <span class="tag tag-outline">Edge AI &amp; TinyML</span>
+            <span class="tag tag-outline">Computer vision</span>
+            <span class="tag tag-outline">Internships &amp; roles</span>
+            <span class="tag tag-outline">Speaking &amp; panels</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,300px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;contactEmail&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#c96442&quot;,&quot;#8a3e27&quot;,&quot;#6f6c63&quot;,&quot;#5b6a52&quot;],&quot;default&quot;:&quot;#c96442&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Appearance&quot;}}">
+class Component extends DCLogic {
+  state = { name: '', email: '', subject: '', message: '', status: '', sending: false };
+
+  componentDidMount() {
+    const go = () => { if (window.SiteMotion) { if (this.props.accent) window.SiteMotion.setAccent(this.props.accent); window.SiteMotion.init(); } };
+    go();
+    [200, 700, 1600, 3000].forEach(t => setTimeout(go, t));
+  }
+
+  field(key) { return e => this.setState({ [key]: e.target.value, status: '' }); }
+
+  submit = e => {
+    e.preventDefault();
+    const { name, email, subject, message } = this.state;
+    if (!name.trim() || !email.trim() || !message.trim()) { this.setState({ status: 'missing' }); return; }
+
+    const to = (this.props.contactEmail || '').trim();
+    const endpoint = (this.props.formEndpoint || '').trim();
+    const subjectLine = subject.trim() || ('Website enquiry from ' + name.trim());
+    const body = 'Name: ' + name.trim() + '\nEmail: ' + email.trim() + '\n\n' + message.trim();
+
+    if (endpoint) {
+      this.setState({ sending: true, status: '' });
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), subject: subjectLine, message: message.trim() })
+      })
+        .then(r => this.setState({ sending: false, status: r.ok ? 'sent' : 'failed' }))
+        .catch(() => this.setState({ sending: false, status: 'failed' }));
+      return;
+    }
+
+    if (to) {
+      window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subjectLine) + '&body=' + encodeURIComponent(body);
+      this.setState({ status: 'mail' });
+      return;
+    }
+
+    if (navigator.clipboard) navigator.clipboard.writeText(body).catch(() => {});
+    this.setState({ status: 'nodest' });
+  };
+
+  renderVals() {
+    const to = (this.props.contactEmail || '').trim();
+    const endpoint = (this.props.formEndpoint || '').trim();
+    const s = this.state.status;
+
+    const notes = {
+      missing: ['Something is missing', 'Please fill in your name, your email address and a message before sending.'],
+      sent: ['Message sent', 'Thank you — it has landed in my inbox. I usually reply within a day or two.'],
+      failed: ['That did not go through', 'The form service did not accept the message. Please email directly using the links on the right.'],
+      mail: ['Your mail app is opening', 'The message has been composed and handed to your email client — press send there to deliver it.'],
+      nodest: ['No destination set yet', 'The message has been copied to your clipboard. Add a contact email in this page’s settings to enable direct sending.']
+    };
+    const note = notes[s];
+
+    const channels = [];
+    if (to) channels.push({ kind: 'Email', label: to, href: 'mailto:' + to, target: '_self' });
+    channels.push({ kind: 'LinkedIn', label: 'abha-singh-sardar', href: 'https://www.linkedin.com/in/abha-singh-sardar/', target: '_blank' });
+    channels.push({ kind: 'GitHub', label: 'abhaanisha', href: 'https://github.com/abhaanisha', target: '_blank' });
+    channels.push({ kind: 'Résumé', label: 'Download the PDF', href: 'assets/Abha-Singh-Sardar-Resume.pdf', target: '_blank' });
+
+    return {
+      name: this.state.name, email: this.state.email, subject: this.state.subject, message: this.state.message,
+      setName: this.field('name'), setEmail: this.field('email'), setSubject: this.field('subject'), setMessage: this.field('message'),
+      submit: this.submit,
+      buttonLabel: this.state.sending ? 'Sending…' : 'Send message →',
+      hint: endpoint ? 'Delivered straight to my inbox.' : (to ? 'Opens in your mail app, addressed to me.' : 'Add a contact email to enable sending.'),
+      noteTitle: note ? note[0] : '',
+      note: note ? note[1] : '',
+      channels
+    };
+  }
+}
+</script>
+</body>
+</html>
