@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#242220"/>
+      <stop offset="100%" stop-color="#141312"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff583e"/>
+      <stop offset="100%" stop-color="#ec3013"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Squircle -->
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <rect x="1.5" y="1.5" width="125" height="125" rx="26.5" fill="none" stroke="#3b3735" stroke-width="2.5" stroke-opacity="0.85"/>
+
+  <!-- Modernist Industrial Monogram: A + signature diamond accent -->
+  <g id="brand-mark">
+    <!-- Outer A frame -->
+    <path d="M 36 94 L 64 28 L 92 94 L 76.5 94 L 64 63 L 51.5 94 Z" fill="#F4F3F1"/>
+    <!-- Precision accent crossbar -->
+    <rect x="47" y="69" width="34" height="8" rx="4" fill="url(#redGrad)"/>
+    <!-- Signature Modernist IISc accent diamond -->
+    <rect x="94" y="85" width="9" height="9" rx="2" transform="rotate(45 98.5 89.5)" fill="url(#redGrad)"/>
+  </g>
+</svg>
