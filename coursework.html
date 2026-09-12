@@ -126,10 +126,9 @@
                 <div style="display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,1fr);gap:44px">
                   <div>
                     <div style="font-family:var(--font-heading);font-weight:800;font-size:16px;line-height:1.4;letter-spacing:-0.014em;max-width:44ch;text-wrap:pretty">{{ course.short }}</div>
-                    <sc-if value="{{ course.hasFacultyLink }}" hint-placeholder-val="{{ false }}">
+                    <sc-if value="{{ course.hasInstructor }}" hint-placeholder-val="{{ false }}">
                       <div style="margin-top:8px;font-size:12px;letter-spacing:0.04em;color:var(--color-neutral-600)">
-                        <span style="font-weight:700;text-transform:uppercase;font-size:11px;color:var(--color-accent-700)">Instructors:</span> {{ course.instructor }} · 
-                        <a href="{{ course.facultyLink }}" target="_blank" rel="noopener noreferrer" style="color:var(--color-accent-700);font-weight:700;text-decoration:none;border-bottom:1px solid var(--color-accent-300);padding-bottom:1px" style-hover="border-color:var(--color-accent-700)">Course Webpage ↗</a>
+                        <span style="font-weight:700;text-transform:uppercase;font-size:11px;color:var(--color-accent-700)">Instructors:</span> {{ course.instructor }}
                       </div>
                     </sc-if>
                     <p style="margin:12px 0 0;font-size:14.5px;line-height:1.62;color:var(--color-neutral-700);max-width:54ch;text-wrap:pretty;text-align:justify;text-justify:inter-word">{{ course.description }}</p>
@@ -260,8 +259,8 @@ const COURSES = [
       { title: 'IMU-based human activity recognition on Arduino Nicla Vision', note: 'End-to-end TinyML pipeline — 120,000+ IMU samples at 50 Hz, 72-dimensional feature vectors, real-time on-device inference at 99.43% accuracy. Written up in full on the Projects page.' }
     ] },
   { sem: 's2', code: 'DS 207', title: 'Introduction to Natural Language Processing',
-    short: 'Graduate-level NLP foundations, sequence models, and modern Large Language Models (LLMs).',
-    description: 'A graduate-level introduction to Natural Language Processing taught by Prof. Danish Pruthi and Prof. Aditya Gopalan (Credits 3:1). Covers count-based and distributed representations, statistical N-gram language models, neural and recurrent architectures, transformer self-attention, and recent paradigms in LLMs including Chain-of-Thought SFT, Direct Preference Optimization (DPO), and GRPO reinforcement learning.',
+    short: 'Introduction to NLP: text representations, sequence models, and modern Large Language Models (LLMs).',
+    description: 'An introduction to Natural Language Processing taught by Prof. Danish Pruthi and Prof. Aditya Gopalan (Credits 3:1). Covers count-based and distributed representations, statistical N-gram language models, neural and recurrent architectures, transformer self-attention, and recent paradigms in LLMs including Chain-of-Thought SFT, Direct Preference Optimization (DPO), and GRPO reinforcement learning.',
     facultyLink: 'https://danishpruthi.com/teaching/ds-207-jan-2026/',
     instructor: 'Prof. Danish Pruthi & Prof. Aditya Gopalan',
     topics: ['Embeddings', 'Language Models', 'Transformers', 'RL & Alignment', 'LLMs'],
