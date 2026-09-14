@@ -170,7 +170,7 @@
                               </a>
                               <sc-if value="{{ item.hasRepo }}" hint-placeholder-val="{{ false }}">
                                 <a href="{{ item.repoLink }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-700);border:1px solid var(--color-neutral-400);background:var(--color-bg);padding:4px 10px;text-decoration:none;transition:border-color 160ms,color 160ms" style-hover="border-color:var(--color-accent);color:var(--color-accent)">
-                                  <span>Source Code (GitHub)</span>
+                                  <span>{{ item.repoLabel }}</span>
                                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path></svg>
                                 </a>
                               </sc-if>
@@ -181,7 +181,7 @@
                               </sc-if>
                               <sc-if value="{{ item.hasRaw }}" hint-placeholder-val="{{ false }}">
                                 <a href="{{ item.rawLink }}" download style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-700);border:1px solid var(--color-neutral-400);background:var(--color-bg);padding:4px 10px;text-decoration:none;transition:border-color 160ms,color 160ms" style-hover="border-color:var(--color-accent);color:var(--color-accent)">
-                                  <span>Download .ipynb</span>
+                                  <span>{{ item.rawLabel }}</span>
                                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                                 </a>
                               </sc-if>
@@ -315,9 +315,24 @@ const COURSES = [
       }
     ] },
   { sem: 's2', code: 'PD 215', title: 'Mechatronics',
-    short: 'Sensing, actuation, control and embedded computing, integrated.',
-    description: 'Integration rather than isolated subsystems — actuator and drive selection, feedback control, microcontroller interfacing, and the timing and noise problems that only appear once the pieces are wired together.',
-    topics: ['Actuators', 'Feedback control', 'Embedded systems', 'Integration'], assignments: [] },
+    short: 'Practical electronics, sensing, motion actuation, and feedback control of electromechanical systems.',
+    description: 'Taught by Prof. Manish Arora and Prof. Abhra Roy Chaudhari at the UTSAAH Laboratory (CPDM, IISc). Focuses on practical electronics for product design, sensor characteristics and signal conditioning, actuator sizing and motion actuation (solenoids, steppers, and DC servos), and closed-loop feedback control including transfer functions, state-space, and PID control.',
+    facultyLink: 'https://dm.iisc.ac.in/utsaah/pd215/',
+    facultyLabel: 'Course Syllabus & Outline (UTSAAH Lab)',
+    instructor: 'Prof. Manish Arora & Prof. Abhra Roy Chaudhari',
+    topics: ['Sensors & Actuators', 'Signal Conditioning', 'Feedback Control', 'Embedded Systems', 'IoT & Prototyping'],
+    assignments: [
+      {
+        title: 'IoT-Based Smart Irrigation System',
+        note: 'An autonomous closed-loop irrigation system engineered with the Raspberry Pi Pico W running MicroPython. Integrates multi-sensor telemetry (capacitive soil moisture with 10-sample trimmed ADC filtering, resistive water level with dry-run protection, DHT11 temp/humidity, YL-83 rain override, and YF-S401 Hall-effect flow metering) with 12V diaphragm pump actuation via a BC547 level-shifting relay driver and 1N4007 flyback protection. Features rule-based hysteresis control, an on-site 20×4 LCD interface, and an embedded HTTP server delivering a live WiFi dashboard and JSON REST API.',
+        link: 'assets/subjects/Mechatronics/Report_PD_215_Parthib_Abha.pdf',
+        linkLabel: 'View Project Report (PDF)',
+        rawLink: 'assets/subjects/Mechatronics/Report_PD_215_Parthib_Abha.pdf',
+        rawLabel: 'Download PDF',
+        repoLink: 'https://github.com/abhaanisha/abhaanisha.github.io/blob/main/assets/subjects/Mechatronics/Report_PD_215_Parthib_Abha.pdf',
+        repoLabel: 'View on GitHub'
+      }
+    ] },
   { sem: 's2', code: 'CO 201', title: 'The Art of Communication for Leaders',
     short: 'Technical storytelling, presentation craft and persuasive writing.',
     description: 'Structuring an argument for a technical audience and a non-technical one, presentation craft, and the written forms — proposals, reports, abstracts — that engineering leadership runs on.',
@@ -452,10 +467,12 @@ class Component extends DCLogic {
               link: a.link || null,
               linkLabel: a.linkLabel || (a.colabLink ? 'Open Notebook' : 'Live Application'),
               rawLink: a.rawLink || null,
+              rawLabel: a.rawLabel || 'Download .ipynb',
               hasRaw: !!a.rawLink,
               colabLink: a.colabLink || null,
               hasColab: !!a.colabLink,
               repoLink: a.repoLink || null,
+              repoLabel: a.repoLabel || 'Source Code (GitHub)',
               hasRepo: !!a.repoLink,
               hasLink: !!a.link,
               noLink: !a.link
