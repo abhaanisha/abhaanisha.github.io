@@ -176,7 +176,8 @@
                               </sc-if>
                               <sc-if value="{{ item.hasColab }}" hint-placeholder-val="{{ false }}">
                                 <a href="{{ item.colabLink }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-700);border:1px solid var(--color-neutral-400);background:var(--color-bg);padding:4px 10px;text-decoration:none;transition:border-color 160ms,color 160ms" style-hover="border-color:var(--color-accent);color:var(--color-accent)">
-                                  <span>Open in Colab</span>
+                                  <span>{{ item.colabLabel }}</span>
+                                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path></svg>
                                 </a>
                               </sc-if>
                               <sc-if value="{{ item.hasRaw }}" hint-placeholder-val="{{ false }}">
@@ -262,11 +263,61 @@ const COURSES = [
     description: 'How structure governs property, and how casting, forming, joining and machining exploit or constrain that relationship — with process selection as the recurring design question.',
     topics: ['Material selection', 'Forming', 'Joining', 'Machining'], assignments: [] },
   { sem: 's2', code: 'CP 330', title: 'Edge AI',
-    short: 'Model compression and inference on microcontroller-class hardware.',
-    description: 'Getting neural and classical models onto constrained devices: quantisation, pruning, operator support, memory and latency profiling, and the accuracy trade that every compression step demands.',
-    topics: ['TinyML', 'Quantisation', 'On-device inference', 'Profiling'],
+    short: 'Model compression, TinyML optimization, and real-time on-device neural inference.',
+    description: 'Taught by Prof. Pandarasamy Arjunan at RBCCPS, IISc. Covers end-to-end edge machine learning pipelines: microcontroller-class sensor fusion on Arduino Nicla Vision, model compression via post-training quantization (INT8, FP16) and structural pruning, TinyML latency and memory profiling, edge LLM benchmarking, and multimodal edge intelligence.',
+    facultyLink: 'https://www.samy101.com/edge-ai-26/',
+    facultyLabel: 'Faculty Course Page (Prof. Pandarasamy Arjunan)',
+    instructor: 'Prof. Pandarasamy Arjunan',
+    topics: ['TinyML', 'Nicla Vision', 'Model Quantization', 'Neural Pruning', 'Edge LLMs', 'On-Device Inference'],
     assignments: [
-      { title: 'IMU-based human activity recognition on Arduino Nicla Vision', note: 'End-to-end TinyML pipeline — 120,000+ IMU samples at 50 Hz, 72-dimensional feature vectors, real-time on-device inference at 99.43% accuracy. Written up in full on the Projects page.' }
+      {
+        title: 'Assignment 1: IMU-Based Human Activity Recognition using Nicla Vision',
+        note: 'End-to-end TinyML pipeline on Arduino Nicla Vision: data acquisition of 120,000+ IMU samples at 50 Hz, 72-dimensional feature extraction over sliding windows, t-SNE clustering, Decision Tree model development, and real-time MicroPython on-device deployment achieving 99.43% classification accuracy across 12 activity classes.',
+        link: 'assets/subjects/EdgeAI/27086_AbhaSinghSardar_Assignment1/report.pdf',
+        linkLabel: 'View Report (PDF)',
+        rawLink: 'assets/subjects/EdgeAI/27086_AbhaSinghSardar_Assignment1/report.pdf',
+        rawLabel: 'Download Report (PDF)',
+        repoLink: 'https://github.com/abhaanisha/abhaanisha.github.io/blob/main/assets/subjects/EdgeAI/27086_AbhaSinghSardar_Assignment1/model_development.ipynb',
+        repoLabel: 'Notebook (GitHub)',
+        colabLink: 'https://colab.research.google.com/github/abhaanisha/abhaanisha.github.io/blob/main/assets/subjects/EdgeAI/27086_AbhaSinghSardar_Assignment1/model_development.ipynb'
+      },
+      {
+        title: 'Assignment 2: Post-Training Model Quantization',
+        note: 'Implementation and comparative evaluation of post-training quantization techniques for MobileNetV2 and VGG16 models in TensorFlow Lite. Evaluates Dynamic Range Quantization, Float16 Quantization, and Full Integer INT8 Quantization with representative dataset calibration, analyzing memory footprint reduction, inference latency speedup, and accuracy trade-offs.',
+        link: 'https://github.com/abhaanisha/abhaanisha.github.io/blob/main/assets/subjects/EdgeAI/27086_AbhaSinghSardar_Assignment2.ipynb',
+        linkLabel: 'Open Notebook',
+        rawLink: 'assets/subjects/EdgeAI/27086_AbhaSinghSardar_Assignment2.ipynb',
+        rawLabel: 'Download .ipynb',
+        colabLink: 'https://colab.research.google.com/github/abhaanisha/abhaanisha.github.io/blob/main/assets/subjects/EdgeAI/27086_AbhaSinghSardar_Assignment2.ipynb'
+      },
+      {
+        title: 'Assignment 3: Neural Network Model Pruning',
+        note: 'Comprehensive model pruning using TensorFlow Model Optimization Toolkit (TFMOT). Covers magnitude-based weight pruning (20%–80% sparsity), layer-wise sensitivity profiling, fine-tuning accuracy recovery, iterative vs. one-shot pruning strategies, and a combined pruning + INT8 quantization pipeline with Pareto-optimal efficiency benchmarking.',
+        link: 'https://github.com/abhaanisha/abhaanisha.github.io/blob/main/assets/subjects/EdgeAI/27086_AbhaSinghSardar_Assignment3.ipynb',
+        linkLabel: 'Open Notebook',
+        rawLink: 'assets/subjects/EdgeAI/27086_AbhaSinghSardar_Assignment3.ipynb',
+        rawLabel: 'Download .ipynb',
+        colabLink: 'https://colab.research.google.com/github/abhaanisha/abhaanisha.github.io/blob/main/assets/subjects/EdgeAI/27086_AbhaSinghSardar_Assignment3.ipynb'
+      },
+      {
+        title: 'Coding Assignment 4: Edge LLM & Multimodal AI Benchmarking',
+        note: 'Performance benchmarking of Small Language Models (SLMs) and Vision-Language Models (VLMs) for resource-constrained edge execution. Investigates token generation latency, memory footprints, Retrieval-Augmented Generation (RAG) with local vector embeddings, and multimodal visual reasoning.',
+        link: 'https://github.com/abhaanisha/abhaanisha.github.io/blob/main/assets/subjects/EdgeAI/27086_AbhaSinghSardar_Assignment4/Assignmnet_4.ipynb',
+        linkLabel: 'Open Notebook',
+        rawLink: 'assets/subjects/EdgeAI/27086_AbhaSinghSardar_Assignment4/Assignmnet_4.ipynb',
+        rawLabel: 'Download .ipynb',
+        colabLink: 'https://colab.research.google.com/github/abhaanisha/abhaanisha.github.io/blob/main/assets/subjects/EdgeAI/27086_AbhaSinghSardar_Assignment4/Assignmnet_4.ipynb'
+      },
+      {
+        title: 'Course Project: Head Gesture Recognition System',
+        note: 'A wearable TinyML assistive communication device for motor-impaired individuals. Features bilateral 12-axis IMU sensing across dual temple-mounted Arduino Nicla Vision boards, low-latency Wi-Fi UDP streaming, on-device TensorFlow Lite INT8 quantized neural network classifying 6 head gestures + idle state, and an Arduino UNO R4 WiFi unit providing real-time OLED feedback and buzzer alarms.',
+        link: 'https://github.com/abhaanisha/Head-Gesture-Recognition-System',
+        linkLabel: 'GitHub Repository',
+        repoLink: 'https://drive.google.com/file/d/1__JJ69PBDf3QR5xZBZMHhklWdVlq01Ug/view?usp=drivesdk',
+        repoLabel: 'Watch Presentation',
+        colabLink: 'https://indianinstituteofscience-my.sharepoint.com/:v:/g/personal/abhas_iisc_ac_in/IQCmHS_j7puyQ6OWcKqMe5GkAeruAGz5R6FupJL88lnMZLk?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=pOxfAL',
+        colabLabel: 'Watch Demo Video'
+      }
     ] },
   { sem: 's2', code: 'DS 207', title: 'Introduction to Natural Language Processing',
     short: 'Introduction to NLP: text representations, sequence models, and modern Large Language Models (LLMs).',
@@ -485,6 +536,7 @@ class Component extends DCLogic {
               rawLabel: a.rawLabel || 'Download .ipynb',
               hasRaw: !!a.rawLink,
               colabLink: a.colabLink || null,
+              colabLabel: a.colabLabel || 'Open in Colab',
               hasColab: !!a.colabLink,
               repoLink: a.repoLink || null,
               repoLabel: a.repoLabel || 'Source Code (GitHub)',
