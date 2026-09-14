@@ -128,7 +128,7 @@
                     <div style="font-family:var(--font-heading);font-weight:800;font-size:16px;line-height:1.4;letter-spacing:-0.014em;max-width:44ch;text-wrap:pretty">{{ course.short }}</div>
                     <sc-if value="{{ course.hasInstructor }}" hint-placeholder-val="{{ false }}">
                       <div style="margin-top:8px;font-size:12px;letter-spacing:0.04em;color:var(--color-neutral-600)">
-                        <span style="font-weight:700;text-transform:uppercase;font-size:11px;color:var(--color-accent-700)">Instructors:</span> {{ course.instructor }}
+                        <span style="font-weight:700;text-transform:uppercase;font-size:11px;color:var(--color-accent-700)">{{ course.instructorLabel }}</span> {{ course.instructor }}
                       </div>
                     </sc-if>
                     <p style="margin:12px 0 0;font-size:14.5px;line-height:1.62;color:var(--color-neutral-700);max-width:54ch;text-wrap:pretty;text-align:justify;text-justify:inter-word">{{ course.description }}</p>
@@ -140,7 +140,7 @@
                     <sc-if value="{{ course.hasFacultyLink }}" hint-placeholder-val="{{ false }}">
                       <div style="margin-top:18px">
                         <a href="{{ course.facultyLink }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-heading);font-weight:700;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700);border:1.5px solid var(--color-accent-400);background:var(--color-bg);padding:7px 14px;text-decoration:none;transition:all 160ms" style-hover="background:var(--color-accent-700);color:var(--color-bg)">
-                          <span>Faculty Course Page (Prof. Danish Pruthi)</span>
+                          <span>{{ course.facultyLabel }}</span>
                           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path></svg>
                         </a>
                       </div>
@@ -165,16 +165,26 @@
                           <sc-if value="{{ item.hasLink }}" hint-placeholder-val="{{ false }}">
                             <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
                               <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700);border:1px solid var(--color-accent-300);background:var(--color-bg);padding:4px 10px;text-decoration:none;transition:background 160ms,color 160ms" style-hover="background:var(--color-accent-700);color:var(--color-bg)">
-                                <span>Open Notebook</span>
+                                <span>{{ item.linkLabel }}</span>
                                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path></svg>
                               </a>
-                              <a href="{{ item.colabLink }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-700);border:1px solid var(--color-neutral-400);background:var(--color-bg);padding:4px 10px;text-decoration:none;transition:border-color 160ms,color 160ms" style-hover="border-color:var(--color-accent);color:var(--color-accent)">
-                                <span>Open in Colab</span>
-                              </a>
-                              <a href="{{ item.rawLink }}" download style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-700);border:1px solid var(--color-neutral-400);background:var(--color-bg);padding:4px 10px;text-decoration:none;transition:border-color 160ms,color 160ms" style-hover="border-color:var(--color-accent);color:var(--color-accent)">
-                                <span>Download .ipynb</span>
-                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                              </a>
+                              <sc-if value="{{ item.hasRepo }}" hint-placeholder-val="{{ false }}">
+                                <a href="{{ item.repoLink }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-700);border:1px solid var(--color-neutral-400);background:var(--color-bg);padding:4px 10px;text-decoration:none;transition:border-color 160ms,color 160ms" style-hover="border-color:var(--color-accent);color:var(--color-accent)">
+                                  <span>Source Code (GitHub)</span>
+                                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path></svg>
+                                </a>
+                              </sc-if>
+                              <sc-if value="{{ item.hasColab }}" hint-placeholder-val="{{ false }}">
+                                <a href="{{ item.colabLink }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-700);border:1px solid var(--color-neutral-400);background:var(--color-bg);padding:4px 10px;text-decoration:none;transition:border-color 160ms,color 160ms" style-hover="border-color:var(--color-accent);color:var(--color-accent)">
+                                  <span>Open in Colab</span>
+                                </a>
+                              </sc-if>
+                              <sc-if value="{{ item.hasRaw }}" hint-placeholder-val="{{ false }}">
+                                <a href="{{ item.rawLink }}" download style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-700);border:1px solid var(--color-neutral-400);background:var(--color-bg);padding:4px 10px;text-decoration:none;transition:border-color 160ms,color 160ms" style-hover="border-color:var(--color-accent);color:var(--color-accent)">
+                                  <span>Download .ipynb</span>
+                                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                </a>
+                              </sc-if>
                             </div>
                           </sc-if>
                         </div>
@@ -262,6 +272,7 @@ const COURSES = [
     short: 'Introduction to NLP: text representations, sequence models, and modern Large Language Models (LLMs).',
     description: 'An introduction to Natural Language Processing taught by Prof. Danish Pruthi and Prof. Aditya Gopalan (Credits 3:1). Covers count-based and distributed representations, statistical N-gram language models, neural and recurrent architectures, transformer self-attention, and recent paradigms in LLMs including Chain-of-Thought SFT, Direct Preference Optimization (DPO), and GRPO reinforcement learning.',
     facultyLink: 'https://danishpruthi.com/teaching/ds-207-jan-2026/',
+    facultyLabel: 'Faculty Course Page (Prof. Danish Pruthi)',
     instructor: 'Prof. Danish Pruthi & Prof. Aditya Gopalan',
     topics: ['Embeddings', 'Language Models', 'Transformers', 'RL & Alignment', 'LLMs'],
     assignments: [
@@ -288,9 +299,21 @@ const COURSES = [
       }
     ] },
   { sem: 's2', code: 'MN 204', title: 'Human Machine Interaction for Manufacturing',
-    short: 'Operator-centred design of machine interfaces on the shop floor.',
-    description: 'Designing the boundary between operator and machine: cognitive load, situation awareness, error and recovery, and how interface decisions turn into safety and throughput outcomes.',
-    topics: ['HMI', 'Ergonomics', 'Cognitive load', 'Usability testing'], assignments: [] },
+    short: 'Operator-centred design of machine interfaces and shop-floor manufacturing execution systems.',
+    description: 'Designing the boundary between operator and machine taught by Prof. Pradipta Biswas. Focuses on cognitive load, situation awareness, error tolerant interaction, and translating human factors into safe, high-throughput manufacturing execution systems (MES).',
+    facultyLink: 'https://cambum.net/PB/lecture-notes.php#id1',
+    facultyLabel: 'Faculty Lecture Notes (Prof. Pradipta Biswas)',
+    instructor: 'Prof. Pradipta Biswas',
+    topics: ['HMI', 'MES Interface', 'Cognitive Ergonomics', 'Usability Testing', 'Operator Safety'],
+    assignments: [
+      {
+        title: 'Fabricatech OPS — Manufacturing Execution System',
+        note: 'A high-fidelity industrial Human-Machine Interface (HMI) simulating a shop-floor Manufacturing Execution System (MES) with role-based safety checkpoints, real-time telemetry, equipment status monitoring, and operator-centered usability workflows.',
+        link: 'https://abhaanisha.github.io/fabricatech-mes/',
+        repoLink: 'https://github.com/abhaanisha/fabricatech-mes',
+        linkLabel: 'Live Web App'
+      }
+    ] },
   { sem: 's2', code: 'PD 215', title: 'Mechatronics',
     short: 'Sensing, actuation, control and embedded computing, integrated.',
     description: 'Integration rather than isolated subsystems — actuator and drive selection, feedback control, microcontroller interfacing, and the timing and noise problems that only appear once the pieces are wired together.',
@@ -409,7 +432,9 @@ class Component extends DCLogic {
             code: c.code, title: c.title, short: c.short, description: c.description,
             topics: c.topics, isEmpty: c.assignments.length === 0,
             hasFacultyLink: !!c.facultyLink, facultyLink: c.facultyLink || null,
+            facultyLabel: c.facultyLabel || (c.instructor ? 'Faculty Course Page (' + c.instructor + ')' : 'Faculty Course Page'),
             hasInstructor: !!c.instructor, instructor: c.instructor || null,
+            instructorLabel: (c.instructor && (c.instructor.includes('&') || c.instructor.includes(','))) ? 'Instructors:' : 'Instructor:',
             done: done, pending: !done,
             open: isOpen, caret: isOpen ? '180deg' : '0deg',
             rowBg: isOpen ? 'var(--color-accent-100)' : 'transparent',
@@ -425,8 +450,13 @@ class Component extends DCLogic {
               title: a.title,
               note: a.note,
               link: a.link || null,
-              rawLink: a.rawLink || a.link || null,
+              linkLabel: a.linkLabel || (a.colabLink ? 'Open Notebook' : 'Live Application'),
+              rawLink: a.rawLink || null,
+              hasRaw: !!a.rawLink,
               colabLink: a.colabLink || null,
+              hasColab: !!a.colabLink,
+              repoLink: a.repoLink || null,
+              hasRepo: !!a.repoLink,
               hasLink: !!a.link,
               noLink: !a.link
             })),
