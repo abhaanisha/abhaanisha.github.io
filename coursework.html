@@ -409,8 +409,45 @@ const COURSES = [
     topics: ['Association rules', 'Classification', 'Clustering', 'Dimensionality reduction'], assignments: [] },
   { sem: 's3', code: 'MN 207', title: 'Intelligent Mobile Robotics: Perception, Action and Control',
     short: 'Perception, planning and control for autonomous mobile robots.',
-    description: 'The full autonomy stack for a mobile platform: sensing and state estimation, mapping and localisation, motion planning, and the control loops that turn a plan into motion in an environment that keeps changing.',
-    topics: ['SLAM', 'State estimation', 'Motion planning', 'Control'], assignments: [] },
+    description: 'Taught by Prof. Abhra Roy Chowdhury at the Robotics Innovations Lab (RIL, DDM, IISc). Covers the full autonomy stack for mobile robotic platforms: multi-sensor interfacing and characterization, dual H-bridge motor actuation and differential kinematics, state estimation and SLAM, motion planning, and closed-loop feedback control.',
+    facultyLink: 'https://github.com/abhaanisha/MobileRobots',
+    facultyLabel: 'Mobile Robots Repository (GitHub)',
+    instructor: 'Prof. Abhra Roy Chowdhury',
+    topics: ['Differential Drive', 'Sensor Interfacing', 'Motor Control (L298N)', 'SLAM', 'State Estimation', 'Motion Planning'],
+    assignments: [
+      {
+        title: 'Lab Assignment 1A: Five-Channel Infrared Sensor Array for Autonomous Line Tracking',
+        note: 'Design, interfacing, and characterization of a 5-channel optical reflectance infrared sensor array on an Arduino Mega 2560. Implements analog-to-digital conversion (ADC), surface reflectance thresholding, spatial weighted line position estimation, and edge-loss recovery logic for autonomous closed-loop line following.',
+        link: 'assets/subjects/MobileRobots/Assignment1/report_IR_Sensor.pdf',
+        linkLabel: 'View Report (PDF)',
+        rawLink: 'assets/subjects/MobileRobots/Assignment1/report_IR_Sensor.pdf',
+        rawLabel: 'Download PDF',
+        repoLink: 'https://github.com/abhaanisha/MobileRobots/tree/main/Assignment1',
+        repoLabel: 'View on GitHub'
+      },
+      {
+        title: 'Lab Assignment 1B: Ultrasonic Distance Measurement System (HC-SR04)',
+        note: 'Time-of-flight acoustic distance sensing using the HC-SR04 ultrasonic transducer module interfaced with an Arduino Mega 2560. Features 10 µs trigger pulse sequencing, 40 kHz 8-cycle sonic burst analysis, high-precision pulseIn() echo timing, acoustic temperature compensation, and continuous real-time serial telemetry.',
+        link: 'assets/subjects/MobileRobots/Assignment1/report_Ultrasonic_Sensor.pdf',
+        linkLabel: 'View Report (PDF)',
+        rawLink: 'assets/subjects/MobileRobots/Assignment1/report_Ultrasonic_Sensor.pdf',
+        rawLabel: 'Download PDF',
+        repoLink: 'https://github.com/abhaanisha/MobileRobots/tree/main/Assignment1',
+        repoLabel: 'View on GitHub'
+      },
+      {
+        title: 'Lab Assignment 2: Dual H-Bridge Motor Speed & Direction Control (L298N)',
+        note: 'Bidirectional PWM velocity regulation and directional rotation control for a differential-drive mobile robot. Interfaced an L298N dual H-bridge motor driver with an Arduino Mega 2560, implementing active forward/reverse driving, dynamic regenerative braking, 4-phase cyclic test routines, and optical encoder feedback telemetry.',
+        link: 'assets/subjects/MobileRobots/Assignment2/report_H_Bridge.pdf',
+        linkLabel: 'View Report (PDF)',
+        repoLink: 'https://github.com/abhaanisha/MobileRobots/tree/main/Assignment2',
+        repoLabel: 'Firmware & Circuit (GitHub)',
+        colabLink: 'https://indianinstituteofscience.sharepoint.com/:v:/s/MN2072026-27Aug-Dec/IQBDHjg9-icaQKrUQQ8hURULAYgFpN8kbQRPvqOYy3tRWW0?e=3t7jld',
+        colabLabel: 'Watch Demo Video',
+        rawLink: 'assets/subjects/MobileRobots/Assignment2/CODE_H_BRIDGE.ino',
+        rawLabel: 'Download .ino'
+      }
+    ] },
   { sem: 's3', code: 'Makers', title: 'Makers Project',
     short: 'Open-ended build project in the department workshop.',
     description: 'A self-directed making project taken from concept to working artefact — scoping the build, fabricating in the workshop, and iterating on the prototype against how it actually performs.',
