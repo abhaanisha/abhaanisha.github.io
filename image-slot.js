@@ -1097,7 +1097,8 @@
       if (stored && stored.u && !/^data:image\//i.test(stored.u)) stored = null;
       const srcAttr = this.getAttribute('src') || '';
       this._userUrl = (stored && stored.u) || null;
-      const url = this._userUrl || srcAttr;
+      let url = this._userUrl || srcAttr;
+      if (url && url.includes('{{')) url = null;
       // Don't clobber an in-flight reframe with a store-triggered re-render.
       if (!this.hasAttribute('data-reframe')) {
         this._view = {

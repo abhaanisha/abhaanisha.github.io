@@ -22,6 +22,20 @@
   a { color: var(--color-accent); text-decoration: none; }
   a:hover { color: var(--color-accent-600); }
   @keyframes om-rise { from { opacity: 0; transform: translateY(30px) } to { opacity: 1; transform: none } }
+  .grayscale { transition: filter 320ms cubic-bezier(.16,.84,.44,1); }
+  .grayscale:hover { filter: grayscale(0) contrast(1.02); }
+  .thumb-btn:hover span { opacity: 1 !important; filter: grayscale(0) !important; }
+  .panel-nav-btn:hover { background: rgba(127,127,127,.12) !important; }
+  @media (max-width: 860px) {
+    .event-split-grid, .event-split-grid-reverse { grid-template-columns: 1fr !important; }
+    .event-split-grid > div:first-child { border-right: 0 !important; border-bottom: 2px solid var(--color-divider); padding-right: 0 !important; }
+    .event-split-grid-reverse > div:first-child { border-bottom: 2px solid var(--color-divider); }
+    .event-split-grid-reverse > div:last-child { border-left: 0 !important; padding-left: 0 !important; }
+    .gallery-grid { grid-template-columns: 1fr !important; }
+  }
+  @media (min-width: 861px) and (max-width: 1100px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  }
 </style>
 </helmet>
 
@@ -35,38 +49,96 @@
         <span style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent)">Section 04</span>
       </div>
       <h1 style="margin:0;font-size:clamp(46px,7vw,88px);line-height:0.92;letter-spacing:-0.048em">Events &amp;<br>Gallery</h1>
-      <p style="margin:26px 0 0;font-size:17px;line-height:1.6;max-width:54ch;text-wrap:pretty">Moderating at IISc Open Day, the HR Conclave, and the ordinary days around the department. Drag a photograph onto any frame — it stays there.</p>
+      <p style="margin:26px 0 0;font-size:17px;line-height:1.6;max-width:54ch;text-wrap:pretty">Moderating at IISc Open Day, the HR Conclave, and academic moments around the Department of Design and Manufacturing. Explore highlights or drag a photograph onto any frame.</p>
     </div>
   </section>
 
   <section style="max-width:1280px;margin:0 auto;padding:0 40px">
-    <div data-reveal="1" style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:0;border-bottom:2px solid var(--color-divider)">
-      <div style="border-right:2px solid var(--color-divider);padding:38px 40px 42px 0">
-        <div style="display:flex;align-items:center;gap:12px">
-          <span class="tag tag-accent">Moderator</span>
-          <span class="text-muted" style="font-size:12px">Ripples’26 · IISc Open Day</span>
+    <div data-reveal="1" class="event-split-grid" style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.1fr);gap:0;border-bottom:2px solid var(--color-divider)">
+      <div style="border-right:2px solid var(--color-divider);padding:38px 40px 42px 0;display:flex;flex-direction:column;justify-content:space-between">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <span class="tag tag-accent">Moderator</span>
+            <span class="text-muted" style="font-size:12px">Ripples’26 · IISc Open Day · Dept. of Design &amp; Manufacturing</span>
+          </div>
+          <h2 style="margin:18px 0 0;font-size:clamp(26px,3.3vw,40px);letter-spacing:-0.035em;line-height:1.08;text-wrap:pretty">Beyond Automation: Artificial Intelligence in Engineering Design and Production</h2>
+          <p style="margin:18px 0 0;font-size:15.5px;line-height:1.65;max-width:58ch;text-wrap:pretty">Moderated the flagship Ripples’26 panel discussion at IISc Open Day, framing the conversation between academia and industry leaders on where artificial intelligence genuinely transforms design synthesis and manufacturing workflows — and where human engineering intuition and physical validation remain indispensable.</p>
+          
+          <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--color-divider)">
+            <div style="font-family:var(--font-heading);font-weight:700;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">Distinguished Panellists</div>
+            <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;font-size:13px;line-height:1.4">
+              <div style="padding:10px 12px;background:rgba(127,127,127,.05);border-left:2px solid var(--color-accent)">
+                <div style="font-weight:600">Prof. Kausik Bhattacharya</div>
+                <div class="text-muted" style="font-size:11.5px">Caltech / IISc</div>
+              </div>
+              <div style="padding:10px 12px;background:rgba(127,127,127,.05);border-left:2px solid var(--color-accent)">
+                <div style="font-weight:600">Dr. Dheepa Srinivasan</div>
+                <div class="text-muted" style="font-size:11.5px">Chief Materials Scientist</div>
+              </div>
+              <div style="padding:10px 12px;background:rgba(127,127,127,.05);border-left:2px solid var(--color-accent)">
+                <div style="font-weight:600">Mr. Atul Singhal</div>
+                <div class="text-muted" style="font-size:11.5px">Engineering Leader</div>
+              </div>
+              <div style="padding:10px 12px;background:rgba(127,127,127,.05);border-left:2px solid var(--color-accent)">
+                <div style="font-weight:600">Mr. Balachandran K.</div>
+                <div class="text-muted" style="font-size:11.5px">Design &amp; Systems Lead</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h2 style="margin:18px 0 0;font-size:clamp(26px,3.3vw,40px);letter-spacing:-0.035em;line-height:1.08;text-wrap:pretty">Beyond Automation: Artificial Intelligence in Engineering Design and Production</h2>
-        <p style="margin:18px 0 0;font-size:15.5px;line-height:1.65;max-width:58ch;text-wrap:pretty">Moderated the Ripples’26 panel discussion at IISc Open Day, framing the conversation between academia and industry on where artificial intelligence genuinely changes design and production practice — and, more usefully, where it does not.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:22px">
+
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:24px">
           <span class="tag tag-neutral">Panel moderation</span>
           <span class="tag tag-neutral">AI in production</span>
-          <span class="tag tag-neutral">Open Day</span>
+          <span class="tag tag-neutral">Generative design</span>
+          <span class="tag tag-neutral">Cyber-physical systems</span>
+          <span class="tag tag-neutral">IISc Open Day</span>
         </div>
       </div>
-      <div class="grayscale" data-parallax="-0.02" style="position:relative;min-height:340px;border-left:0">
-        <image-slot id="ev-panel-hero" shape="rect" fit="cover" placeholder="Panel discussion photo"></image-slot>
+
+      <div style="display:flex;flex-direction:column;justify-content:space-between;background:rgba(127,127,127,.02)">
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--color-divider);background:rgba(127,127,127,.04)">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.12em;color:var(--color-accent);font-variant-numeric:tabular-nums">{{ panelCounter }}</span>
+              <span style="font-weight:600;font-size:13px;letter-spacing:-0.01em">{{ panelTitle }}</span>
+            </div>
+            <div style="display:flex;gap:0;border:1px solid var(--color-divider)">
+              <button type="button" class="panel-nav-btn" onClick="{{ prevPanel }}" title="Previous photo" style="cursor:pointer;background:transparent;color:var(--color-text);border:0;padding:6px 14px;font-family:var(--font-heading);font-weight:700;font-size:13px;transition:background 150ms">←</button>
+              <button type="button" class="panel-nav-btn" onClick="{{ nextPanel }}" title="Next photo" style="cursor:pointer;background:transparent;color:var(--color-text);border:0;border-left:1px solid var(--color-divider);padding:6px 14px;font-family:var(--font-heading);font-weight:700;font-size:13px;transition:background 150ms">→</button>
+            </div>
+          </div>
+
+          <div class="grayscale" style="position:relative;width:100%;aspect-ratio:16/10;overflow:hidden">
+            <image-slot id="{{ panelHeroId }}" shape="rect" fit="cover" src="{{ panelHeroSrc }}" placeholder="Panel discussion photo"></image-slot>
+          </div>
+
+          <div style="padding:12px 18px;border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);font-size:12.5px;line-height:1.55;color:var(--color-text);min-height:42px">
+            {{ panelCaption }}
+          </div>
+        </div>
+
+        <div style="padding:12px 18px">
+          <div style="font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px">Beyond Automation Gallery Strip</div>
+          <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin">
+            <sc-for list="{{ panelThumbs }}" as="th">
+              <button type="button" class="thumb-btn" onClick="{{ th.select }}" title="{{ th.title }}" style="flex:0 0 68px;height:48px;padding:0;margin:0;cursor:pointer;border:{{ th.border }};background:transparent;overflow:hidden;outline:none;position:relative;transition:all 180ms ease">
+                <span style="display:block;width:100%;height:100%;background-image:url('{{ th.src }}');background-size:cover;background-position:center;opacity:{{ th.opacity }};filter:grayscale({{ th.gray }});transition:filter 180ms,opacity 180ms"></span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div data-reveal="1" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:0;border-bottom:2px solid var(--color-divider)">
-      <div class="grayscale" style="position:relative;min-height:320px">
-        <image-slot id="ev-hr-hero" shape="rect" fit="cover" placeholder="HR Conclave photo"></image-slot>
+    <div data-reveal="1" class="event-split-grid-reverse" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:0;border-bottom:2px solid var(--color-divider)">
+      <div class="grayscale" style="position:relative;min-height:340px">
+        <image-slot id="ev-hr-hero" shape="rect" fit="cover" src="assets/Gallery/HRConnect/WhatsApp Image 2026-09-20 at 12.20.39 AM (2).jpeg" placeholder="HR Conclave photo"></image-slot>
       </div>
       <div style="border-left:2px solid var(--color-divider);padding:38px 0 42px 40px">
         <div style="display:flex;align-items:center;gap:12px">
           <span class="tag tag-accent-2">Participant</span>
-          <span class="text-muted" style="font-size:12px">HR Conclave</span>
+          <span class="text-muted" style="font-size:12px">HR Conclave · Department of Design &amp; Manufacturing</span>
         </div>
         <h2 style="margin:18px 0 0;font-size:clamp(26px,3.3vw,40px);letter-spacing:-0.035em;line-height:1.08;text-wrap:pretty">HR Conclave</h2>
         <p style="margin:18px 0 0;font-size:15.5px;line-height:1.65;max-width:56ch;text-wrap:pretty">Industry-facing sessions on how manufacturing organisations hire, structure and grow technical teams — a useful counterweight to the purely technical view of the field, and a reminder that engineering careers are built inside organisations.</p>
@@ -74,6 +146,7 @@
           <span class="tag tag-neutral">Industry</span>
           <span class="tag tag-neutral">Careers</span>
           <span class="tag tag-neutral">Networking</span>
+          <span class="tag tag-neutral">IISc Bangalore</span>
         </div>
       </div>
     </div>
@@ -90,11 +163,11 @@
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:2px solid var(--color-divider)">
-      <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="9">
+    <div class="gallery-grid" style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:2px solid var(--color-divider)">
+      <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="12">
         <div style="display:{{ frame.display }};border-left:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);padding:20px">
           <div class="grayscale" style="position:relative;width:100%;aspect-ratio:4/3">
-            <image-slot id="{{ frame.id }}" shape="rect" fit="cover" placeholder="{{ frame.hint }}"></image-slot>
+            <image-slot id="{{ frame.id }}" shape="rect" fit="cover" src="{{ frame.src }}" placeholder="{{ frame.hint }}"></image-slot>
           </div>
           <div style="display:flex;align-items:baseline;gap:10px;margin-top:12px">
             <span style="font-family:var(--font-heading);font-weight:800;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent)">{{ frame.tag }}</span>
@@ -111,16 +184,70 @@
 
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#c96442&quot;,&quot;#8a3e27&quot;,&quot;#6f6c63&quot;,&quot;#5b6a52&quot;],&quot;default&quot;:&quot;#c96442&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Appearance&quot;}}">
+const BEYOND_AUTOMATION_PHOTOS = [
+  {
+    src: 'assets/Gallery/BeyondAutomation/main3.jpeg',
+    title: 'Flagship Panel Stage & Keynote',
+    caption: 'Stage projection backdrop titled "BEYOND AUTOMATION: AI IN ENGINEERING DESIGN AND PRODUCTION" at Ripples’26, IISc Open Day with moderator Abha Singh Sardar and distinguished panellists.',
+    tag: 'Stage & Keynote'
+  },
+  {
+    src: 'assets/Gallery/BeyondAutomation/main1.jpeg',
+    title: 'Abha Moderating the Panel',
+    caption: 'Abha Singh Sardar moderating the discussion at the desk, opening dialogues on AI-driven design workflows and engineering validation.',
+    tag: 'Moderation'
+  },
+  {
+    src: 'assets/Gallery/BeyondAutomation/main2.jpeg',
+    title: 'Academic & Industry Dialogue',
+    caption: 'Panellists sharing industry perspectives while Abha facilitates dialogue between theoretical models and shop-floor deployment.',
+    tag: 'Discussion'
+  },
+  {
+    src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.07.41 AM.jpeg',
+    title: 'Felicitation of Panellist',
+    caption: 'Presenting the Certificate of Appreciation and token of gratitude to Prof. Kausik Bhattacharya amidst applause from the auditorium.',
+    tag: 'Felicitation'
+  },
+  {
+    src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.26 AM.jpeg',
+    title: 'Auditorium & Attendees',
+    caption: 'A packed auditorium of faculty, graduate researchers, and industry delegates at the Department of Design and Manufacturing (DDM), IISc.',
+    tag: 'Audience'
+  },
+  {
+    src: 'assets/Gallery/BeyondAutomation/main7.jpeg',
+    title: 'Interactive Q&A Session',
+    caption: 'Audience members engaging with panellists on foundational limits of neural networks, explainability, and safety validation in cyber-physical systems.',
+    tag: 'Q&A'
+  },
+  {
+    src: 'assets/Gallery/BeyondAutomation/main8.jpeg',
+    title: 'Design Synthesis & Automation',
+    caption: 'Deliberation on generative design, cyber-physical systems, and bridging digital models with physical manufacturing reality.',
+    tag: 'Deep-Dive'
+  },
+  {
+    src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.45 AM.jpeg',
+    title: 'Closing Remarks & Reflections',
+    caption: 'Concluding the Ripples’26 panel with core reflections on pragmatic AI adoption across product lifecycles and future engineering roles.',
+    tag: 'Wrap-Up'
+  }
+];
+
 const FRAMES = [
-  { id: 'g-panel-1', group: 'panel', tag: 'Ripples’26', caption: 'On the panel, IISc Open Day', hint: 'Panel photo' },
-  { id: 'g-panel-2', group: 'panel', tag: 'Ripples’26', caption: 'The audience at Open Day', hint: 'Audience photo' },
-  { id: 'g-panel-3', group: 'panel', tag: 'Ripples’26', caption: 'With the panellists', hint: 'Group photo' },
-  { id: 'g-hr-1', group: 'hr', tag: 'HR Conclave', caption: 'Conclave session', hint: 'Conclave photo' },
-  { id: 'g-hr-2', group: 'hr', tag: 'HR Conclave', caption: 'Industry speakers', hint: 'Speakers photo' },
-  { id: 'g-hr-3', group: 'hr', tag: 'HR Conclave', caption: 'Conversations afterwards', hint: 'Networking photo' },
-  { id: 'g-campus-1', group: 'campus', tag: 'Department', caption: 'Design and Manufacturing, IISc', hint: 'Department photo' },
-  { id: 'g-campus-2', group: 'campus', tag: 'Lab', caption: 'Bench work and boards', hint: 'Lab photo' },
-  { id: 'g-campus-3', group: 'campus', tag: 'Campus', caption: 'IISc Bangalore', hint: 'Campus photo' }
+  { id: 'g-panel-1', group: 'panel', tag: 'Ripples’26', caption: 'Stage banner & keynote presentation, IISc Open Day', hint: 'Stage presentation', src: 'assets/Gallery/BeyondAutomation/main3.jpeg' },
+  { id: 'g-panel-2', group: 'panel', tag: 'Ripples’26', caption: 'Abha moderating the panel discussion', hint: 'Panel moderation', src: 'assets/Gallery/BeyondAutomation/main1.jpeg' },
+  { id: 'g-panel-3', group: 'panel', tag: 'Ripples’26', caption: 'Felicitation ceremony with panellists', hint: 'Felicitation ceremony', src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.07.41 AM.jpeg' },
+  { id: 'g-panel-4', group: 'panel', tag: 'Ripples’26', caption: 'Deliberation on generative design & AI in production', hint: 'Panel deliberation', src: 'assets/Gallery/BeyondAutomation/main2.jpeg' },
+  { id: 'g-panel-5', group: 'panel', tag: 'Ripples’26', caption: 'Audience Q&A at DDM auditorium', hint: 'Audience Q&A', src: 'assets/Gallery/BeyondAutomation/main7.jpeg' },
+  { id: 'g-panel-6', group: 'panel', tag: 'Ripples’26', caption: 'Packed hall of researchers and delegates', hint: 'Auditorium view', src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.26 AM.jpeg' },
+  { id: 'g-hr-1', group: 'hr', tag: 'HR Conclave', caption: 'Podium presentation & panel session', hint: 'Podium presentation', src: 'assets/Gallery/HRConnect/WhatsApp Image 2026-09-20 at 12.20.39 AM (2).jpeg' },
+  { id: 'g-hr-2', group: 'hr', tag: 'HR Conclave', caption: 'Conclave address & industry insights', hint: 'Industry address', src: 'assets/Gallery/HRConnect/WhatsApp Image 2026-09-20 at 12.20.39 AM (1).jpeg' },
+  { id: 'g-hr-3', group: 'hr', tag: 'HR Conclave', caption: 'Discussions on organizational engineering teams', hint: 'Networking session', src: 'assets/Gallery/HRConnect/WhatsApp Image 2026-09-20 at 12.20.38 AM.jpeg' },
+  { id: 'g-campus-1', group: 'campus', tag: 'Campus', caption: 'Iconic Main Building, IISc Bangalore', hint: 'IISc Main Building', src: 'assets/iisc-main-building.png' },
+  { id: 'g-campus-2', group: 'campus', tag: 'Department', caption: 'Department of Design and Manufacturing (DDM)', hint: 'Department photo', src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.34 AM.jpeg' },
+  { id: 'g-campus-3', group: 'campus', tag: 'Lab', caption: 'Prototyping & experimental setup', hint: 'Lab photo', src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.23 AM.jpeg' }
 ];
 
 const FILTERS = [
@@ -131,7 +258,7 @@ const FILTERS = [
 ];
 
 class Component extends DCLogic {
-  state = { filter: 'all' };
+  state = { filter: 'all', panelIdx: 0 };
 
   componentDidMount() {
     const go = () => { if (window.SiteMotion) { if (this.props.accent) window.SiteMotion.setAccent(this.props.accent); window.SiteMotion.init(); } };
@@ -141,12 +268,39 @@ class Component extends DCLogic {
 
   renderVals() {
     const f = this.state.filter;
+    const pIdx = Math.max(0, Math.min(BEYOND_AUTOMATION_PHOTOS.length - 1, this.state.panelIdx || 0));
+    const curPhoto = BEYOND_AUTOMATION_PHOTOS[pIdx];
+
     return {
       filters: FILTERS.map(x => {
         const on = x.key === f;
         return { label: x.label, bg: on ? 'var(--color-accent)' : 'transparent', color: on ? 'var(--color-bg)' : 'var(--color-text)', select: () => this.setState({ filter: x.key }) };
       }),
-      frames: FRAMES.map(x => ({ ...x, display: (f === 'all' || f === x.group) ? 'block' : 'none' }))
+      frames: FRAMES.map(x => ({ ...x, display: (f === 'all' || f === x.group) ? 'block' : 'none' })),
+      panelHeroId: 'ev-panel-hero-' + pIdx,
+      panelHeroSrc: curPhoto.src,
+      panelTitle: curPhoto.title,
+      panelCaption: curPhoto.caption,
+      panelCounter: String(pIdx + 1).padStart(2, '0') + ' / ' + String(BEYOND_AUTOMATION_PHOTOS.length).padStart(2, '0'),
+      prevPanel: () => {
+        const next = (pIdx - 1 + BEYOND_AUTOMATION_PHOTOS.length) % BEYOND_AUTOMATION_PHOTOS.length;
+        this.setState({ panelIdx: next });
+      },
+      nextPanel: () => {
+        const next = (pIdx + 1) % BEYOND_AUTOMATION_PHOTOS.length;
+        this.setState({ panelIdx: next });
+      },
+      panelThumbs: BEYOND_AUTOMATION_PHOTOS.map((ph, idx) => {
+        const active = idx === pIdx;
+        return {
+          src: ph.src,
+          title: ph.title,
+          border: active ? '2px solid var(--color-accent)' : '1px solid var(--color-divider)',
+          opacity: active ? '1' : '0.55',
+          gray: active ? '0%' : '90%',
+          select: () => this.setState({ panelIdx: idx })
+        };
+      })
     };
   }
 }
