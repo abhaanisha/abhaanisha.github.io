@@ -405,8 +405,23 @@ const COURSES = [
     ] },
   { sem: 's3', code: 'MG 265', title: 'Data Mining',
     short: 'Pattern discovery, classification and clustering on large datasets.',
-    description: 'Extracting structure from large datasets — preprocessing and feature construction, association rules, classification and clustering families, dimensionality reduction, and the validation discipline that separates a real pattern from an artefact.',
-    topics: ['Association rules', 'Classification', 'Clustering', 'Dimensionality reduction'], assignments: [] },
+    description: 'Taught by Prof. Parthasarathy Ramachandran (Department of Management Studies / CPDM, IISc). Covers scalable data mining architectures: distributed computing paradigms including MapReduce, association rule discovery (Apriori, FP-Growth), classification algorithms (decision trees, Bayesian classification), clustering families (k-means, hierarchical, density-based), and high-dimensional feature reduction.',
+    facultyLink: 'https://github.com/abhaanisha/DataMining',
+    facultyLabel: 'Data Mining Repository (GitHub)',
+    instructor: 'Prof. Parthasarathy Ramachandran',
+    topics: ['MapReduce', 'Distributed Streaming', 'Association Rules', 'Classification', 'Clustering', 'Dimensionality Reduction'],
+    assignments: [
+      {
+        title: 'Assignment 1: Distributed Exact Median using Two-Round MapReduce',
+        note: 'Implementation of a two-stage MapReduce distributed streaming algorithm in Python to compute the exact median over large numerical datasets without loading all values into memory. Round 1 uses map1.py to assign values into fixed-width lexicographical bucket keys (1<bucket_id>) and reduce1.py to sort and count within buckets. Round 2 uses map2.py to emit bucket sizes under a global prefix key (0000000000000) ahead of bucket data, enabling reduce2.py to determine total sample count N, pinpoint the median rank(s), and stream directly to the target bucket to extract the exact median (495.5559479).',
+        link: 'https://github.com/abhaanisha/DataMining/tree/main/Assignment1',
+        linkLabel: 'View on GitHub',
+        repoLink: 'https://github.com/abhaanisha/DataMining',
+        repoLabel: 'GitHub Repository',
+        rawLink: 'assets/subjects/DataMining/Assignment1/README.md',
+        rawLabel: 'Pipeline Guide (README)'
+      }
+    ] },
   { sem: 's3', code: 'MN 207', title: 'Intelligent Mobile Robotics: Perception, Action and Control',
     short: 'Perception, planning and control for autonomous mobile robots.',
     description: 'Taught by Prof. Abhra Roy Chowdhury at the Robotics Innovations Lab (RIL, DDM, IISc). Covers the full autonomy stack for mobile robotic platforms: multi-sensor interfacing and characterization, dual H-bridge motor actuation and differential kinematics, state estimation and SLAM, motion planning, and closed-loop feedback control.',
