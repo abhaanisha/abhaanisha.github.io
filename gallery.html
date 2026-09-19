@@ -49,11 +49,12 @@
         <span style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent)">Section 04</span>
       </div>
       <h1 style="margin:0;font-size:clamp(46px,7vw,88px);line-height:0.92;letter-spacing:-0.048em">Events &amp;<br>Gallery</h1>
-      <p style="margin:26px 0 0;font-size:17px;line-height:1.6;max-width:54ch;text-wrap:pretty">Moderating at IISc Open Day, the HR Conclave, and academic moments around the Department of Design and Manufacturing. Explore highlights or drag a photograph onto any frame.</p>
+      <p style="margin:26px 0 0;font-size:17px;line-height:1.6;max-width:54ch;text-wrap:pretty">Moderating at IISc Open Day, the HR Conclave, the Independence Day Freedom Run, and moments around the IISc campus. Drag a photograph onto any frame.</p>
     </div>
   </section>
 
   <section style="max-width:1280px;margin:0 auto;padding:0 40px">
+    <!-- Event 01: Beyond Automation -->
     <div data-reveal="1" class="event-split-grid" style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.1fr);gap:0;border-bottom:2px solid var(--color-divider)">
       <div style="border-right:2px solid var(--color-divider);padding:38px 40px 42px 0;display:flex;flex-direction:column;justify-content:space-between">
         <div>
@@ -101,7 +102,7 @@
           <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--color-divider);background:rgba(127,127,127,.04)">
             <div style="display:flex;align-items:center;gap:10px">
               <span style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.12em;color:var(--color-accent);font-variant-numeric:tabular-nums">{{ panelCounter }}</span>
-              <span style="font-weight:600;font-size:13px;letter-spacing:-0.01em">{{ panelTitle }}</span>
+              <span style="font-family:var(--font-heading);font-weight:700;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent)">Ripples’26</span>
             </div>
             <div style="display:flex;gap:0;border:1px solid var(--color-divider)">
               <button type="button" class="panel-nav-btn" onClick="{{ prevPanel }}" title="Previous photo" style="cursor:pointer;background:transparent;color:var(--color-text);border:0;padding:6px 14px;font-family:var(--font-heading);font-weight:700;font-size:13px;transition:background 150ms">←</button>
@@ -112,17 +113,13 @@
           <div class="grayscale" style="position:relative;width:100%;aspect-ratio:16/10;overflow:hidden">
             <image-slot id="{{ panelHeroId }}" shape="rect" fit="cover" src="{{ panelHeroSrc }}" placeholder="Panel discussion photo"></image-slot>
           </div>
-
-          <div style="padding:12px 18px;border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);font-size:12.5px;line-height:1.55;color:var(--color-text);min-height:42px">
-            {{ panelCaption }}
-          </div>
         </div>
 
-        <div style="padding:12px 18px">
-          <div style="font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px">Beyond Automation Gallery Strip</div>
+        <div style="padding:14px 18px;border-top:1px solid var(--color-divider)">
+          <div style="font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px">Panel Highlights</div>
           <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin">
             <sc-for list="{{ panelThumbs }}" as="th">
-              <button type="button" class="thumb-btn" onClick="{{ th.select }}" title="{{ th.title }}" style="flex:0 0 68px;height:48px;padding:0;margin:0;cursor:pointer;border:{{ th.border }};background:transparent;overflow:hidden;outline:none;position:relative;transition:all 180ms ease">
+              <button type="button" class="thumb-btn" onClick="{{ th.select }}" style="flex:0 0 68px;height:48px;padding:0;margin:0;cursor:pointer;border:{{ th.border }};background:transparent;overflow:hidden;outline:none;position:relative;transition:all 180ms ease">
                 <span style="display:block;width:100%;height:100%;background-image:url('{{ th.src }}');background-size:cover;background-position:center;opacity:{{ th.opacity }};filter:grayscale({{ th.gray }});transition:filter 180ms,opacity 180ms"></span>
               </button>
             </sc-for>
@@ -131,6 +128,7 @@
       </div>
     </div>
 
+    <!-- Event 02: HR Conclave -->
     <div data-reveal="1" class="event-split-grid-reverse" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:0;border-bottom:2px solid var(--color-divider)">
       <div class="grayscale" style="position:relative;min-height:340px">
         <image-slot id="ev-hr-hero" shape="rect" fit="cover" src="assets/Gallery/HRConnect/WhatsApp Image 2026-09-20 at 12.20.39 AM (2).jpeg" placeholder="HR Conclave photo"></image-slot>
@@ -150,6 +148,57 @@
         </div>
       </div>
     </div>
+
+    <!-- Event 03: Freedom Run -->
+    <div data-reveal="1" class="event-split-grid" style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.1fr);gap:0;border-bottom:2px solid var(--color-divider)">
+      <div style="border-right:2px solid var(--color-divider);padding:38px 40px 42px 0;display:flex;flex-direction:column;justify-content:space-between">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <span class="tag tag-accent">Campus Activity</span>
+            <span class="text-muted" style="font-size:12px">Independence Day · IISc Bangalore</span>
+          </div>
+          <h2 style="margin:18px 0 0;font-size:clamp(26px,3.3vw,40px);letter-spacing:-0.035em;line-height:1.08;text-wrap:pretty">Freedom Run</h2>
+          <p style="margin:18px 0 0;font-size:15.5px;line-height:1.65;max-width:58ch;text-wrap:pretty">Participated in the annual Independence Day Freedom Run across the historic tree-lined campus of IISc Bangalore, celebrating with students, researchers, and faculty starting from the iconic Main Building.</p>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:24px">
+          <span class="tag tag-neutral">Freedom Run</span>
+          <span class="tag tag-neutral">Campus life</span>
+          <span class="tag tag-neutral">Independence Day</span>
+          <span class="tag tag-neutral">IISc Bangalore</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;justify-content:space-between;background:rgba(127,127,127,.02)">
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--color-divider);background:rgba(127,127,127,.04)">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.12em;color:var(--color-accent);font-variant-numeric:tabular-nums">{{ runCounter }}</span>
+              <span style="font-family:var(--font-heading);font-weight:700;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent)">Freedom Run</span>
+            </div>
+            <div style="display:flex;gap:0;border:1px solid var(--color-divider)">
+              <button type="button" class="panel-nav-btn" onClick="{{ prevRun }}" title="Previous photo" style="cursor:pointer;background:transparent;color:var(--color-text);border:0;padding:6px 14px;font-family:var(--font-heading);font-weight:700;font-size:13px;transition:background 150ms">←</button>
+              <button type="button" class="panel-nav-btn" onClick="{{ nextRun }}" title="Next photo" style="cursor:pointer;background:transparent;color:var(--color-text);border:0;border-left:1px solid var(--color-divider);padding:6px 14px;font-family:var(--font-heading);font-weight:700;font-size:13px;transition:background 150ms">→</button>
+            </div>
+          </div>
+
+          <div class="grayscale" style="position:relative;width:100%;aspect-ratio:16/10;overflow:hidden">
+            <image-slot id="{{ runHeroId }}" shape="rect" fit="cover" src="{{ runHeroSrc }}" placeholder="Freedom Run photo"></image-slot>
+          </div>
+        </div>
+
+        <div style="padding:14px 18px;border-top:1px solid var(--color-divider)">
+          <div style="font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px">Activity Highlights</div>
+          <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin">
+            <sc-for list="{{ runThumbs }}" as="th">
+              <button type="button" class="thumb-btn" onClick="{{ th.select }}" style="flex:0 0 68px;height:48px;padding:0;margin:0;cursor:pointer;border:{{ th.border }};background:transparent;overflow:hidden;outline:none;position:relative;transition:all 180ms ease">
+                <span style="display:block;width:100%;height:100%;background-image:url('{{ th.src }}');background-size:cover;background-position:center;opacity:{{ th.opacity }};filter:grayscale({{ th.gray }});transition:filter 180ms,opacity 180ms"></span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section style="max-width:1280px;margin:0 auto;padding:80px 40px 0">
@@ -157,21 +206,20 @@
       <span style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.14em;color:var(--color-accent);font-variant-numeric:tabular-nums">05</span>
       <h2 style="margin:0;font-size:clamp(28px,3.6vw,42px);letter-spacing:-0.038em">The gallery</h2>
       <div style="margin-left:auto;display:flex;gap:0;border:1px solid var(--color-divider)">
-        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
           <button type="button" onClick="{{ f.select }}" style="cursor:pointer;font-family:var(--font-heading);font-weight:600;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;padding:9px 15px;border:0;border-left:1px solid var(--color-divider);background:{{ f.bg }};color:{{ f.color }};transition:background 150ms linear,color 150ms linear">{{ f.label }}</button>
         </sc-for>
       </div>
     </div>
 
     <div class="gallery-grid" style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:2px solid var(--color-divider)">
-      <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="12">
+      <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="18">
         <div style="display:{{ frame.display }};border-left:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);padding:20px">
           <div class="grayscale" style="position:relative;width:100%;aspect-ratio:4/3">
-            <image-slot id="{{ frame.id }}" shape="rect" fit="cover" src="{{ frame.src }}" placeholder="{{ frame.hint }}"></image-slot>
+            <image-slot id="{{ frame.id }}" shape="rect" fit="cover" src="{{ frame.src }}" placeholder="{{ frame.tag }}"></image-slot>
           </div>
           <div style="display:flex;align-items:baseline;gap:10px;margin-top:12px">
             <span style="font-family:var(--font-heading);font-weight:800;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent)">{{ frame.tag }}</span>
-            <span class="text-muted" style="font-size:12.5px;line-height:1.4;text-wrap:pretty">{{ frame.caption }}</span>
           </div>
         </div>
       </sc-for>
@@ -185,80 +233,58 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#c96442&quot;,&quot;#8a3e27&quot;,&quot;#6f6c63&quot;,&quot;#5b6a52&quot;],&quot;default&quot;:&quot;#c96442&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Appearance&quot;}}">
 const BEYOND_AUTOMATION_PHOTOS = [
-  {
-    src: 'assets/Gallery/BeyondAutomation/main3.jpeg',
-    title: 'Flagship Panel Stage & Keynote',
-    caption: 'Stage projection backdrop titled "BEYOND AUTOMATION: AI IN ENGINEERING DESIGN AND PRODUCTION" at Ripples’26, IISc Open Day with moderator Abha Singh Sardar and distinguished panellists.',
-    tag: 'Stage & Keynote'
-  },
-  {
-    src: 'assets/Gallery/BeyondAutomation/main1.jpeg',
-    title: 'Abha Moderating the Panel',
-    caption: 'Abha Singh Sardar moderating the discussion at the desk, opening dialogues on AI-driven design workflows and engineering validation.',
-    tag: 'Moderation'
-  },
-  {
-    src: 'assets/Gallery/BeyondAutomation/main2.jpeg',
-    title: 'Academic & Industry Dialogue',
-    caption: 'Panellists sharing industry perspectives while Abha facilitates dialogue between theoretical models and shop-floor deployment.',
-    tag: 'Discussion'
-  },
-  {
-    src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.07.41 AM.jpeg',
-    title: 'Felicitation of Panellist',
-    caption: 'Presenting the Certificate of Appreciation and token of gratitude to Prof. Kausik Bhattacharya amidst applause from the auditorium.',
-    tag: 'Felicitation'
-  },
-  {
-    src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.26 AM.jpeg',
-    title: 'Auditorium & Attendees',
-    caption: 'A packed auditorium of faculty, graduate researchers, and industry delegates at the Department of Design and Manufacturing (DDM), IISc.',
-    tag: 'Audience'
-  },
-  {
-    src: 'assets/Gallery/BeyondAutomation/main7.jpeg',
-    title: 'Interactive Q&A Session',
-    caption: 'Audience members engaging with panellists on foundational limits of neural networks, explainability, and safety validation in cyber-physical systems.',
-    tag: 'Q&A'
-  },
-  {
-    src: 'assets/Gallery/BeyondAutomation/main8.jpeg',
-    title: 'Design Synthesis & Automation',
-    caption: 'Deliberation on generative design, cyber-physical systems, and bridging digital models with physical manufacturing reality.',
-    tag: 'Deep-Dive'
-  },
-  {
-    src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.45 AM.jpeg',
-    title: 'Closing Remarks & Reflections',
-    caption: 'Concluding the Ripples’26 panel with core reflections on pragmatic AI adoption across product lifecycles and future engineering roles.',
-    tag: 'Wrap-Up'
-  }
+  'assets/Gallery/BeyondAutomation/main3.jpeg',
+  'assets/Gallery/BeyondAutomation/main1.jpeg',
+  'assets/Gallery/BeyondAutomation/main2.jpeg',
+  'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.07.41 AM.jpeg',
+  'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.26 AM.jpeg',
+  'assets/Gallery/BeyondAutomation/main7.jpeg',
+  'assets/Gallery/BeyondAutomation/main8.jpeg',
+  'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.45 AM.jpeg'
+];
+
+const FREEDOM_RUN_PHOTOS = [
+  'assets/Gallery/Activities/Freedom_Run/SinglePhoto.jpeg',
+  'assets/Gallery/Activities/Freedom_Run/Campus_FreedomRun.jpeg',
+  'assets/Gallery/Activities/Freedom_Run/WhatsApp Image 2026-09-20 at 12.48.27 AM.jpeg',
+  'assets/Gallery/Activities/Freedom_Run/WhatsApp Image 2026-09-20 at 12.48.26 AM.jpeg',
+  'assets/Gallery/Activities/Freedom_Run/WhatsApp Image 2026-09-20 at 12.48.26 AM (1).jpeg',
+  'assets/Gallery/Activities/Freedom_Run/IMG20260815072141.jpg.jpeg',
+  'assets/Gallery/Activities/Freedom_Run/IMG20260815072015.jpg.jpeg',
+  'assets/Gallery/Activities/Freedom_Run/IMG20260815072204.jpg.jpeg'
 ];
 
 const FRAMES = [
-  { id: 'g-panel-1', group: 'panel', tag: 'Ripples’26', caption: 'Stage banner & keynote presentation, IISc Open Day', hint: 'Stage presentation', src: 'assets/Gallery/BeyondAutomation/main3.jpeg' },
-  { id: 'g-panel-2', group: 'panel', tag: 'Ripples’26', caption: 'Abha moderating the panel discussion', hint: 'Panel moderation', src: 'assets/Gallery/BeyondAutomation/main1.jpeg' },
-  { id: 'g-panel-3', group: 'panel', tag: 'Ripples’26', caption: 'Felicitation ceremony with panellists', hint: 'Felicitation ceremony', src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.07.41 AM.jpeg' },
-  { id: 'g-panel-4', group: 'panel', tag: 'Ripples’26', caption: 'Deliberation on generative design & AI in production', hint: 'Panel deliberation', src: 'assets/Gallery/BeyondAutomation/main2.jpeg' },
-  { id: 'g-panel-5', group: 'panel', tag: 'Ripples’26', caption: 'Audience Q&A at DDM auditorium', hint: 'Audience Q&A', src: 'assets/Gallery/BeyondAutomation/main7.jpeg' },
-  { id: 'g-panel-6', group: 'panel', tag: 'Ripples’26', caption: 'Packed hall of researchers and delegates', hint: 'Auditorium view', src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.26 AM.jpeg' },
-  { id: 'g-hr-1', group: 'hr', tag: 'HR Conclave', caption: 'Podium presentation & panel session', hint: 'Podium presentation', src: 'assets/Gallery/HRConnect/WhatsApp Image 2026-09-20 at 12.20.39 AM (2).jpeg' },
-  { id: 'g-hr-2', group: 'hr', tag: 'HR Conclave', caption: 'Conclave address & industry insights', hint: 'Industry address', src: 'assets/Gallery/HRConnect/WhatsApp Image 2026-09-20 at 12.20.39 AM (1).jpeg' },
-  { id: 'g-hr-3', group: 'hr', tag: 'HR Conclave', caption: 'Discussions on organizational engineering teams', hint: 'Networking session', src: 'assets/Gallery/HRConnect/WhatsApp Image 2026-09-20 at 12.20.38 AM.jpeg' },
-  { id: 'g-campus-1', group: 'campus', tag: 'Campus', caption: 'Iconic Main Building, IISc Bangalore', hint: 'IISc Main Building', src: 'assets/iisc-main-building.png' },
-  { id: 'g-campus-2', group: 'campus', tag: 'Department', caption: 'Department of Design and Manufacturing (DDM)', hint: 'Department photo', src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.34 AM.jpeg' },
-  { id: 'g-campus-3', group: 'campus', tag: 'Lab', caption: 'Prototyping & experimental setup', hint: 'Lab photo', src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.23 AM.jpeg' }
+  { id: 'g-panel-1', group: 'panel', tag: 'Ripples’26', src: 'assets/Gallery/BeyondAutomation/main3.jpeg' },
+  { id: 'g-panel-2', group: 'panel', tag: 'Ripples’26', src: 'assets/Gallery/BeyondAutomation/main1.jpeg' },
+  { id: 'g-panel-3', group: 'panel', tag: 'Ripples’26', src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.07.41 AM.jpeg' },
+  { id: 'g-panel-4', group: 'panel', tag: 'Ripples’26', src: 'assets/Gallery/BeyondAutomation/main2.jpeg' },
+  { id: 'g-panel-5', group: 'panel', tag: 'Ripples’26', src: 'assets/Gallery/BeyondAutomation/main7.jpeg' },
+  { id: 'g-panel-6', group: 'panel', tag: 'Ripples’26', src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.26 AM.jpeg' },
+  { id: 'g-run-1', group: 'run', tag: 'Freedom Run', src: 'assets/Gallery/Activities/Freedom_Run/SinglePhoto.jpeg' },
+  { id: 'g-run-2', group: 'run', tag: 'Freedom Run', src: 'assets/Gallery/Activities/Freedom_Run/Campus_FreedomRun.jpeg' },
+  { id: 'g-run-3', group: 'run', tag: 'Freedom Run', src: 'assets/Gallery/Activities/Freedom_Run/WhatsApp Image 2026-09-20 at 12.48.27 AM.jpeg' },
+  { id: 'g-run-4', group: 'run', tag: 'Freedom Run', src: 'assets/Gallery/Activities/Freedom_Run/WhatsApp Image 2026-09-20 at 12.48.26 AM.jpeg' },
+  { id: 'g-run-5', group: 'run', tag: 'Freedom Run', src: 'assets/Gallery/Activities/Freedom_Run/IMG20260815072141.jpg.jpeg' },
+  { id: 'g-run-6', group: 'run', tag: 'Freedom Run', src: 'assets/Gallery/Activities/Freedom_Run/WhatsApp Image 2026-09-20 at 12.48.26 AM (1).jpeg' },
+  { id: 'g-hr-1', group: 'hr', tag: 'HR Conclave', src: 'assets/Gallery/HRConnect/WhatsApp Image 2026-09-20 at 12.20.39 AM (2).jpeg' },
+  { id: 'g-hr-2', group: 'hr', tag: 'HR Conclave', src: 'assets/Gallery/HRConnect/WhatsApp Image 2026-09-20 at 12.20.39 AM (1).jpeg' },
+  { id: 'g-hr-3', group: 'hr', tag: 'HR Conclave', src: 'assets/Gallery/HRConnect/WhatsApp Image 2026-09-20 at 12.20.38 AM.jpeg' },
+  { id: 'g-campus-1', group: 'campus', tag: 'Campus', src: 'assets/iisc-main-building.png' },
+  { id: 'g-campus-2', group: 'campus', tag: 'Campus', src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.34 AM.jpeg' },
+  { id: 'g-campus-3', group: 'campus', tag: 'Campus', src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.23 AM.jpeg' }
 ];
 
 const FILTERS = [
   { key: 'all', label: 'All' },
   { key: 'panel', label: 'Ripples’26' },
+  { key: 'run', label: 'Freedom Run' },
   { key: 'hr', label: 'HR Conclave' },
   { key: 'campus', label: 'Campus' }
 ];
 
 class Component extends DCLogic {
-  state = { filter: 'all', panelIdx: 0 };
+  state = { filter: 'all', panelIdx: 0, runIdx: 0 };
 
   componentDidMount() {
     const go = () => { if (window.SiteMotion) { if (this.props.accent) window.SiteMotion.setAccent(this.props.accent); window.SiteMotion.init(); } };
@@ -269,7 +295,7 @@ class Component extends DCLogic {
   renderVals() {
     const f = this.state.filter;
     const pIdx = Math.max(0, Math.min(BEYOND_AUTOMATION_PHOTOS.length - 1, this.state.panelIdx || 0));
-    const curPhoto = BEYOND_AUTOMATION_PHOTOS[pIdx];
+    const rIdx = Math.max(0, Math.min(FREEDOM_RUN_PHOTOS.length - 1, this.state.runIdx || 0));
 
     return {
       filters: FILTERS.map(x => {
@@ -278,9 +304,7 @@ class Component extends DCLogic {
       }),
       frames: FRAMES.map(x => ({ ...x, display: (f === 'all' || f === x.group) ? 'block' : 'none' })),
       panelHeroId: 'ev-panel-hero-' + pIdx,
-      panelHeroSrc: curPhoto.src,
-      panelTitle: curPhoto.title,
-      panelCaption: curPhoto.caption,
+      panelHeroSrc: BEYOND_AUTOMATION_PHOTOS[pIdx],
       panelCounter: String(pIdx + 1).padStart(2, '0') + ' / ' + String(BEYOND_AUTOMATION_PHOTOS.length).padStart(2, '0'),
       prevPanel: () => {
         const next = (pIdx - 1 + BEYOND_AUTOMATION_PHOTOS.length) % BEYOND_AUTOMATION_PHOTOS.length;
@@ -290,15 +314,35 @@ class Component extends DCLogic {
         const next = (pIdx + 1) % BEYOND_AUTOMATION_PHOTOS.length;
         this.setState({ panelIdx: next });
       },
-      panelThumbs: BEYOND_AUTOMATION_PHOTOS.map((ph, idx) => {
+      panelThumbs: BEYOND_AUTOMATION_PHOTOS.map((src, idx) => {
         const active = idx === pIdx;
         return {
-          src: ph.src,
-          title: ph.title,
+          src: src,
           border: active ? '2px solid var(--color-accent)' : '1px solid var(--color-divider)',
           opacity: active ? '1' : '0.55',
           gray: active ? '0%' : '90%',
           select: () => this.setState({ panelIdx: idx })
+        };
+      }),
+      runHeroId: 'ev-run-hero-' + rIdx,
+      runHeroSrc: FREEDOM_RUN_PHOTOS[rIdx],
+      runCounter: String(rIdx + 1).padStart(2, '0') + ' / ' + String(FREEDOM_RUN_PHOTOS.length).padStart(2, '0'),
+      prevRun: () => {
+        const next = (rIdx - 1 + FREEDOM_RUN_PHOTOS.length) % FREEDOM_RUN_PHOTOS.length;
+        this.setState({ runIdx: next });
+      },
+      nextRun: () => {
+        const next = (rIdx + 1) % FREEDOM_RUN_PHOTOS.length;
+        this.setState({ runIdx: next });
+      },
+      runThumbs: FREEDOM_RUN_PHOTOS.map((src, idx) => {
+        const active = idx === rIdx;
+        return {
+          src: src,
+          border: active ? '2px solid var(--color-accent)' : '1px solid var(--color-divider)',
+          opacity: active ? '1' : '0.55',
+          gray: active ? '0%' : '90%',
+          select: () => this.setState({ runIdx: idx })
         };
       })
     };
