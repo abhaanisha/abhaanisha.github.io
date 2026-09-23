@@ -13,21 +13,21 @@
 <script src="./site-motion.js"></script>
 </helmet>
 <div data-nav-shell="1" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:var(--color-bg);border-bottom:2px solid var(--color-divider);transition:box-shadow 200ms linear">
-  <div style="max-width:1280px;margin:0 auto;padding:11px clamp(20px,3vw,40px);display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px">
-    <a href="index.html" style="display:inline-flex;align-items:center;gap:11px;font-family:var(--font-heading);font-weight:800;font-size:16.5px;letter-spacing:0.01em;color:var(--color-text);text-decoration:none;margin-right:auto;white-space:nowrap">
-      <img src="assets/logo.svg" alt="Abha Singh Sardar Logo" width="28" height="28" style="display:block;border-radius:7px;flex-shrink:0">
+  <div style="max-width:1280px;margin:0 auto;padding:7px clamp(20px,3vw,40px);display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px">
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:9px;font-family:var(--font-heading);font-weight:800;font-size:15px;letter-spacing:0.01em;color:var(--color-text);text-decoration:none;margin-right:auto;white-space:nowrap">
+      <img src="assets/logo.svg" alt="Abha Singh Sardar Logo" width="24" height="24" style="display:block;border-radius:6px;flex-shrink:0">
       <span>ABHA SINGH SARDAR<span style="color:var(--color-accent)">.</span></span>
     </a>
-    <nav style="display:flex;flex-wrap:wrap;justify-content:flex-end;min-width:0;flex:1 1 0%;gap:8px clamp(12px,1.6vw,21px);font-family:var(--font-heading);font-weight:600;font-size:13.5px;letter-spacing:0.055em;text-transform:uppercase">
-      <a href="index.html" style="text-decoration:none;padding-bottom:4px;color:{{ c_home }};border-bottom:2px solid {{ b_home }};transition:color 160ms linear,border-color 160ms linear">Home</a>
-      <a href="coursework.html" style="text-decoration:none;padding-bottom:4px;color:{{ c_coursework }};border-bottom:2px solid {{ b_coursework }};transition:color 160ms linear,border-color 160ms linear">Coursework</a>
-      <a href="projects.html" style="text-decoration:none;padding-bottom:4px;color:{{ c_projects }};border-bottom:2px solid {{ b_projects }};transition:color 160ms linear,border-color 160ms linear">Projects</a>
-      <a href="skills.html" style="text-decoration:none;padding-bottom:4px;color:{{ c_skills }};border-bottom:2px solid {{ b_skills }};transition:color 160ms linear,border-color 160ms linear">Skills</a>
-      <a href="gallery.html" style="text-decoration:none;padding-bottom:4px;color:{{ c_gallery }};border-bottom:2px solid {{ b_gallery }};transition:color 160ms linear,border-color 160ms linear">Gallery</a>
-      <a href="resume.html" style="text-decoration:none;padding-bottom:4px;color:{{ c_resume }};border-bottom:2px solid {{ b_resume }};transition:color 160ms linear,border-color 160ms linear">Résumé</a>
-      <a href="contact.html" style="text-decoration:none;padding-bottom:4px;color:{{ c_contact }};border-bottom:2px solid {{ b_contact }};transition:color 160ms linear,border-color 160ms linear">Contact</a>
+    <nav style="display:flex;flex-wrap:wrap;justify-content:flex-end;min-width:0;flex:1 1 0%;gap:6px clamp(10px,1.2vw,16px);font-family:var(--font-heading);font-weight:600;font-size:12.5px;letter-spacing:0.055em;text-transform:uppercase">
+      <a href="index.html" style="text-decoration:none;padding-bottom:3px;color:{{ c_home }};border-bottom:2px solid {{ b_home }};transition:color 160ms linear,border-color 160ms linear">Home</a>
+      <a href="coursework.html" style="text-decoration:none;padding-bottom:3px;color:{{ c_coursework }};border-bottom:2px solid {{ b_coursework }};transition:color 160ms linear,border-color 160ms linear">Coursework</a>
+      <a href="projects.html" style="text-decoration:none;padding-bottom:3px;color:{{ c_projects }};border-bottom:2px solid {{ b_projects }};transition:color 160ms linear,border-color 160ms linear">Projects</a>
+      <a href="skills.html" style="text-decoration:none;padding-bottom:3px;color:{{ c_skills }};border-bottom:2px solid {{ b_skills }};transition:color 160ms linear,border-color 160ms linear">Skills</a>
+      <a href="gallery.html" style="text-decoration:none;padding-bottom:3px;color:{{ c_gallery }};border-bottom:2px solid {{ b_gallery }};transition:color 160ms linear,border-color 160ms linear">Gallery</a>
+      <a href="resume.html" style="text-decoration:none;padding-bottom:3px;color:{{ c_resume }};border-bottom:2px solid {{ b_resume }};transition:color 160ms linear,border-color 160ms linear">Résumé</a>
+      <a href="contact.html" style="text-decoration:none;padding-bottom:3px;color:{{ c_contact }};border-bottom:2px solid {{ b_contact }};transition:color 160ms linear,border-color 160ms linear">Contact</a>
     </nav>
-    <button type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}" class="btn btn-secondary" style="margin-left:auto;flex:none;width:40px;height:40px;padding:0;display:grid;place-items:center;position:relative;overflow:hidden">
+    <button type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}" class="btn btn-secondary" style="margin-left:auto;flex:none;width:34px;height:34px;padding:0;display:grid;place-items:center;position:relative;overflow:hidden">
       <span style="position:absolute;display:grid;place-items:center;transition:opacity 300ms linear, transform 520ms cubic-bezier(.16,.84,.44,1);opacity:{{ sunOpacity }};transform:{{ sunTransform }}">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
           <circle cx="12" cy="12" r="4"></circle>
