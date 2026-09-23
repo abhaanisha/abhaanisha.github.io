@@ -24,8 +24,8 @@
 </style>
 </helmet>
 
-<div data-screen-label="Resume" style="min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);padding-top:65px;overflow-x:hidden">
-  <dc-import name="SiteNav" active="resume" hint-size="100%,65px"></dc-import>
+<div data-screen-label="Resume" style="min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);padding-top:50px;overflow-x:hidden">
+  <dc-import name="SiteNav" active="resume" hint-size="100%,50px"></dc-import>
 
   <section style="max-width:1080px;margin:0 auto;padding:0 40px">
     <div style="padding:72px 0 34px;border-bottom:2px solid var(--color-divider);animation:om-rise 750ms cubic-bezier(.16,.84,.44,1) both">
@@ -48,47 +48,34 @@
     <div data-reveal="1" style="display:grid;grid-template-columns:190px minmax(0,1fr);gap:36px;padding:44px 0;border-bottom:1px solid var(--color-divider)">
       <div style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-accent);padding-top:5px">Academic profile</div>
       <div>
-        <table class="table">
-          <thead>
-            <tr><th style="width:36%">Qualification</th><th>Institution</th><th style="width:13%">Result</th><th style="width:11%">Year</th></tr>
-          </thead>
-          <tbody>
-            <sc-for list="{{ education }}" as="ed" hint-placeholder-count="5">
-              <tr>
-                <td style="font-family:var(--font-heading);font-weight:600">{{ ed.degree }}</td>
-                <td class="text-muted">{{ ed.school }}</td>
-                <td style="font-variant-numeric:tabular-nums">{{ ed.score }}</td>
-                <td style="font-variant-numeric:tabular-nums">{{ ed.year }}</td>
-              </tr>
-            </sc-for>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div data-reveal="1" style="display:grid;grid-template-columns:190px minmax(0,1fr);gap:36px;padding:44px 0;border-bottom:1px solid var(--color-divider)">
-      <div style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-accent);padding-top:5px">Courses</div>
-      <div>
-        <p class="text-muted" style="margin:0 0 18px;font-size:14px;line-height:1.6;max-width:62ch">Eleven postgraduate courses across three semesters. The four listed on the résumé are marked; the full timeline lives on the <a href="coursework.html">Coursework page</a>.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <sc-for list="{{ courses }}" as="c" hint-placeholder-count="11">
-            <span class="{{ c.cls }}">{{ c.label }}</span>
-          </sc-for>
+        <div style="display:grid;grid-template-columns:36% minmax(0,1fr) 13% 11%;gap:12px;padding:8px 0;border-bottom:2px solid var(--color-divider);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 60%,transparent);font-weight:600">
+          <div>Qualification</div>
+          <div>Institution</div>
+          <div>Result</div>
+          <div>Year</div>
         </div>
+        <sc-for list="{{ education }}" as="ed" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:36% minmax(0,1fr) 13% 11%;gap:12px;padding:12px 0;border-bottom:1px solid var(--color-divider);font-size:14px;align-items:baseline">
+            <div style="font-family:var(--font-heading);font-weight:600">{{ ed.degree }}</div>
+            <div class="text-muted">{{ ed.school }}</div>
+            <div style="font-variant-numeric:tabular-nums">{{ ed.score }}</div>
+            <div style="font-variant-numeric:tabular-nums">{{ ed.year }}</div>
+          </div>
+        </sc-for>
       </div>
     </div>
 
     <div data-reveal="1" style="display:grid;grid-template-columns:190px minmax(0,1fr);gap:36px;padding:44px 0;border-bottom:1px solid var(--color-divider)">
-      <div style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-accent);padding-top:5px">Projects</div>
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-accent);padding-top:5px">Internships</div>
       <div>
-        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+        <sc-for list="{{ internships }}" as="in" hint-placeholder-count="2">
           <div style="padding-bottom:34px">
             <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
-              <span style="font-family:var(--font-heading);font-weight:800;font-size:18.5px;letter-spacing:-0.022em;line-height:1.25;text-wrap:pretty">{{ p.title }}</span>
-              <span class="text-muted" style="margin-left:auto;font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap">{{ p.period }}</span>
+              <span style="font-family:var(--font-heading);font-weight:800;font-size:18px;letter-spacing:-0.022em;line-height:1.25;text-wrap:pretty">{{ in.company }}</span>
+              <span class="text-muted" style="margin-left:auto;font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap">{{ in.period }}</span>
             </div>
-            <div class="text-muted" style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;margin-top:6px">{{ p.role }}</div>
-            <sc-for list="{{ p.bullets }}" as="b" hint-placeholder-count="2">
+            <div class="text-muted" style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;margin-top:6px">{{ in.role }}</div>
+            <sc-for list="{{ in.bullets }}" as="b" hint-placeholder-count="3">
               <div style="display:grid;grid-template-columns:13px minmax(0,1fr);gap:13px;margin-top:12px">
                 <span style="width:7px;height:7px;background:var(--color-accent);margin-top:8px"></span>
                 <p style="margin:0;font-size:14.5px;line-height:1.62;text-wrap:pretty">{{ b }}</p>
@@ -96,6 +83,67 @@
             </sc-for>
           </div>
         </sc-for>
+      </div>
+    </div>
+
+    <div data-reveal="1" style="display:grid;grid-template-columns:190px minmax(0,1fr);gap:36px;padding:44px 0;border-bottom:1px solid var(--color-divider)">
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-accent);padding-top:5px">Projects</div>
+      <div>
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="6">
+          <div style="padding-bottom:34px">
+            <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+              <span style="font-family:var(--font-heading);font-weight:800;font-size:18px;letter-spacing:-0.022em;line-height:1.25;text-wrap:pretty">{{ p.title }}</span>
+              <span class="text-muted" style="margin-left:auto;font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap">{{ p.period }}</span>
+            </div>
+            <div class="text-muted" style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;margin-top:6px">{{ p.role }}</div>
+            <sc-for list="{{ p.bullets }}" as="b" hint-placeholder-count="3">
+              <div style="display:grid;grid-template-columns:13px minmax(0,1fr);gap:13px;margin-top:12px">
+                <span style="width:7px;height:7px;background:var(--color-accent);margin-top:8px"></span>
+                <p style="margin:0;font-size:14.5px;line-height:1.62;text-wrap:pretty">{{ b }}</p>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div data-reveal="1" style="display:grid;grid-template-columns:190px minmax(0,1fr);gap:36px;padding:44px 0;border-bottom:1px solid var(--color-divider)">
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-accent);padding-top:5px">Certifications</div>
+      <div>
+        <sc-for list="{{ certifications }}" as="c" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) 24% 12%;gap:12px;padding:12px 0;border-bottom:1px solid var(--color-divider);font-size:14px;align-items:baseline">
+            <div style="font-family:var(--font-heading);font-weight:600">{{ c.title }}</div>
+            <div class="text-muted">{{ c.issuer }}</div>
+            <div style="font-variant-numeric:tabular-nums">{{ c.year }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div data-reveal="1" style="display:grid;grid-template-columns:190px minmax(0,1fr);gap:36px;padding:44px 0;border-bottom:1px solid var(--color-divider)">
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-accent);padding-top:5px">Skills &amp; domains</div>
+      <div>
+        <div style="display:grid;gap:18px">
+          <sc-for list="{{ skillCategories }}" as="cat" hint-placeholder-count="6">
+            <div>
+              <div style="font-family:var(--font-heading);font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:6px">{{ cat.category }}</div>
+              <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--color-text)">{{ cat.list }}</p>
+            </div>
+          </sc-for>
+        </div>
+        <p class="text-muted" style="margin:24px 0 0;font-size:14px;line-height:1.6">Languages — English, Hindi. The full evidence map for each skill is on the <a href="skills.html">Skill library page</a>.</p>
+      </div>
+    </div>
+
+    <div data-reveal="1" style="display:grid;grid-template-columns:190px minmax(0,1fr);gap:36px;padding:44px 0;border-bottom:1px solid var(--color-divider)">
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-accent);padding-top:5px">Courses</div>
+      <div>
+        <p class="text-muted" style="margin:0 0 18px;font-size:14px;line-height:1.6;max-width:62ch">Eleven postgraduate courses across three semesters. The six highlighted on the résumé are marked; the complete timeline and assignments live on the <a href="coursework.html">Coursework page</a>.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ courses }}" as="c" hint-placeholder-count="13">
+            <span class="{{ c.cls }}">{{ c.label }}</span>
+          </sc-for>
+        </div>
       </div>
     </div>
 
@@ -111,44 +159,15 @@
       </div>
     </div>
 
-    <div data-reveal="1" style="display:grid;grid-template-columns:190px minmax(0,1fr);gap:36px;padding:44px 0;border-bottom:1px solid var(--color-divider)">
-      <div style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-accent);padding-top:5px">Service</div>
+    <div data-reveal="1" style="display:grid;grid-template-columns:190px minmax(0,1fr);gap:36px;padding:44px 0;border-bottom:2px solid var(--color-divider)">
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-accent);padding-top:5px">Responsibility &amp; activities</div>
       <div>
-        <sc-for list="{{ service }}" as="s" hint-placeholder-count="2">
-          <div style="padding:0 0 18px">
+        <sc-for list="{{ service }}" as="s" hint-placeholder-count="5">
+          <div style="padding:0 0 20px">
             <div style="font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.3;text-wrap:pretty">{{ s.title }}</div>
             <div class="text-muted" style="font-size:13.5px;line-height:1.55;margin-top:5px;text-wrap:pretty">{{ s.meta }}</div>
           </div>
         </sc-for>
-      </div>
-    </div>
-
-    <div data-reveal="1" style="display:grid;grid-template-columns:190px minmax(0,1fr);gap:36px;padding:44px 0;border-bottom:1px solid var(--color-divider)">
-      <div style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-accent);padding-top:5px">Certifications</div>
-      <div>
-        <table class="table">
-          <tbody>
-            <sc-for list="{{ certifications }}" as="c" hint-placeholder-count="4">
-              <tr>
-                <td style="font-family:var(--font-heading);font-weight:600">{{ c.title }}</td>
-                <td class="text-muted" style="width:24%">{{ c.issuer }}</td>
-                <td style="width:12%;font-variant-numeric:tabular-nums">{{ c.year }}</td>
-              </tr>
-            </sc-for>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div data-reveal="1" style="display:grid;grid-template-columns:190px minmax(0,1fr);gap:36px;padding:44px 0;border-bottom:2px solid var(--color-divider)">
-      <div style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-accent);padding-top:5px">Skills &amp; languages</div>
-      <div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <sc-for list="{{ skills }}" as="s" hint-placeholder-count="8">
-            <span class="tag tag-outline">{{ s }}</span>
-          </sc-for>
-        </div>
-        <p class="text-muted" style="margin:22px 0 0;font-size:14px;line-height:1.6">Languages — English, Hindi. The full evidence map for each skill is on the <a href="skills.html">Skill library page</a>.</p>
       </div>
     </div>
   </section>
@@ -157,7 +176,7 @@
     <div data-reveal="1" style="background:var(--color-accent);color:var(--ink-bg);padding:56px 44px 58px;margin-top:56px">
       <div style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.72">End of résumé</div>
       <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(34px,5.2vw,64px);line-height:0.96;letter-spacing:-0.042em;margin-top:18px;text-wrap:balance">Take the PDF<br>with you.</div>
-      <p style="margin:22px 0 0;font-size:16px;line-height:1.6;max-width:48ch;opacity:0.92;text-wrap:pretty">One page, print-ready, and identical to everything above. Updated August 2026.</p>
+      <p style="margin:22px 0 0;font-size:16px;line-height:1.6;max-width:48ch;opacity:0.92;text-wrap:pretty">Two pages, print-ready, and identical to everything above. Updated September 2026.</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:32px">
         <a class="btn" href="assets/Abha-Singh-Sardar-Resume.pdf" download="Abha-Singh-Sardar-Resume.pdf" style="background:var(--color-bg);color:var(--color-text);padding:14px 22px;font-size:15px">Download résumé (PDF) ↓</a>
         <a class="btn" href="assets/Abha-Singh-Sardar-Resume.pdf" target="_blank" rel="noopener" style="border:1px solid var(--color-bg);color:var(--color-bg);padding:14px 22px;font-size:15px">Open in a new tab ↗</a>
@@ -175,52 +194,47 @@ const EDUCATION = [
   { degree: 'M.Tech · Computer Science and Engineering', school: 'Maulana Azad National Institute of Technology', score: '8.15', year: '2017' },
   { degree: 'B.Tech · Computer Science and Engineering', school: 'Kalinga Institute of Industrial Technology', score: '7.91', year: '2014' },
   { degree: 'Class XII (ICSE)', school: 'Church School, Beldih', score: '75.67%', year: '2010' },
-  { degree: 'Class X (ICSE)', school: 'Church School, Beldih', score: '81.50%', year: '2008' }
+  { degree: 'Class X (ICSE)', school: 'Church School, Beldih', score: '80.57%', year: '2008' }
 ];
 
-const COURSES = [
-  ['Basics of Computing, AI and Data Science for Design and Manufacturing', true],
-  ['Sensors and Transducers', true],
-  ['Edge AI', true],
-  ['Introduction to Natural Language Processing', true],
-  ['Operations Management', false],
-  ['Creative Engineering Design', false],
-  ['Materials and Processes', false],
-  ['Digital Manufacturing', false],
-  ['Human Machine Interaction for Manufacturing', false],
-  ['Mechatronics', false],
-  ['The Art of Communication for Leaders', false]
-];
-
-const PROJECTS = [
-  { title: 'IMU-Based Human Activity Recognition (HAR) System on Edge', role: 'TinyML · Arduino Nicla Vision', period: 'Jan – Feb 2026', bullets: [
-    'Developed an end-to-end TinyML pipeline on Arduino Nicla Vision to classify 12 distinct human activities, such as eating and pick-and-place. A dataset of over 120,000 IMU samples was collected at 50 Hz using a 3-axis accelerometer and 3-axis gyroscope.',
-    'Performed statistical feature extraction (mean, RMS, energy) on raw data, aggregated into a 72-dimensional vector over 20-sample sliding windows to train a decision-tree classifier, and deployed real-time on-device inference with 99.43% classification accuracy for high-dynamic activities such as jogging and cycling.'
+const INTERNSHIPS = [
+  { company: 'Dept. of Cyber-Physical Systems (RBCCPS), IISc', role: 'Research Intern', period: 'May’26 – Jul’26', bullets: [
+    'Preprocessed a multi-subject, student-collected IMU dataset for Human Activity Recognition into clean, windowed training data.',
+    'Developed a Human Activity Recognition model on the cleaned data as the full-precision baseline for model compression.',
+    'Performed extensive pruning and quantization of the HART transformer model, comparing accuracy, model size and latency for deployment on low-power edge devices.'
   ] },
-  { title: 'Recommendation System for E-Commerce using Truncated SVD-SGD', role: 'Model-based recommender', period: 'Jan 2026', bullets: [
-    'Developed a model-based recommendation engine using Truncated Singular Value Decomposition to decompose a sparse utility matrix of 50,000 user–product interactions into latent feature vectors.',
-    'Implemented item-to-item correlation analysis to generate targeted product suggestions, identifying highly relevant items with a Pearson correlation coefficient exceeding 0.90 across a catalog of 2,845 beauty products.'
-  ] },
-  { title: 'Hybrid CNN-ViT Model for Plant Disease Classification', role: 'Research Scholar', period: 'May – Aug 2023', bullets: [
-    'Developed a hybrid architecture integrating Convolutional Neural Networks for local feature extraction with Vision Transformers for long-range dependency modelling, achieving 98.23% test accuracy on the Tomato Leaf Disease Classification dataset containing 21,000 images and on Plant Disease Recognition.',
-    'Reduced test loss significantly on Plant Disease Recognition (0.3182 to 0.0956) and Tomato Leaf Disease (0.2108 to 0.0343), while improving F1 scores from 0.8842 to 0.9819 and 0.9608 to 0.9947 respectively, compared to baseline CNN models.'
-  ] },
-  { title: 'Hybrid Encrypted Reversible Data Hiding (HERDH)', role: 'Master’s thesis · Research Scholar', period: 'Aug 2016 – Jul 2017', bullets: [
-    'Developed a hybrid reversible data-hiding method using wavelet-domain transformation, achieving >50 dB PSNR and a 72% improvement in visual fidelity over existing techniques.'
+  { company: 'Mohanpur Organics Pvt. Ltd.', role: 'Analytics & Outbound Automation Intern', period: 'May’26 – Jun’26', bullets: [
+    'Built a Retrieval-Augmented Generation (RAG) chatbot for medical assistance that answers from curated healthcare documents.',
+    'Deployed a live demo, CareCompass, on Streamlit using hybrid BM25 + MiniLM search over 12 curated WHO, NHS and UNICEF health documents.',
+    'Added a rule-based safety check (19 red-flag rules in 3 languages, 5 urgency levels), reaching 100% emergency recall and 3.8% under-triage on a 52-case test set.'
   ] }
 ];
 
-const PUBLICATIONS = [
-  { title: 'Improving phishing detection using attention-augmented CNN-GRU-RNN networks', venue: 'Ranjan, A., Sardar, A. S., Ranjan, V., & Sharma, N. (2025, November). In 5th International Conference on Communication, Computing and Electronics Systems (ICCCES 2026). Accepted 13 November 2025.' },
-  { title: 'Enhancing computer vision performance: a hybrid deep learning approach with CNNs and vision transformers', venue: 'Sardar, A. S., & Ranjan, V. (2023, November). In International Conference on Computer Vision and Image Processing (pp. 591–602). Cham: Springer Nature Switzerland.' },
-  { title: 'Advancement in Reversible Data Hiding techniques', venue: 'Tiwari, N., & Sardar, A. S. (2017). International Journal of Computer Science and Network Security, 17(3).' }
-];
-
-const SERVICE = [
-  { title: 'Placement Representative, Smart Manufacturing’27', meta: 'Department of Design and Manufacturing (DM), Indian Institute of Science (IISc Bangalore).' },
-  { title: 'Host, India–Nagoya Career Connect (Tech Japan & OCCaP IISc)', meta: 'Bridged IISc students and researchers with Japanese corporate delegations and international tech innovators.' },
-  { title: 'Moderator, Ripples’26 Panel Discussion at IISc Open Day', meta: '“Beyond Automation: Artificial Intelligence in Engineering Design and Production.”' },
-  { title: 'Meta Reviewer, IEEE International Students’ Conference SCEECS’25', meta: 'Held 18–19 January 2025. Recognised for exceptional service in upholding research standards.' }
+const PROJECTS = [
+  { title: 'Head Gesture Recognition System', role: 'TinyML · Wearable Device · Arduino Nicla Vision', period: 'Mar’26 – May’26', bullets: [
+    'Built a wearable device that turns head gestures into messages for people with limited hand mobility, using ∼140K IMU samples (7 classes, 50 Hz) from two Arduino Nicla Vision boards.',
+    'Created 148 features (statistical, frequency and left–right symmetry) to separate similar gestures such as Tilt Left and Tilt Right; trained Decision Tree, Random Forest and MLP models.',
+    'Deployed an INT8-quantized model (∼33.6 KB) on the device with 100% test accuracy and 15–40 ms latency, with live alerts on an OLED screen, a buzzer and caregiver phone notifications.'
+  ] },
+  { title: 'FabricaTech – Manufacturing Execution System Interface', role: 'React + TypeScript · Vite · Tailwind CSS', period: 'Jan’26 – May’26', bullets: [
+    'Designed and built a shop-floor interface in React + TypeScript (Vite, Tailwind CSS) with 7 workflows: login, work orders, quality audit, machine lockout and shift reports.',
+    'Built a real-time production dashboard showing OEE, availability, performance and quality yield, with machine data, failure alerts and separate logins for 4 plant roles.'
+  ] },
+  { title: 'IMU-Based Human Activity Recognition on Edge', role: 'TinyML · Arduino Nicla Vision', period: 'Jan’26 – Feb’26', bullets: [
+    'Built an end-to-end TinyML pipeline on Arduino Nicla Vision to classify 12 activities (e.g., eating, pick-and-place, stair climbing) from 120K+ IMU samples recorded at 50 Hz.',
+    'Extracted 72 features (mean, RMS, energy) over 20-sample sliding windows and ran a Decision Tree on the device, reaching 99.43% accuracy on fast activities such as jogging and cycling.'
+  ] },
+  { title: 'E-Commerce Recommendation Engine', role: 'Model-based RecSys · Collaborative Filtering', period: 'Jan 2026', bullets: [
+    'Built a collaborative-filtering recommender using Truncated SVD on a sparse 50,000-interaction user–product matrix from a 2,845-product beauty catalogue.',
+    'Recommended similar products from latent-factor correlations, returning items with Pearson r > 0.90.'
+  ] },
+  { title: 'Hybrid CNN–ViT Model for Plant Disease Classification', role: 'Research Scholar · Springer CVIP 2023', period: 'May – Aug 2023', bullets: [
+    'Designed a model combining CNN local features with Vision Transformer attention, reaching 98.23% test accuracy on 21,000 tomato-leaf images; published by Springer (CVIP 2023).',
+    'Lowered test loss vs. baseline CNNs (0.3182 → 0.0956 and 0.2108 → 0.0343) and raised F1 scores (0.8842 → 0.9819 and 0.9608 → 0.9947) on two plant-disease datasets.'
+  ] },
+  { title: 'Hybrid Encrypted Reversible Data Hiding', role: 'Master’s Thesis · Research Scholar · MATLAB', period: 'Aug 2016 – Jul 2017', bullets: [
+    'Developed a reversible data-hiding method combining wavelet transform, SVD and encryption with exact image recovery, achieving >50 dB PSNR and 72% better visual quality than existing methods (MATLAB).'
+  ] }
 ];
 
 const CERTIFICATIONS = [
@@ -230,7 +244,44 @@ const CERTIFICATIONS = [
   { title: 'Machine Learning', issuer: 'Coursera', year: '2022' }
 ];
 
-const SKILLS = ['Python', 'Data Analytics', 'TinyML', 'Model Optimization and Deployment', 'TensorFlow', 'Research and Scientific Writing', 'Machine Learning and Deep Learning', 'Computer Vision'];
+const SKILL_CATEGORIES = [
+  { category: 'Programming Languages', list: 'Python, MATLAB, TypeScript, MicroPython' },
+  { category: 'AI / ML', list: 'Machine Learning, Deep Learning, CNNs, Vision Transformers, NLP, RAG & LLMs, Recommender Systems' },
+  { category: 'Edge AI & TinyML', list: 'Pruning, INT8 Quantization, TensorFlow Lite, On-device Inference, IMU Sensing, Arduino Nicla Vision' },
+  { category: 'Libraries & Frameworks', list: 'TensorFlow, Keras, scikit-learn, NumPy, Pandas, Sentence-Transformers, React, Tailwind CSS' },
+  { category: 'Tools & Deployment', list: 'Git/GitHub, Jupyter, Streamlit, Gradio, Docker, LLM APIs (Groq, Gemini, OpenAI)' },
+  { category: 'Domain', list: 'Smart Manufacturing, Manufacturing Execution Systems, Signal Processing, Data Analytics, Scientific Writing' }
+];
+
+const COURSES = [
+  ['Basics of Computing, AI and Data Science for Design and Manufacturing', true],
+  ['Edge AI', true],
+  ['Introduction to Natural Language Processing', true],
+  ['Data Mining', true],
+  ['Intelligent Mobile Robotics', true],
+  ['Sensors and Transducers (PG)', true],
+  ['Operations Management', false],
+  ['Creative Engineering Design', false],
+  ['Materials and Processes', false],
+  ['Digital Manufacturing', false],
+  ['Human Machine Interaction for Manufacturing', false],
+  ['Mechatronics', false],
+  ['The Art of Communication for Leaders', false]
+];
+
+const PUBLICATIONS = [
+  { title: 'Improving phishing detection using attention-augmented CNN-GRU-RNN networks', venue: 'Ranjan, A., Sardar, A. S., Ranjan, V., & Sharma, N. (2025, November). In 5th International Conference on Communication, Computing and Electronics Systems (ICCCES 2026). Accepted.' },
+  { title: 'Enhancing computer vision performance: A hybrid deep learning approach with CNNs and vision transformers', venue: 'Sardar, A. S., & Ranjan, V. (2023). CVIP 2023, Springer, pp. 591–602. DOI: 10.1007/978-3-031-58174-8_49' },
+  { title: 'Advancement in reversible data hiding techniques', venue: 'Tiwari, N., & Sardar, A. S. (2017). International Journal of Computer Science and Network Security, 17(3).' }
+];
+
+const SERVICE = [
+  { title: 'Placement Representative, M.Tech Smart Manufacturing (2025–27)', meta: 'Dept. of Design & Manufacturing, IISc · Jul’26 – Present' },
+  { title: 'Meta Reviewer, IEEE International Students’ Conference SCEECS’25', meta: 'Jan 2025 · Recognised for excellent review work' },
+  { title: 'Moderator, Ripples’26 Panel Discussion at IISc Open Day', meta: '“Beyond Automation: Artificial Intelligence in Engineering Design and Production” · Panel with speakers from academia and industry' },
+  { title: 'Host, Tech Japan Event (India–Nagoya Career Connect)', meta: 'With the City of Nagoya and OCCaP, IISc · Connecting IISc students with Japanese industry delegates' },
+  { title: 'Department Representative at HR Connect 2026', meta: 'Department of Design and Manufacturing, IISc · Interacting with industry HR leaders' }
+];
 
 class Component extends DCLogic {
   componentDidMount() {
@@ -242,12 +293,13 @@ class Component extends DCLogic {
   renderVals() {
     return {
       education: EDUCATION,
+      internships: INTERNSHIPS,
       courses: COURSES.map(c => ({ label: c[0], cls: c[1] ? 'tag tag-accent' : 'tag tag-neutral' })),
       projects: PROJECTS,
       publications: PUBLICATIONS,
       service: SERVICE,
       certifications: CERTIFICATIONS,
-      skills: SKILLS
+      skillCategories: SKILL_CATEGORIES
     };
   }
 }

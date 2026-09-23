@@ -25,8 +25,8 @@
 </style>
 </helmet>
 
-<div data-screen-label="Projects" style="min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);padding-top:65px;overflow-x:hidden">
-  <dc-import name="SiteNav" active="projects" hint-size="100%,65px"></dc-import>
+<div data-screen-label="Projects" style="min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);padding-top:50px;overflow-x:hidden">
+  <dc-import name="SiteNav" active="projects" hint-size="100%,50px"></dc-import>
 
   <section style="max-width:1280px;margin:0 auto;padding:0 40px">
     <div style="padding:72px 0 40px;border-bottom:2px solid var(--color-divider);animation:om-rise 750ms cubic-bezier(.16,.84,.44,1) both">
@@ -35,12 +35,12 @@
         <span style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent)">Section 02</span>
       </div>
       <h1 style="margin:0;font-size:clamp(46px,7vw,88px);line-height:0.92;letter-spacing:-0.048em">Projects &amp;<br>Research</h1>
-      <p style="margin:26px 0 0;font-size:17px;line-height:1.6;max-width:56ch;text-wrap:pretty">Four research projects spanning a decade of work — from wavelet-domain data hiding through vision transformers to a classifier small enough to live inside a microcontroller. Open any one for the detail and the numbers.</p>
+      <p style="margin:26px 0 0;font-size:17px;line-height:1.6;max-width:56ch;text-wrap:pretty">Six engineering and research projects spanning a decade of work — from wavelet-domain data hiding through vision transformers to shop-floor MES interfaces and on-device microcontroller inference. Open any one for the detail and the numbers.</p>
     </div>
   </section>
 
   <section style="max-width:1280px;margin:0 auto;padding:0 40px">
-    <sc-for list="{{ projects }}" as="project" hint-placeholder-count="4">
+    <sc-for list="{{ projects }}" as="project" hint-placeholder-count="6">
       <div data-reveal="1" style="border-bottom:2px solid var(--color-divider)">
         <button type="button" onClick="{{ project.toggle }}" style="width:100%;text-align:left;cursor:pointer;background:transparent;border:0;padding:36px 0;display:grid;grid-template-columns:70px minmax(0,1.65fr) minmax(0,1fr) 44px;gap:26px;align-items:start;font-family:var(--font-body);color:var(--color-text)">
           <div style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.1em;color:var(--color-accent);font-variant-numeric:tabular-nums;padding-top:8px">{{ project.num }}</div>
@@ -110,7 +110,7 @@
     <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);gap:0;border-bottom:2px solid var(--color-divider)">
       <div data-reveal="left" style="border-right:2px solid var(--color-divider);padding:28px 32px 30px 0">
         <div class="text-muted" style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px">Service &amp; certification</div>
-        <sc-for list="{{ credentials }}" as="cred" hint-placeholder-count="6">
+        <sc-for list="{{ credentials }}" as="cred" hint-placeholder-count="8">
           <div style="padding:14px 0;border-bottom:1px solid var(--color-divider)">
             <div style="font-size:14.5px;line-height:1.4;font-family:var(--font-heading);font-weight:600;text-wrap:pretty">{{ cred.title }}</div>
             <div class="text-muted" style="font-size:12.5px;margin-top:4px;line-height:1.45">{{ cred.meta }}</div>
@@ -144,8 +144,27 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#c96442&quot;,&quot;#8a3e27&quot;,&quot;#6f6c63&quot;,&quot;#5b6a52&quot;],&quot;default&quot;:&quot;#c96442&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Appearance&quot;}}">
 const PROJECTS = [
-  { id: 'har', num: '01', title: 'IMU-Based Human Activity Recognition on the Edge',
-    role: 'TinyML · Solo', period: 'Jan – Feb 2026',
+  { id: 'gesture', num: '01', title: 'Head Gesture Recognition System',
+    role: 'TinyML · Wearable Device', period: 'Mar – May 2026',
+    summary: 'A wearable device turning head gestures into messages for people with limited mobility, powered by two Arduino Nicla Vision boards.',
+    stack: ['TinyML', 'Arduino Nicla Vision', 'INT8 Quantization', 'Decision Tree', 'Wearable AI'],
+    bullets: [
+      'Built a wearable assistive device that translates head gestures into messages for individuals with restricted motor control, capturing ~140K IMU samples across 7 distinct classes at 50 Hz using dual Arduino Nicla Vision modules.',
+      'Extracted 148 features spanning statistical metrics, frequency-domain energy, and bilateral left–right symmetry to reliably distinguish mirror gestures like Tilt Left and Tilt Right.',
+      'Trained Decision Tree, Random Forest, and MLP classifiers; deployed an INT8-quantized model (~33.6 KB) achieving 100% test accuracy with 15–40 ms latency, driving live OLED feedback, audio buzzers, and remote caregiver alerts.'
+    ],
+    metrics: [{ value: '100%', label: 'Test accuracy' }, { value: '15–40 ms', label: 'Inference latency' }, { value: '33.6 KB', label: 'INT8 model size' }, { value: '~140k', label: 'IMU samples' }] },
+  { id: 'fabricatech', num: '02', title: 'FabricaTech – Manufacturing Execution System Interface',
+    role: 'React + TypeScript · Vite · Tailwind CSS', period: 'Jan – May 2026',
+    summary: 'A responsive, role-based shop-floor execution system interface with live production telemetry, OEE monitoring, and failure alerts.',
+    stack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Smart Manufacturing'],
+    bullets: [
+      'Designed and engineered a full shop-floor execution interface with 7 production workflows: secure operator authentication, work orders, quality inspection, machine lockout, and shift reporting.',
+      'Built a live operational dashboard tracking Overall Equipment Effectiveness (OEE), availability, machine performance, and quality yield across 4 discrete plant roles.'
+    ],
+    metrics: [{ value: '7', label: 'Production workflows' }, { value: '4', label: 'Plant roles' }, { value: 'OEE', label: 'Live telemetry' }, { value: 'React+TS', label: 'Modern stack' }] },
+  { id: 'har', num: '03', title: 'IMU-Based Human Activity Recognition on the Edge',
+    role: 'TinyML · Arduino Nicla Vision', period: 'Jan – Feb 2026',
     summary: 'A twelve-class activity classifier trained, compressed and deployed to run entirely on an Arduino Nicla Vision.',
     stack: ['TinyML', 'Arduino Nicla Vision', 'Decision Tree', 'Feature Engineering', 'Python'],
     bullets: [
@@ -155,8 +174,8 @@ const PROJECTS = [
       'Deployed real-time on-device inference reaching 99.43% classification accuracy for high-dynamic activities such as jogging and cycling, with no cloud round trip.'
     ],
     metrics: [{ value: '99.43%', label: 'On-device accuracy' }, { value: '120k+', label: 'IMU samples' }, { value: '12', label: 'Activity classes' }, { value: '50 Hz', label: 'Sampling rate' }] },
-  { id: 'rec', num: '02', title: 'E-Commerce Recommendation Engine · Truncated SVD',
-    role: 'Model-based RecSys · Solo', period: 'Jan 2026',
+  { id: 'rec', num: '04', title: 'E-Commerce Recommendation Engine · Truncated SVD',
+    role: 'Model-based RecSys · Collaborative Filtering', period: 'Jan 2026',
     summary: 'Latent-factor recommendations from a sparse 50,000-interaction utility matrix across a beauty-products catalogue.',
     stack: ['Truncated SVD', 'Collaborative Filtering', 'scikit-learn', 'Pandas', 'Python'],
     bullets: [
@@ -165,8 +184,8 @@ const PROJECTS = [
       'Evaluated across a catalogue of 2,845 beauty products, with the sparsity of the interaction matrix treated as the central modelling constraint rather than an afterthought.'
     ],
     metrics: [{ value: '0.90+', label: 'Pearson correlation' }, { value: '50,000', label: 'Interactions' }, { value: '2,845', label: 'Products' }, { value: 'SVD', label: 'Latent factorisation' }] },
-  { id: 'cnnvit', num: '03', title: 'Hybrid CNN–ViT Model for Plant Disease Classification',
-    role: 'Research Scholar', period: 'May – Aug 2023',
+  { id: 'cnnvit', num: '05', title: 'Hybrid CNN–ViT Model for Plant Disease Classification',
+    role: 'Research Scholar · Springer CVIP 2023', period: 'May – Aug 2023',
     summary: 'Convolutional local features fused with vision-transformer global attention, published by Springer at CVIP 2023.',
     stack: ['Vision Transformers', 'CNN', 'TensorFlow', 'Computer Vision', 'Python'],
     bullets: [
@@ -176,7 +195,7 @@ const PROJECTS = [
       'Lifted F1 from 0.8842 to 0.9819 and from 0.9608 to 0.9947 on the two datasets respectively; the work was published by Springer Nature at CVIP 2023.'
     ],
     metrics: [{ value: '98.23%', label: 'Test accuracy' }, { value: '0.9947', label: 'Best F1 score' }, { value: '21,000', label: 'Training images' }, { value: '−89%', label: 'Test loss vs. baseline' }] },
-  { id: 'herdh', num: '04', title: 'Hybrid Encrypted Reversible Data Hiding (HERDH)',
+  { id: 'herdh', num: '06', title: 'Hybrid Encrypted Reversible Data Hiding (HERDH)',
     role: 'Master’s Thesis · Research Scholar', period: 'Aug 2016 – Jul 2017',
     summary: 'A wavelet-domain reversible data-hiding method that recovers the cover image exactly while carrying an encrypted payload.',
     stack: ['Wavelet Transform', 'Cryptography', 'Signal Processing', 'MATLAB'],
@@ -198,7 +217,10 @@ const PUBLICATIONS = [
 ];
 
 const CREDENTIALS = [
-  { title: 'Meta Reviewer, IEEE SCEECS’25', meta: 'International Students’ Conference · 18–19 January 2025 · recognised for exceptional service in upholding research standards' },
+  { title: 'Placement Representative, M.Tech Smart Manufacturing (2025–27)', meta: 'Dept. of Design & Manufacturing, IISc · Jul 2026 – Present' },
+  { title: 'Meta Reviewer, IEEE SCEECS’25', meta: 'International Students’ Conference · Jan 2025 · Recognised for exceptional research review service' },
+  { title: 'Host, India–Nagoya Career Connect', meta: 'Tech Japan & OCCaP, IISc · Connecting IISc students with Japanese industry leaders' },
+  { title: 'Department Representative at HR Connect 2026', meta: 'Department of Design and Manufacturing, IISc · Interacting with industry HR leaders' },
   { title: 'Moderator, Ripples’26 Panel Discussion', meta: 'IISc Open Day · “Beyond Automation: Artificial Intelligence in Engineering Design and Production”' },
   { title: 'Google Data Analytics Professional Certificate', meta: 'Coursera · 2024' },
   { title: 'Python for Data Science, AI & Development', meta: 'Coursera · 2023' },
@@ -211,11 +233,11 @@ const EDUCATION = [
   { degree: 'M.Tech · Computer Science and Engineering', school: 'Maulana Azad National Institute of Technology', score: '8.15', year: '2017' },
   { degree: 'B.Tech · Computer Science and Engineering', school: 'Kalinga Institute of Industrial Technology', score: '7.91', year: '2014' },
   { degree: 'Class XII (ICSE)', school: 'Church School, Beldih', score: '75.67%', year: '2010' },
-  { degree: 'Class X (ICSE)', school: 'Church School, Beldih', score: '81.50%', year: '2008' }
+  { degree: 'Class X (ICSE)', school: 'Church School, Beldih', score: '80.57%', year: '2008' }
 ];
 
 class Component extends DCLogic {
-  state = { open: { har: true } };
+  state = { open: { gesture: true, har: false } };
 
   componentDidMount() {
     const go = () => { if (window.SiteMotion) { if (this.props.accent) window.SiteMotion.setAccent(this.props.accent); window.SiteMotion.init(); } };
