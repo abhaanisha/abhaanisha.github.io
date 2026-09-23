@@ -29,7 +29,7 @@
   @media (max-width: 860px) {
     .event-split-grid, .event-split-grid-reverse { grid-template-columns: 1fr !important; }
     .event-split-grid > div:first-child { border-right: 0 !important; border-bottom: 2px solid var(--color-divider); padding-right: 0 !important; }
-    .event-split-grid-reverse > div:first-child { border-bottom: 2px solid var(--color-divider); }
+    .event-split-grid-reverse > div:first-child { border-bottom: 2px solid var(--color-divider); border-right: 0 !important; }
     .event-split-grid-reverse > div:last-child { border-left: 0 !important; padding-left: 0 !important; }
     .gallery-grid { grid-template-columns: 1fr !important; }
   }
@@ -49,7 +49,7 @@
         <span style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent)">Section 04</span>
       </div>
       <h1 style="margin:0;font-size:clamp(46px,7vw,88px);line-height:0.92;letter-spacing:-0.048em">Events &amp;<br>Gallery</h1>
-      <p style="margin:26px 0 0;font-size:17px;line-height:1.6;max-width:54ch;text-wrap:pretty">Moderating at IISc Open Day, the HR Conclave, the Independence Day Freedom Run, and moments around the IISc campus. Drag a photograph onto any frame.</p>
+      <p style="margin:26px 0 0;font-size:17px;line-height:1.6;max-width:54ch;text-wrap:pretty">Hosting the India–Nagoya Career Connect with Tech Japan, moderating at IISc Open Day, the HR Conclave, the Independence Day Freedom Run, and moments around the IISc campus. Drag a photograph onto any frame.</p>
     </div>
   </section>
 
@@ -128,23 +128,77 @@
       </div>
     </div>
 
-    <!-- Event 02: HR Conclave -->
-    <div data-reveal="1" class="event-split-grid-reverse" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:0;border-bottom:2px solid var(--color-divider)">
-      <div class="grayscale" style="position:relative;min-height:340px">
-        <image-slot id="ev-hr-hero" shape="rect" fit="cover" src="assets/Gallery/HRConnect/WhatsApp Image 2026-09-20 at 12.20.39 AM (2).jpeg" placeholder="HR Conclave photo"></image-slot>
-      </div>
-      <div style="border-left:2px solid var(--color-divider);padding:38px 0 42px 40px">
-        <div style="display:flex;align-items:center;gap:12px">
-          <span class="tag tag-accent-2">Participant</span>
-          <span class="text-muted" style="font-size:12px">HR Conclave · Department of Design &amp; Manufacturing</span>
+    <!-- Event 02: India-Nagoya Career Connect -->
+    <div data-reveal="1" class="event-split-grid-reverse" style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.2fr);gap:0;border-bottom:2px solid var(--color-divider)">
+      <div style="display:flex;flex-direction:column;justify-content:space-between;background:rgba(127,127,127,.02);border-right:2px solid var(--color-divider)">
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--color-divider);background:rgba(127,127,127,.04)">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.12em;color:var(--color-accent);font-variant-numeric:tabular-nums">{{ connectCounter }}</span>
+              <span style="font-family:var(--font-heading);font-weight:700;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent)">India–Nagoya</span>
+            </div>
+            <div style="display:flex;gap:0;border:1px solid var(--color-divider)">
+              <button type="button" class="panel-nav-btn" onClick="{{ prevConnect }}" title="Previous photo" style="cursor:pointer;background:transparent;color:var(--color-text);border:0;padding:6px 14px;font-family:var(--font-heading);font-weight:700;font-size:13px;transition:background 150ms">←</button>
+              <button type="button" class="panel-nav-btn" onClick="{{ nextConnect }}" title="Next photo" style="cursor:pointer;background:transparent;color:var(--color-text);border:0;border-left:1px solid var(--color-divider);padding:6px 14px;font-family:var(--font-heading);font-weight:700;font-size:13px;transition:background 150ms">→</button>
+            </div>
+          </div>
+
+          <div class="grayscale" style="position:relative;width:100%;aspect-ratio:16/10;overflow:hidden">
+            <image-slot id="{{ connectHeroId }}" shape="rect" fit="cover" src="{{ connectHeroSrc }}" placeholder="India-Nagoya Career Connect photo"></image-slot>
+          </div>
         </div>
-        <h2 style="margin:18px 0 0;font-size:clamp(26px,3.3vw,40px);letter-spacing:-0.035em;line-height:1.08;text-wrap:pretty">HR Conclave</h2>
-        <p style="margin:18px 0 0;font-size:15.5px;line-height:1.65;max-width:56ch;text-wrap:pretty">Industry-facing sessions on how manufacturing organisations hire, structure and grow technical teams — a useful counterweight to the purely technical view of the field, and a reminder that engineering careers are built inside organisations.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:22px">
-          <span class="tag tag-neutral">Industry</span>
-          <span class="tag tag-neutral">Careers</span>
-          <span class="tag tag-neutral">Networking</span>
-          <span class="tag tag-neutral">IISc Bangalore</span>
+
+        <div style="padding:14px 18px;border-top:1px solid var(--color-divider)">
+          <div style="font-family:var(--font-heading);font-weight:700;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px">Event Highlights</div>
+          <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin">
+            <sc-for list="{{ connectThumbs }}" as="th">
+              <button type="button" class="thumb-btn" onClick="{{ th.select }}" style="flex:0 0 68px;height:48px;padding:0;margin:0;cursor:pointer;border:{{ th.border }};background:transparent;overflow:hidden;outline:none;position:relative;transition:all 180ms ease">
+                <span style="display:block;width:100%;height:100%;background-image:url('{{ th.src }}');background-size:cover;background-position:center;opacity:{{ th.opacity }};filter:grayscale({{ th.gray }});transition:filter 180ms,opacity 180ms"></span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-left:2px solid var(--color-divider);padding:38px 0 42px 40px;display:flex;flex-direction:column;justify-content:space-between">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <span class="tag tag-accent">Host</span>
+            <span class="text-muted" style="font-size:12px">Tech Japan · City of Nagoya · OCCaP IISc</span>
+          </div>
+          <h2 style="margin:18px 0 0;font-size:clamp(26px,3.3vw,40px);letter-spacing:-0.035em;line-height:1.08;text-wrap:pretty">India–Nagoya Career Connect</h2>
+          <p style="margin:18px 0 0;font-size:15.5px;line-height:1.65;max-width:58ch;text-wrap:pretty">Served as the Host for the high-impact India–Nagoya Career Connect conference organized by the Office of Career Counselling and Placement (OCCaP, IISc Bangalore) in partnership with the City of Nagoya and Tech Japan. Facilitated engaging interactions connecting IISc scholars and innovators with Japanese delegations across mobility, AI, software systems, and smart manufacturing.</p>
+
+          <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--color-divider)">
+            <div style="font-family:var(--font-heading);font-weight:700;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">Participating Delegations &amp; Organisations</div>
+            <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;font-size:13px;line-height:1.4">
+              <div style="padding:10px 12px;background:rgba(127,127,127,.05);border-left:2px solid var(--color-accent)">
+                <div style="font-weight:600">Tech Japan &amp; City of Nagoya</div>
+                <div class="text-muted" style="font-size:11.5px">Global Innovation &amp; Career Exchange</div>
+              </div>
+              <div style="padding:10px 12px;background:rgba(127,127,127,.05);border-left:2px solid var(--color-accent)">
+                <div style="font-weight:600">OCCaP, IISc Bangalore</div>
+                <div class="text-muted" style="font-size:11.5px">Career Counselling &amp; Placement</div>
+              </div>
+              <div style="padding:10px 12px;background:rgba(127,127,127,.05);border-left:2px solid var(--color-accent)">
+                <div style="font-weight:600">AZAPA &amp; LOZI</div>
+                <div class="text-muted" style="font-size:11.5px">Mobility &amp; Smart Supply Chain</div>
+              </div>
+              <div style="padding:10px 12px;background:rgba(127,127,127,.05);border-left:2px solid var(--color-accent)">
+                <div style="font-weight:600">STMN, IZUHO &amp; QUARTET</div>
+                <div class="text-muted" style="font-size:11.5px">Advanced Systems Engineering</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:24px">
+          <span class="tag tag-neutral">Event Host</span>
+          <span class="tag tag-neutral">Tech Japan</span>
+          <span class="tag tag-neutral">City of Nagoya</span>
+          <span class="tag tag-neutral">OCCaP IISc</span>
+          <span class="tag tag-neutral">Smart Mobility</span>
+          <span class="tag tag-neutral">Global Engineering</span>
         </div>
       </div>
     </div>
@@ -199,6 +253,27 @@
         </div>
       </div>
     </div>
+
+    <!-- Event 04: HR Conclave -->
+    <div data-reveal="1" class="event-split-grid-reverse" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:0;border-bottom:2px solid var(--color-divider)">
+      <div class="grayscale" style="position:relative;min-height:340px">
+        <image-slot id="ev-hr-hero" shape="rect" fit="cover" src="assets/Gallery/HRConnect/WhatsApp Image 2026-09-20 at 12.20.39 AM (2).jpeg" placeholder="HR Conclave photo"></image-slot>
+      </div>
+      <div style="border-left:2px solid var(--color-divider);padding:38px 0 42px 40px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <span class="tag tag-accent-2">Participant</span>
+          <span class="text-muted" style="font-size:12px">HR Conclave · Department of Design &amp; Manufacturing</span>
+        </div>
+        <h2 style="margin:18px 0 0;font-size:clamp(26px,3.3vw,40px);letter-spacing:-0.035em;line-height:1.08;text-wrap:pretty">HR Conclave</h2>
+        <p style="margin:18px 0 0;font-size:15.5px;line-height:1.65;max-width:56ch;text-wrap:pretty">Industry-facing sessions on how manufacturing organisations hire, structure and grow technical teams — a useful counterweight to the purely technical view of the field, and a reminder that engineering careers are built inside organisations.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:22px">
+          <span class="tag tag-neutral">Industry</span>
+          <span class="tag tag-neutral">Careers</span>
+          <span class="tag tag-neutral">Networking</span>
+          <span class="tag tag-neutral">IISc Bangalore</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section style="max-width:1280px;margin:0 auto;padding:80px 40px 0">
@@ -243,6 +318,11 @@ const BEYOND_AUTOMATION_PHOTOS = [
   'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.08.45 AM.jpeg'
 ];
 
+const INDIA_NAGOYA_PHOTOS = [
+  'assets/Gallery/India-Nagoya_CareerConnect/1789975107927.jpg',
+  'assets/Gallery/India-Nagoya_CareerConnect/1789975082006.jpg'
+];
+
 const FREEDOM_RUN_PHOTOS = [
   'assets/Gallery/Activities/Freedom_Run/SinglePhoto.jpeg',
   'assets/Gallery/Activities/Freedom_Run/Campus_FreedomRun.jpeg',
@@ -255,6 +335,8 @@ const FREEDOM_RUN_PHOTOS = [
 ];
 
 const FRAMES = [
+  { id: 'g-japan-1', group: 'japan', tag: 'India–Nagoya', src: 'assets/Gallery/India-Nagoya_CareerConnect/1789975107927.jpg' },
+  { id: 'g-japan-2', group: 'japan', tag: 'India–Nagoya', src: 'assets/Gallery/India-Nagoya_CareerConnect/1789975082006.jpg' },
   { id: 'g-panel-1', group: 'panel', tag: 'Ripples’26', src: 'assets/Gallery/BeyondAutomation/main3.jpeg' },
   { id: 'g-panel-2', group: 'panel', tag: 'Ripples’26', src: 'assets/Gallery/BeyondAutomation/main1.jpeg' },
   { id: 'g-panel-3', group: 'panel', tag: 'Ripples’26', src: 'assets/Gallery/BeyondAutomation/WhatsApp Image 2026-09-20 at 12.07.41 AM.jpeg' },
@@ -277,6 +359,7 @@ const FRAMES = [
 
 const FILTERS = [
   { key: 'all', label: 'All' },
+  { key: 'japan', label: 'India–Nagoya' },
   { key: 'panel', label: 'Ripples’26' },
   { key: 'run', label: 'Freedom Run' },
   { key: 'hr', label: 'HR Conclave' },
@@ -284,7 +367,7 @@ const FILTERS = [
 ];
 
 class Component extends DCLogic {
-  state = { filter: 'all', panelIdx: 0, runIdx: 0 };
+  state = { filter: 'all', panelIdx: 0, connectIdx: 0, runIdx: 0 };
 
   componentDidMount() {
     const go = () => { if (window.SiteMotion) { if (this.props.accent) window.SiteMotion.setAccent(this.props.accent); window.SiteMotion.init(); } };
@@ -295,6 +378,7 @@ class Component extends DCLogic {
   renderVals() {
     const f = this.state.filter;
     const pIdx = Math.max(0, Math.min(BEYOND_AUTOMATION_PHOTOS.length - 1, this.state.panelIdx || 0));
+    const cIdx = Math.max(0, Math.min(INDIA_NAGOYA_PHOTOS.length - 1, this.state.connectIdx || 0));
     const rIdx = Math.max(0, Math.min(FREEDOM_RUN_PHOTOS.length - 1, this.state.runIdx || 0));
 
     return {
@@ -322,6 +406,27 @@ class Component extends DCLogic {
           opacity: active ? '1' : '0.55',
           gray: active ? '0%' : '90%',
           select: () => this.setState({ panelIdx: idx })
+        };
+      }),
+      connectHeroId: 'ev-connect-hero-' + cIdx,
+      connectHeroSrc: INDIA_NAGOYA_PHOTOS[cIdx],
+      connectCounter: String(cIdx + 1).padStart(2, '0') + ' / ' + String(INDIA_NAGOYA_PHOTOS.length).padStart(2, '0'),
+      prevConnect: () => {
+        const next = (cIdx - 1 + INDIA_NAGOYA_PHOTOS.length) % INDIA_NAGOYA_PHOTOS.length;
+        this.setState({ connectIdx: next });
+      },
+      nextConnect: () => {
+        const next = (cIdx + 1) % INDIA_NAGOYA_PHOTOS.length;
+        this.setState({ connectIdx: next });
+      },
+      connectThumbs: INDIA_NAGOYA_PHOTOS.map((src, idx) => {
+        const active = idx === cIdx;
+        return {
+          src: src,
+          border: active ? '2px solid var(--color-accent)' : '1px solid var(--color-divider)',
+          opacity: active ? '1' : '0.55',
+          gray: active ? '0%' : '90%',
+          select: () => this.setState({ connectIdx: idx })
         };
       }),
       runHeroId: 'ev-run-hero-' + rIdx,

@@ -1135,8 +1135,169 @@
   // src/bundled.ts
   function bundledBlob(url) {
     const blobs = window.__resourceBlobs;
-    const b = blobs ? blobs[url.split("#")[0]] : void 0;
+    if (!blobs) return null;
+    const clean = (url || "").split("#")[0];
+    const b = blobs[clean] || blobs[clean.replace(/^\.\//, "")] || blobs["./" + clean];
     return b instanceof Blob ? b : null;
+  }
+
+  if (typeof window !== "undefined") {
+    try {
+      window.__resourceBlobs = window.__resourceBlobs || {};
+      const _snHtml = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-c42a7d83-f6f9-4514-97b4-d66bb1698ad2/styles.css">
+<script src="_ds/modernist-c42a7d83-f6f9-4514-97b4-d66bb1698ad2/_ds_bundle.js"></script>
+<script src="./site-motion.js"></script>
+</helmet>
+<div data-nav-shell="1" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:var(--color-bg);border-bottom:2px solid var(--color-divider);transition:box-shadow 200ms linear">
+  <div style="max-width:1280px;margin:0 auto;padding:11px clamp(20px,3vw,40px);display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px">
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:11px;font-family:var(--font-heading);font-weight:800;font-size:16.5px;letter-spacing:0.01em;color:var(--color-text);text-decoration:none;margin-right:auto;white-space:nowrap">
+      <img src="assets/logo.svg" alt="Abha Singh Sardar Logo" width="28" height="28" style="display:block;border-radius:7px;flex-shrink:0">
+      <span>ABHA SINGH SARDAR<span style="color:var(--color-accent)">.</span></span>
+    </a>
+    <nav style="display:flex;flex-wrap:wrap;justify-content:flex-end;min-width:0;flex:1 1 0%;gap:8px clamp(12px,1.6vw,21px);font-family:var(--font-heading);font-weight:600;font-size:13.5px;letter-spacing:0.055em;text-transform:uppercase">
+      <a href="index.html" style="text-decoration:none;padding-bottom:4px;color:{{ c_home }};border-bottom:2px solid {{ b_home }};transition:color 160ms linear,border-color 160ms linear">Home</a>
+      <a href="coursework.html" style="text-decoration:none;padding-bottom:4px;color:{{ c_coursework }};border-bottom:2px solid {{ b_coursework }};transition:color 160ms linear,border-color 160ms linear">Coursework</a>
+      <a href="projects.html" style="text-decoration:none;padding-bottom:4px;color:{{ c_projects }};border-bottom:2px solid {{ b_projects }};transition:color 160ms linear,border-color 160ms linear">Projects</a>
+      <a href="skills.html" style="text-decoration:none;padding-bottom:4px;color:{{ c_skills }};border-bottom:2px solid {{ b_skills }};transition:color 160ms linear,border-color 160ms linear">Skills</a>
+      <a href="gallery.html" style="text-decoration:none;padding-bottom:4px;color:{{ c_gallery }};border-bottom:2px solid {{ b_gallery }};transition:color 160ms linear,border-color 160ms linear">Gallery</a>
+      <a href="resume.html" style="text-decoration:none;padding-bottom:4px;color:{{ c_resume }};border-bottom:2px solid {{ b_resume }};transition:color 160ms linear,border-color 160ms linear">Résumé</a>
+      <a href="contact.html" style="text-decoration:none;padding-bottom:4px;color:{{ c_contact }};border-bottom:2px solid {{ b_contact }};transition:color 160ms linear,border-color 160ms linear">Contact</a>
+    </nav>
+    <button type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}" class="btn btn-secondary" style="margin-left:auto;flex:none;width:40px;height:40px;padding:0;display:grid;place-items:center;position:relative;overflow:hidden">
+      <span style="position:absolute;display:grid;place-items:center;transition:opacity 300ms linear, transform 520ms cubic-bezier(.16,.84,.44,1);opacity:{{ sunOpacity }};transform:{{ sunTransform }}">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path><path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path><path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path>
+        </svg>
+      </span>
+      <span style="position:absolute;display:grid;place-items:center;transition:opacity 300ms linear, transform 520ms cubic-bezier(.16,.84,.44,1);opacity:{{ moonOpacity }};transform:{{ moonTransform }}">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div style="height:2px;overflow:hidden;background:transparent">
+    <div data-progress-bar="1" style="height:2px;background:var(--color-accent);transform:scaleX(0);transform-origin:0 50%"></div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:70},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;coursework&quot;,&quot;projects&quot;,&quot;skills&quot;,&quot;gallery&quot;,&quot;resume&quot;,&quot;contact&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const PAGES = ['home', 'coursework', 'projects', 'skills', 'gallery', 'resume', 'contact'];
+class Component extends DCLogic {
+  state = { theme: 'light' };
+  componentDidMount() {
+    const sm = window.SiteMotion;
+    if (sm) this.setState({ theme: sm.currentTheme() });
+  }
+  toggle = () => {
+    const next = this.state.theme === 'dark' ? 'light' : 'dark';
+    this.setState({ theme: next });
+    if (window.SiteMotion) window.SiteMotion.setTheme(next);
+  };
+  renderVals() {
+    const active = (this.props.active || '').toLowerCase();
+    const dark = this.state.theme === 'dark';
+    const out = {
+      toggleTheme: this.toggle,
+      themeLabel: dark ? 'Switch to light theme' : 'Switch to dark theme',
+      sunOpacity: dark ? 0 : 1,
+      sunTransform: dark ? 'rotate(-90deg) scale(0.4)' : 'rotate(0deg) scale(1)',
+      moonOpacity: dark ? 1 : 0,
+      moonTransform: dark ? 'rotate(0deg) scale(1)' : 'rotate(90deg) scale(0.4)'
+    };
+    PAGES.forEach(p => {
+      const on = p === active;
+      out['c_' + p] = on ? 'var(--color-accent)' : 'var(--color-text)';
+      out['b_' + p] = on ? 'var(--color-accent)' : 'transparent';
+    });
+    return out;
+  }
+}
+<\/script>
+</body>
+</html>`;
+
+      const _sfHtml = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-c42a7d83-f6f9-4514-97b4-d66bb1698ad2/styles.css">
+<script src="_ds/modernist-c42a7d83-f6f9-4514-97b4-d66bb1698ad2/_ds_bundle.js"></script>
+<script src="./site-motion.js"></script>
+</helmet>
+<footer style="margin-top:96px;background:var(--ink-bg);color:var(--ink-fg);border-top:2px solid var(--ink-accent);overflow:hidden">
+  <div style="max-width:1280px;margin:0 auto;padding:64px clamp(20px,3vw,40px) 0;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,56px)">
+    <div>
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-accent);margin-bottom:20px">Open to work &amp; collaboration</div>
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(30px,3.6vw,46px);letter-spacing:-0.042em;line-height:1">Building intelligence<br>into machines.</div>
+      <p style="margin:18px 0 0;font-size:15px;line-height:1.6;max-width:44ch;color:color-mix(in srgb, var(--ink-fg) 66%, transparent);text-wrap:pretty">Edge AI, computer vision and the digital factory. Research collaborations, internships and roles worth talking about.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px">
+        <a class="btn btn-primary" href="contact.html" style="padding:12px 20px">Get in touch →</a>
+        <a class="btn" href="assets/Abha-Singh-Sardar-Resume.pdf" download="Abha-Singh-Sardar-Resume.pdf" style="padding:12px 20px;border:1px solid color-mix(in srgb, var(--ink-fg) 50%, transparent);color:var(--ink-fg);background:transparent">Résumé PDF ↓</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-accent);border-bottom:1px solid color-mix(in srgb, var(--ink-fg) 22%, transparent);padding-bottom:9px;margin-bottom:14px">Pages</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+        <a href="index.html" style="color:var(--ink-fg);text-decoration:none" style-hover="color:var(--ink-accent)">Home</a>
+        <a href="coursework.html" style="color:var(--ink-fg);text-decoration:none" style-hover="color:var(--ink-accent)">Coursework</a>
+        <a href="projects.html" style="color:var(--ink-fg);text-decoration:none" style-hover="color:var(--ink-accent)">Projects &amp; Research</a>
+        <a href="skills.html" style="color:var(--ink-fg);text-decoration:none" style-hover="color:var(--ink-accent)">Skill Library</a>
+        <a href="gallery.html" style="color:var(--ink-fg);text-decoration:none" style-hover="color:var(--ink-accent)">Events &amp; Gallery</a>
+        <a href="resume.html" style="color:var(--ink-fg);text-decoration:none" style-hover="color:var(--ink-accent)">Résumé</a>
+        <a href="contact.html" style="color:var(--ink-fg);text-decoration:none" style-hover="color:var(--ink-accent)">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-accent);border-bottom:1px solid color-mix(in srgb, var(--ink-fg) 22%, transparent);padding-bottom:9px;margin-bottom:14px">Elsewhere</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+        <a href="https://www.linkedin.com/in/abha-singh-sardar/" target="_blank" rel="noopener" style="color:var(--ink-fg);text-decoration:none" style-hover="color:var(--ink-accent)">LinkedIn ↗</a>
+        <a href="https://github.com/abhaanisha" target="_blank" rel="noopener" style="color:var(--ink-fg);text-decoration:none" style-hover="color:var(--ink-accent)">GitHub ↗</a>
+      </div>
+      <div style="font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-accent);border-bottom:1px solid color-mix(in srgb, var(--ink-fg) 22%, transparent);padding-bottom:9px;margin:28px 0 14px">Based in</div>
+      <div style="font-size:13.5px;line-height:1.6;color:color-mix(in srgb, var(--ink-fg) 66%, transparent)">Department of Design and Manufacturing<br>Indian Institute of Science<br>Bangalore, India</div>
+    </div>
+  </div>
+  <div style="border-top:1px solid color-mix(in srgb, var(--ink-fg) 22%, transparent);margin-top:56px">
+    <div style="max-width:1280px;margin:0 auto;padding:16px clamp(20px,3vw,40px);display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+      <span style="font-size:11.5px;color:color-mix(in srgb, var(--ink-fg) 60%, transparent)">M.Tech Smart Manufacturing · Graduating 2027</span>
+      <a href="#" style="margin-left:auto;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-fg);text-decoration:none" style-hover="color:var(--ink-accent)">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+</x-dc>
+</body>
+</html>`;
+
+      const snBlob = new Blob([_snHtml], { type: "text/html" });
+      const sfBlob = new Blob([_sfHtml], { type: "text/html" });
+      window.__resourceBlobs["./SiteNav.dc.html"] = snBlob;
+      window.__resourceBlobs["SiteNav.dc.html"] = snBlob;
+      window.__resourceBlobs["./SiteFooter.dc.html"] = sfBlob;
+      window.__resourceBlobs["SiteFooter.dc.html"] = sfBlob;
+    } catch (e) {
+      console.warn("[dc-runtime] Preload fallback error:", e);
+    }
   }
 
   // src/cdn.ts
