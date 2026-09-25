@@ -35,7 +35,7 @@
         <span style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent)">Section 02</span>
       </div>
       <h1 style="margin:0;font-size:clamp(46px,7vw,88px);line-height:0.92;letter-spacing:-0.048em">Projects &amp;<br>Research</h1>
-      <p style="margin:26px 0 0;font-size:17px;line-height:1.6;max-width:56ch;text-wrap:pretty">Six engineering and research projects spanning a decade of work — from wavelet-domain data hiding through vision transformers to shop-floor MES interfaces and on-device microcontroller inference. Open any one for the detail and the numbers.</p>
+      <p style="margin:26px 0 0;font-size:17px;line-height:1.6;max-width:56ch;text-wrap:pretty">Six engineering and research projects alongside two research internships spanning a decade of work — from wavelet-domain data hiding through vision transformers to shop-floor MES interfaces, healthcare RAG assistants, and on-device microcontroller inference. Open any one for the detail and the numbers.</p>
     </div>
   </section>
 
@@ -87,6 +87,57 @@
   <section style="max-width:1280px;margin:0 auto;padding:88px 40px 0">
     <div data-reveal="1" style="display:flex;align-items:baseline;gap:18px;border-bottom:2px solid var(--color-divider);padding-bottom:14px">
       <span style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.14em;color:var(--color-accent);font-variant-numeric:tabular-nums">03</span>
+      <h2 style="margin:0;font-size:clamp(28px,3.6vw,42px);letter-spacing:-0.038em">Research &amp; Industry Internships</h2>
+      <span class="text-muted" style="margin-left:auto;font-size:11px;letter-spacing:0.1em;text-transform:uppercase">Two appointments</span>
+    </div>
+
+    <sc-for list="{{ internships }}" as="internship" hint-placeholder-count="2">
+      <div data-reveal="1" style="border-bottom:2px solid var(--color-divider)">
+        <button type="button" onClick="{{ internship.toggle }}" style="width:100%;text-align:left;cursor:pointer;background:transparent;border:0;padding:36px 0;display:grid;grid-template-columns:70px minmax(0,1.65fr) minmax(0,1fr) 44px;gap:26px;align-items:start;font-family:var(--font-body);color:var(--color-text)">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.1em;color:var(--color-accent);font-variant-numeric:tabular-nums;padding-top:8px">{{ internship.num }}</div>
+          <div>
+            <h2 style="margin:0;font-size:clamp(24px,3.1vw,38px);letter-spacing:-0.035em;line-height:1.08;text-wrap:pretty">{{ internship.company }}</h2>
+            <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:16px">
+              <sc-for list="{{ internship.stack }}" as="tech" hint-placeholder-count="4">
+                <span class="tag tag-neutral">{{ tech }}</span>
+              </sc-for>
+            </div>
+          </div>
+          <div style="padding-top:6px">
+            <div class="text-muted" style="font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase">{{ internship.role }}</div>
+            <div style="font-size:13px;margin-top:6px;font-variant-numeric:tabular-nums">{{ internship.period }}</div>
+            <div class="text-muted" style="font-size:13px;margin-top:14px;line-height:1.5;text-wrap:pretty">{{ internship.summary }}</div>
+          </div>
+          <div style="justify-self:end;width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--color-divider);font-family:var(--font-heading);font-weight:800;font-size:19px;line-height:1;color:{{ internship.iconColor }};background:{{ internship.iconBg }};transition:background 180ms linear,color 180ms linear">{{ internship.icon }}</div>
+        </button>
+
+        <sc-if value="{{ internship.isOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:0 0 44px 96px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:48px;animation:om-drop 440ms cubic-bezier(.16,.84,.44,1) both">
+            <div>
+              <sc-for list="{{ internship.bullets }}" as="bullet" hint-placeholder-count="3">
+                <div style="display:grid;grid-template-columns:14px minmax(0,1fr);gap:15px;padding-bottom:17px">
+                  <span style="width:8px;height:8px;background:var(--color-accent);margin-top:9px"></span>
+                  <p style="margin:0;font-size:15px;line-height:1.68;text-wrap:pretty">{{ bullet }}</p>
+                </div>
+              </sc-for>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--color-divider);border-left:1px solid var(--color-divider);align-content:start">
+              <sc-for list="{{ internship.metrics }}" as="metric" hint-placeholder-count="4">
+                <div style="padding:20px 20px 22px;border-right:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider)">
+                  <div style="font-family:var(--font-heading);font-weight:800;font-size:28px;letter-spacing:-0.038em;line-height:1;font-variant-numeric:tabular-nums;color:var(--color-accent)">{{ metric.value }}</div>
+                  <div class="text-muted" style="font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;margin-top:9px;line-height:1.35">{{ metric.label }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </section>
+
+  <section style="max-width:1280px;margin:0 auto;padding:88px 40px 0">
+    <div data-reveal="1" style="display:flex;align-items:baseline;gap:18px;border-bottom:2px solid var(--color-divider);padding-bottom:14px">
+      <span style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.14em;color:var(--color-accent);font-variant-numeric:tabular-nums">04</span>
       <h2 style="margin:0;font-size:clamp(28px,3.6vw,42px);letter-spacing:-0.038em">Publications</h2>
       <span class="text-muted" style="margin-left:auto;font-size:11px;letter-spacing:0.1em;text-transform:uppercase">Peer reviewed</span>
     </div>
@@ -104,7 +155,7 @@
 
   <section style="max-width:1280px;margin:0 auto;padding:88px 40px 0">
     <div data-reveal="1" style="display:flex;align-items:baseline;gap:18px;border-bottom:2px solid var(--color-divider);padding-bottom:14px">
-      <span style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.14em;color:var(--color-accent);font-variant-numeric:tabular-nums">04</span>
+      <span style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.14em;color:var(--color-accent);font-variant-numeric:tabular-nums">05</span>
       <h2 style="margin:0;font-size:clamp(28px,3.6vw,42px);letter-spacing:-0.038em">Service &amp; record</h2>
     </div>
     <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);gap:0;border-bottom:2px solid var(--color-divider)">
@@ -119,21 +170,20 @@
       </div>
       <div data-reveal="right" style="padding:28px 0 30px 32px">
         <div class="text-muted" style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px">Academic record</div>
-        <table class="table">
-          <thead>
-            <tr><th style="width:36%">Qualification</th><th>Institution</th><th style="width:13%">Result</th><th style="width:11%">Year</th></tr>
-          </thead>
-          <tbody>
-            <sc-for list="{{ education }}" as="ed" hint-placeholder-count="5">
-              <tr>
-                <td style="font-family:var(--font-heading);font-weight:600">{{ ed.degree }}</td>
-                <td class="text-muted">{{ ed.school }}</td>
-                <td style="font-variant-numeric:tabular-nums">{{ ed.score }}</td>
-                <td style="font-variant-numeric:tabular-nums">{{ ed.year }}</td>
-              </tr>
-            </sc-for>
-          </tbody>
-        </table>
+        <div style="display:grid;grid-template-columns:36% minmax(0,1fr) 13% 11%;gap:12px;padding:8px 0;border-bottom:2px solid var(--color-divider);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 60%,transparent);font-weight:600">
+          <div>Qualification</div>
+          <div>Institution</div>
+          <div>Result</div>
+          <div>Year</div>
+        </div>
+        <sc-for list="{{ education }}" as="ed" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:36% minmax(0,1fr) 13% 11%;gap:12px;padding:12px 0;border-bottom:1px solid var(--color-divider);font-size:14px;align-items:baseline">
+            <div style="font-family:var(--font-heading);font-weight:600">{{ ed.degree }}</div>
+            <div class="text-muted">{{ ed.school }}</div>
+            <div style="font-variant-numeric:tabular-nums">{{ ed.score }}</div>
+            <div style="font-variant-numeric:tabular-nums">{{ ed.year }}</div>
+          </div>
+        </sc-for>
       </div>
     </div>
   </section>
@@ -207,6 +257,49 @@ const PROJECTS = [
     metrics: [{ value: '>50 dB', label: 'PSNR' }, { value: '+72%', label: 'Visual fidelity' }, { value: '100%', label: 'Reversibility' }, { value: '2017', label: 'Thesis year' }] }
 ];
 
+const INTERNSHIPS = [
+  {
+    id: 'rbccps',
+    num: 'INT · 01',
+    company: 'Dept. of Cyber-Physical Systems (RBCCPS), IISc',
+    role: 'Research Intern',
+    period: 'May’26 – Jul’26',
+    summary: 'Preprocessed raw IMU recordings from 122 students, trained full-precision HAR baseline, and benchmarked pruned & quantized HART transformer models for edge deployment.',
+    stack: ['Edge AI', 'HART Transformer', 'Pruning & Quantization', 'IMU Sensing', 'Python'],
+    bullets: [
+      'Converted raw IMU recordings from 122 students into clean, windowed training data for Human Activity Recognition (HAR).',
+      'Set the full-precision accuracy baseline for model compression by developing a HAR model on the cleaned data.',
+      'Compressed the HART transformer for low-power edge devices through extensive pruning and quantization, benchmarking the accuracy, model size and latency of each variant.'
+    ],
+    metrics: [
+      { value: '122', label: 'Student subjects' },
+      { value: 'HART', label: 'Transformer model' },
+      { value: 'INT8', label: 'Quantized & pruned' },
+      { value: 'Edge AI', label: 'Low-power focus' }
+    ]
+  },
+  {
+    id: 'mohanpur',
+    num: 'INT · 02',
+    company: 'Mohanpur Organics Pvt. Ltd.',
+    role: 'Analytics & Outbound Automation Intern',
+    period: 'May’26 – Jun’26',
+    summary: 'Developed CareCompass, a hybrid BM25 + MiniLM RAG chatbot for medical assistance deployed on Streamlit with 100% emergency recall.',
+    stack: ['CareCompass', 'RAG', 'Streamlit', 'BM25 + MiniLM', 'Rule-Based Safety', 'Python'],
+    bullets: [
+      'Developed CareCompass, a Retrieval-Augmented Generation (RAG) chatbot for medical assistance that answers from 12 curated WHO, NHS and UNICEF health documents.',
+      'Deployed a live Streamlit demo (Live Demo | GitHub) that retrieves answers with hybrid BM25 + MiniLM search.',
+      'Reached 100% emergency recall and 3.8% under-triage on a 52-case test set by adding a rule-based safety check (19 red-flag rules in 3 languages, 5 urgency levels).'
+    ],
+    metrics: [
+      { value: '100%', label: 'Emergency recall' },
+      { value: '3.8%', label: 'Under-triage rate' },
+      { value: '12', label: 'Curated health docs' },
+      { value: '52-case', label: 'Safety test set' }
+    ]
+  }
+];
+
 const PUBLICATIONS = [
   { n: '01', title: 'Improving phishing detection using attention-augmented CNN-GRU-RNN networks', status: 'Accepted · Nov 2025',
     venue: 'Ranjan, A., Sardar, A. S., Ranjan, V., & Sharma, N. — 5th International Conference on Communication, Computing and Electronics Systems (ICCCES 2026), accepted 13 November 2025.' },
@@ -237,7 +330,7 @@ const EDUCATION = [
 ];
 
 class Component extends DCLogic {
-  state = { open: { gesture: true, har: false } };
+  state = { open: { gesture: true, har: false, rbccps: true, mohanpur: true } };
 
   componentDidMount() {
     const go = () => { if (window.SiteMotion) { if (this.props.accent) window.SiteMotion.setAccent(this.props.accent); window.SiteMotion.init(); } };
@@ -255,6 +348,14 @@ class Component extends DCLogic {
           iconBg: isOpen ? 'var(--color-accent)' : 'transparent',
           iconColor: isOpen ? 'var(--color-bg)' : 'var(--color-text)',
           toggle: () => this.setState(st => ({ open: { ...st.open, [p.id]: !st.open[p.id] } })) };
+      }),
+      internships: INTERNSHIPS.map(inItem => {
+        const isOpen = !!this.state.open[inItem.id];
+        return { ...inItem, isOpen,
+          icon: isOpen ? '−' : '+',
+          iconBg: isOpen ? 'var(--color-accent)' : 'transparent',
+          iconColor: isOpen ? 'var(--color-bg)' : 'var(--color-text)',
+          toggle: () => this.setState(st => ({ open: { ...st.open, [inItem.id]: !st.open[inItem.id] } })) };
       }),
       publications: PUBLICATIONS, credentials: CREDENTIALS, education: EDUCATION
     };
